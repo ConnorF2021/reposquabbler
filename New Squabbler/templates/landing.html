@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://kit.fontawesome.com/ea05a55ff2.js" crossorigin="anonymous"></script>
+	<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='squabblerfavicon.png') }}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" href="{{url_for('static', filename='css/landingstylesheet.css')}}">
+	<title>Squabbler | Protecting You</title>
+</head>
+
+<body>
+	<div id="backgroundid" class="container-fluid">
+		<div class="container">
+			<div id="logomain" class="col-sm-6">
+				<div class="box">
+					<img id="squabblerlogo" src="{{url_for('static', filename='squabblerfavicon.png') }}">
+					<h1 id="mainh1" style="font-weight: bold;"></h1>
+					<div>
+						<h3 id="subtext">Defending your free speech and data rights from an infringing internet.</h3>
+					</div>
+				</div>
+			</div>
+			<div id="forms" class="col-sm-6">
+				<div id="anonformbox">
+					<h3 class="formtext"><b>Squabble anonymously</b></h3>
+					<p class="paratext">For the sake of anonymity</p>
+					<form id="anonform">
+						<input required type="text" class="glowinput" id="aliasinput" placeholder="Enter an alias">
+						<input type="submit" id="aliassubmit" value="Log in anonymously" style="color:white; font-weight: bold;">
+					</form>
+
+				</div>
+
+				<div id="joinbutton">
+					<h3 class="formtext" id="jointext"><b>Join the movement</b></h3>
+					<form action="{{url_for('register')}}">
+						<input type="submit" value="Create an account" id="joinsubmit" class="" style="color:white; font-weight: bold;">
+					</form>
+					<div id="loginlink">
+						<p id="logintext" style="">Already part of the movement? <a href="{{url_for('login')}}"><u>Log in</u></a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<footer>
+	<div id="footerborder" class="container-fluid">
+		<ul id="footerlist">
+			<li><a href="{{url_for('login')}}">Log In</a></li>
+			<li><a href="{{url_for('register')}}">Join</a></li>
+			<li><a href="">Squabbler Info</a></li>
+			<li><a href="">Regulations</a></li>
+			<li><a href="">Terms of Service</a></li>
+			<li><a href="">Anonymity</a></li>
+			<li><a href="">Data Rights</a></li>
+			<li><a href="">Privacy Policy</a></li>
+			<li><a href="">Help</a></li>
+		</ul>
+		<hr id="footerline" size="2px">
+		<p>Squabbler © 2022</p>
+	</div>
+
+</footer>
+
+<script>
+var i = 0;
+var txt = 'SQUABBLER';
+var speed = 85;
+
+window.onload = function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("mainh1").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
+
+</html>
