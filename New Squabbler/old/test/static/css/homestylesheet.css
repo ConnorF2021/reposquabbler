@@ -6,7 +6,6 @@ body {
 #backgroundid {
 	background-color: whitesmoke;
 	min-height: 600px;
-	overflow: visible;
 }	
 
 #header {
@@ -15,7 +14,7 @@ body {
 	width: 100%;
 	height: 70px;
 	position: fixed;
-	box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
 	z-index: 9;
 }
 
@@ -25,16 +24,6 @@ body {
 	height: 70px;
 	position: relative;
 
-}
-
-#headerline {
-	height: 2px;
-	width: 100%;
-	background-color: lightgray;
-	position: absolute;
-	top: 69px;
-	margin-top: 0px;
-	display: none;
 }
 
 #searchmenu {
@@ -53,6 +42,12 @@ body {
 
 }
 
+#locationheadertext {
+    text-align: center;
+    color: palevioletred;
+    filter: brightness(112%) drop-shadow(1px 1px 1px);
+    font-weight: bold;
+}
 
 #squabblerimage {
 	position: absolute;
@@ -60,7 +55,7 @@ body {
 	right: 116px;
 	height: 60px;
 	width: 60px;
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(110%);
+	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
 }
 
 #headersquab {
@@ -69,7 +64,7 @@ body {
 		position: absolute;
 		font-weight: bold;
 		color: palevioletred;
-		filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(110%);
+		filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(112%);
 
 }
 
@@ -213,106 +208,41 @@ body {
 
 /*****************************small info start **********************/
 
-#smallinfo {
+#profilesmall {
 	border: 1px solid white;
 	background-color: white;
 	position: absolute;
 	width: 210px;
-	height: 110px;
+	height: 145px;
 	left: -3px;
 	top: 93px;
 	border-radius: 5px;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);	
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);	
 }
 
-#smallinfohead {
+#profileimage {
 	position: absolute;
+	width: 65px;
+	height: 65px;
+	border: 1px solid black;
+	border-radius: 50%;
+	top: 10px;
+	left: 72.5px;
+}
+
+#profilename {
 	font-weight: bold;
-	color: palevioletred;
-	top: 1px;
-	left: 63px;
-	filter: brightness(110%);
-}
-
-#smallinfobuttonbackground {
-	width: 190px;
-	height: 45px;
-	border: 1px solid whitesmoke;
-	border-radius: 5px;
-	background-color: whitesmoke;
 	position: absolute;
-	top: 53px;
-	left: 10px;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-
+	font-size: 16px;
+	top: 79px;
+	left: 15px;
 }
 
-#smallinfoline {
-	background-color: palevioletred;
-	height: 1.5px;
-	position: relative;
-	top: 20px;	
-	margin-bottom: 0px;
-	filter: brightness(110%);
-	z-index: 4;
-}
-
-.closeinfo {
-	width: 175px;
-	height: 30px;
+#profiletag {
+	color: gray;
 	position: absolute;
-	top: 6.5px;
-	left: 6.5px;	
-	font-size: 14px;
-	color: white;
-	font-weight: bold;
-	border-radius: 5px;
-	border: 0px;
-	outline: none;
-	background-color: palevioletred;
-	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(108%);
-}
-
-.closeinfo:hover {
-	opacity: 0.9;
-}
-
-.openinfo {
-	width: 175px;
-	height: 30px;
-	position: absolute;
-	top: 7.5px;
-	left: 7.5px;	
-	font-size: 14px;
-	color: white;
-	font-weight: bold;
-	border: 0px;
-	outline: none;
-	border-radius: 5px;
-	background-color: black;
-	opacity: 0.6;
-	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
-	filter: drop-shadow(1px 1px 1px black);
-}
-
-.openinfo:hover {
-	opacity: 0.5;
-}
-
-
-#smallinfopopup {
-	position: absolute;
-	width: 640px;
-	height: 580px;
-	border: 0px solid black;
-	background-color: white;
-	z-index: 5;
-	left: 240px;
-	top: 85px;
-	border-radius: 5px;
-	display: none;
-	box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
+	top: 109px;
+	left: 15px;
 }
 
 /***************************main content**************************/
@@ -331,11 +261,11 @@ body {
 #squabbleblock {
 	border: 1px solid white;
 	background-color: white;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	width: 680px;
 	height: 495px;
-	top: 93px;
+	margin-top: 93px;
 	left: 205px;
 	position: relative;
 
@@ -352,7 +282,7 @@ body {
 
 #soloinfo {
 	position: absolute;
-	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
@@ -367,7 +297,7 @@ body {
 	position: absolute;
 	border: 1px solid palevioletred;
 	background-color: palevioletred;
-	filter: brightness(110%);
+	filter: brightness(112%);
 	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	width: 175px;
@@ -379,7 +309,7 @@ body {
 
 #solobuttonborder {
 	position: absolute;
-	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
@@ -388,6 +318,7 @@ body {
 	left: 20px;
 	top: 293px;
 }
+
 
 #soloheaderbackground {
 	position: absolute;
@@ -422,7 +353,7 @@ body {
 	color: white;
 	background-color: palevioletred;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(110%);
+	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
 	border: none;
 	font-size: 16px;
 	font-weight: bold;
@@ -431,6 +362,7 @@ body {
 	height: 45px;
 	top: 9px;
 	left: 9px;
+	outline: none;
 }
 
 #solobutton:hover {
@@ -451,7 +383,7 @@ body {
 
 #multiinfo {
 	position: absolute;
-	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
@@ -466,7 +398,7 @@ body {
 	position: absolute;
 	border: 1px solid palevioletred;
 	background-color: palevioletred;
-	filter: brightness(110%);
+	filter: brightness(112%);
 	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	width: 175px;
@@ -478,7 +410,7 @@ body {
 
 #multibuttonborder {
 	position: absolute;
-	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
@@ -486,6 +418,7 @@ body {
 	height: 65px;
 	left: 240px;
 	top: 293px;
+	outline: none;
 }
 
 #multiheaderbackground {
@@ -521,7 +454,7 @@ body {
 	color: white;
 	background-color: palevioletred;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(110%);
+	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
 	border: none;
 	font-size: 16px;
 	font-weight: bold;
@@ -530,6 +463,7 @@ body {
 	height: 45px;
 	top: 9px;
 	left: 9px;
+	outline: none;
 }
 
 #multibutton:hover {
@@ -546,14 +480,14 @@ body {
 
 #createinfo {
 	position: absolute;
-	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	width: 195px;
 	height: 260px;
 	top: 20px;
-	left: 460px;
+	right: 20px;
 
 }
 
@@ -572,13 +506,13 @@ body {
 
 #createbuttonborder {
 	position: absolute;
-	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
 	width: 195px;
 	height: 65px;
-	left: 460px;
+	right: 20px;
 	top: 293px;
 }
 
@@ -623,6 +557,7 @@ body {
 	height: 45px;
 	top: 9px;
 	left: 9px;
+	outline: none;
 }
 
 #createbutton:hover {
@@ -657,7 +592,7 @@ body {
 
 #spectatebuttonborder {
 	position: absolute;
-	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
@@ -680,21 +615,44 @@ body {
 	box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 /***********************************************************Profile Tab **********************************************************************/
+#profileblock {
+	border: 1px solid white;
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	border-radius: 5px;
+	width: 680px;
+	height: 495px;
+	margin-top: 93px;
+	left: 205px;
+	position: relative;
 
+}
 
 /***********************************************************explore Tab **********************************************************************/
 
+#exploreblock {
+	border: 1px solid white;
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	border-radius: 5px;
+	width: 680px;
+	height: 495px;
+	margin-top: 93px;
+	left: 205px;
+	position: relative;
+
+}
+
 #explorediv {
 	border: 0px solid black;
-	background-color: whitesmoke;
+	background-color: white;
 	border-radius: 5px;
 	position: absolute;
-	width: 640px;
+	width: 680px;
 	height: 385px;
-	left: 20px;
-	bottom: 20px;
-	box-shadow: inset 0 1.5px 3px 0 rgba(0,0,0,0.2);
-	overflow-y: scroll
+	left: 0px;
+	bottom: 5px;
+	overflow-y: scroll;
 }
 
 #exploresearch {
@@ -702,28 +660,41 @@ body {
 	border: 0px solid black;
 	border-radius: 5px;
 	height: 55px;
-	width: 640px;
-	left: 20px;
-	top: 90px;
+	width: 680px;
+	left: 0px;
+	top: 0px;
 	box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 	background-color: lightgray;
 	opacity: 0.6;
 	font-size: 19px;
+    z-index: 3;
 }
 
 /*********************************start nav styling*********************************************************************************************/
 
-#mainblocknav {
+.mainnav {
 	border: 1px solid white;
 	background-color: white;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
 	border-radius: 5px;
 	width: 210px;
 	height: 270px;
 	left: -3px;
-	top: 218px;
+	top: 253px;
 	position: absolute;
 
+}
+
+.uppernavtrans {
+	border: 1px solid white;
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
+	border-radius: 5px;
+	width: 210px;
+	height: 270px;
+	left: -3px;
+	top: 93px;
+	position: absolute;
 }
 
 .navbuttons {
@@ -734,8 +705,7 @@ body {
 	width: 193px;
 	height: 66px;
 	display: inline-block;
-
-
+	outline: none;
 }
 
 .navbuttondiv {
@@ -777,7 +747,7 @@ body {
 
 .active .stylebuttonwrapper .navbuttondiv {
 	color: palevioletred;
-	filter: brightness(108%);
+	filter: brightness(112%);
 
 }
 
@@ -829,11 +799,11 @@ body {
 #feedblock {
 	border: 1px solid white;
 	background-color: white;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	width: 680px;
 	height: 80px;
-	top: 93px;
+	margin-top: 93px;
 	left: 205px;
 	position: relative;
 
@@ -843,11 +813,11 @@ body {
 #feedmenu {
 	position: absolute;
 	top: 10px;
-	left: 181px;
+	left: 131px;
 	border: 0px solid black;
 	background-color: whitesmoke;
 	border-radius: 5px;
-	width: 313px;
+	width: 413px;
 	height: 57px;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	z-index: 4;
@@ -863,14 +833,15 @@ body {
 	border-radius: 5px;
 	position: absolute;
 	height: 48px;
-	width: 140px;
-	top: 4px;
+	width: 190px;
+	margin-top: 4px;
 	left: 10px;
 	border: none;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	background-color: palevioletred;
-	filter: brightness(108%);
+	filter: brightness(112%);
 	opacity: 1;
+    font-size: 16px;
 }
 
 .openfeed:hover {
@@ -881,13 +852,14 @@ body {
 	border-radius: 5px;
 	position: absolute;
 	height: 48px;
-	width: 140px;
-	top: 4px;
+	width: 190px;
+	margin-top: 4px;
 	left: 10px;
 	border: none;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	background-color: black;
 	opacity: 0.6;
+    font-size: 16px;
 }
 
 .closedfeed:hover {
@@ -895,19 +867,37 @@ body {
 }
 
 #feedfollowing {
-	left: 167px;
+	left: 215px;
 	font-weight: bold;
 	color: white;
 }
-#feeddiv {
-	background-color: white;
+.feeddiv {
+	background-color: whitesmoke;
 	border-radius: 5px;
 	position: relative;
 	width: 680px;
-	min-height: 400px;
+	min-height: 405px;
 	left: 205px;
-	top: 90px;
-	margin-top: 15px;
+	margin-top: 2px;
+}
+
+.activefeed {
+	display: inline-block;
+}
+
+.inactivefeed {
+	display: none;
+}
+
+.feedbubble {
+	width: 680px;
+	min-height: 200px;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	background-color: white;
+	margin-top: 6px;
+	border-radius: 5px;
+
 }
 
 /********************************************************************** stream styling **********************/
@@ -924,12 +914,12 @@ body {
 	background-color: white;
 	border-radius: 5px;
 	width: 298px;
-	height: 432px;
+	height: 426px;
 	left: 0px;
-	top: 60px;
+	top: 70px;
 	position: absolute;
 	z-index: 2;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 #streamdiv {
@@ -937,27 +927,47 @@ body {
 	border-radius: 0px;
 	position: absolute;
 	width: 298px;
-	height: 428px;
-	top: 57.5px;
+	height: 422px;
+	top: 67.5px;
 	left: 0px;
 	z-index: 3;
 	overflow-y: scroll;
 }
 
+#notificationdiv {
+	background-color: white;
+	border-radius: 0px;
+	position: absolute;
+	width: 298px;
+	height: 422px;
+	top: 67.5px;
+	left: 0px;
+	z-index: 3;
+	overflow-y: scroll;
+}
+
+.activeside {
+    display: block;
+}
+
+.inactiveside {
+    display: none;
+}
+
 .openstream {
 	border-radius: 5px;
 	position: absolute;
-	height: 60px;
+	height: 70px;
 	width: 148px;
 	top: 0px;
 	left: 0px;
 	border: none;
 	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
 	color: palevioletred;
-	filter: brightness(110%);
+	filter: brightness(112%);
 	background-color: white;
-	font-weight: bold;
-	font-size: 20px;
+	font-weight: 800;
+
 }
 
 .openstream:hover {
@@ -967,17 +977,17 @@ body {
 .closedstream {
 	border-radius: 5px;
 	position: absolute;
-	height: 60px;
+	height: 70px;
 	width: 148px;
 	top: 0px;
 	left: 0px;
 	border: none;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	color: gray;
-	filter: brightness(110%);
+	filter: brightness(112%);
 	background-color: white;
 	font-weight: bold;
-	font-size: 20px;
+
 }
 
 .closedstream:hover {
@@ -988,6 +998,7 @@ body {
 	z-index: 2;
 	top: 2px;
 	outline: none;
+	font-size: 21px;
 }
 
 #notificationbutton {
@@ -995,91 +1006,47 @@ body {
 	z-index: 2;
 	top: 2px;
 	outline: none;
+	font-size: 19px;
 }
 
 #streamline {
-	top: 34.5px;
+	top: 44.5px;
 	left: 0px;
 	width: 149px;
 	position: absolute;
 	z-index: 9;
 	height: 1.5px;
-	filter: brightness(110%);
+	filter: brightness(112%);
 	background-color: palevioletred;
 }
 
 #notifyline {
-	top: 36px;
+	top: 46px;
 	left: 150px;
 	width: 149px;
 	position: absolute;
 	z-index: 9;
 	height: 0.5px;
-	filter: brightness(110%);
+	filter: brightness(112%);
 	background-color: lightgray;
 }
 
-/*******************************************************bottomblock *******************************/
-
-#bottomheader {
-	text-align: center;
-	font-weight: bold;
-	color: white;
-	position: absolute;
-	top: 180px;
-	left: 290px;
-	z-index: 2;
-}
-
-#bottomline {
-	background-color: lightgray;
-	height: 0.5px;
-	position: relative;
-	top: 52px;	
-	margin-bottom: 0px;
-	top: 155px;
-	z-index: 2;
-}
-
+/*******************************************************bottom thing *******************************/
 #bottomblock {
 	border: 1px solid white;
 	background-color: white;
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	width: 680px;
-	height: 230px;
+	height: 175px;
 	top: 0px;
 	left: 205px;
-	margin-top: 30px;
+	margin-top: 20px;
 	margin-bottom: 30px;
 	position: relative;
 	display: inline-block;
 }
 
-#bottomheaderbackground {
-	background-color: lightgray;
-	opacity: 1;
-	position: absolute;
-	left: -1px;
-	top: 168px;
-	width: 680px;
-	height: 60px;
-	border-radius: 5px;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	z-index: 1;
-}
-
-#bottomheaderbackgroundtop {
-	background-color: black;
-	opacity: 0.6;
-	position: absolute;
-	left: -1px;
-	top: 168px;
-	width: 680px;
-	height: 60px;
-	border-radius: 5px;
-	z-index: 1;
-}
 
 /*account type*/
 
@@ -1196,7 +1163,7 @@ body {
 	border: 1px solid whitesmoke;
 	background-color: whitesmoke;
 	border-radius: 5px;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 
 }
 
@@ -1221,18 +1188,89 @@ body {
 	opacity: 0.5;
 }
 
-#clock {
-	left: 280px;
-	top: 35px;
+
+#smallinfobuttonbackground {
 	position: absolute;
-	font-weight: bold;
-	font-size: 28px;
-	color: palevioletred;
+	width: 190px;
+	height: 50px;
 	border: 1px solid whitesmoke;
 	background-color: whitesmoke;
 	border-radius: 5px;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	top: 30px;
+	left: 245px;
 }
+
+.closeinfo {
+	width: 170px;
+	height: 30px;
+	position: absolute;
+	top: 9px;
+	left: 9px;	
+	font-size: 14px;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+	border: 0px;
+	outline: none;
+	background-color: palevioletred;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	filter: brightness(110%);
+}
+
+.closeinfo:hover {
+	opacity: 0.9;
+}
+
+.openinfo {
+	width: 170px;
+	height: 30px;
+	position: absolute;
+	top: 10px;
+	left: 9px;	
+	font-size: 14px;
+	color: white;
+	font-weight: bold;
+	border: 0px;
+	outline: none;
+	border-radius: 5px;
+	background-color: black;
+	opacity: 0.6;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	filter: drop-shadow(1px 1px 1px black);
+}
+
+.openinfo:hover {
+	opacity: 0.5;
+}
+
+
+#smallinfopopup {
+	position: absolute;
+	width: 640px;
+	height: 580px;
+	border: 0px solid black;
+	background-color: white;
+	z-index: 5;
+	left: 240px;
+	top: 85px;
+	border-radius: 5px;
+	display: none;
+	box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
+}
+
+#smallinfopopupclose {
+	background-color: white;
+	outline: none;
+	border: 0px;
+	right: 8px;
+	top: 8px;
+	position: absolute;
+	color: red;
+	font-weight: bold;
+	font-size: 18px;
+}
+
 /********************************************************footer styling****************************/
 
 footer {
@@ -1267,7 +1305,7 @@ li {
 
 #footerlist {
 	list-style: none;
-	font-size: 13px;
+	font-size: 14px;
 	display: inline;
 }
 

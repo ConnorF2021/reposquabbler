@@ -1,3 +1,4 @@
+
 body {
 	font-family: 'Lato', sans-serif;
 
@@ -5,8 +6,10 @@ body {
 
 #backgroundid {
 	background-color: whitesmoke;
-	min-height: 600px;
-}	
+	height: 960px;
+}
+
+
 
 #header {
 	border:  0px solid black;
@@ -14,7 +17,7 @@ body {
 	width: 100%;
 	height: 70px;
 	position: fixed;
-	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.2);
 	z-index: 9;
 }
 
@@ -24,6 +27,18 @@ body {
 	height: 70px;
 	position: relative;
 
+}
+
+#headerline {
+	height: 2px;
+	width: 100%;
+	background-color: lightgray;
+	position: absolute;
+	top: 69px;
+	box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.2);
+	filter: drop-shadow(1px 1px 1px lightgray) brightness(110%);
+	margin-top: 0px;
+	display: none;
 }
 
 #searchmenu {
@@ -37,34 +52,28 @@ body {
 	height: 45px;
 	position: absolute;
 	top: 12px;
-	left: 73px;
+	left: 93px;
 	font-size: 16px;
 
 }
 
-#locationheadertext {
-    text-align: center;
-    color: palevioletred;
-    filter: brightness(112%) drop-shadow(1px 1px 1px);
-    font-weight: bold;
-}
 
 #squabblerimage {
 	position: absolute;
 	top: 4px;
-	right: 116px;
+	right: 138px;
 	height: 60px;
 	width: 60px;
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
+	filter: drop-shadow(1px 1px 1px palevioletred) brightness(108%);
 }
 
 #headersquab {
 		top: 16px;
-		right: 10px;
+		right: 34px;
 		position: absolute;
-		font-weight: bold;
+		font-family: fontawesome;
 		color: palevioletred;
-		filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(112%);
+		filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(108%);
 
 }
 
@@ -170,7 +179,7 @@ body {
 	height: 55px;
 	position: absolute;
 	top: 6px;
-	left: 10px;
+	left: 30px;
 	font-size: 16px;
 
 }
@@ -189,14 +198,14 @@ body {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2.5px lightgray; 
-  border-radius: 0px;
+  box-shadow: inset 0 0 5px lightgray; 
+  border-radius: 5px;
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: lightgray; 
-  border-radius: 0px;
+  border-radius: 5px;
 }
 
 /* Handle on hover */
@@ -208,67 +217,222 @@ body {
 
 /*****************************small info start **********************/
 
-#profilesmall {
+#smallinfo {
 	border: 1px solid white;
 	background-color: white;
 	position: absolute;
 	width: 210px;
-	height: 145px;
+	height: 105px;
 	left: -3px;
-	top: 93px;
+	top: 5px;
 	border-radius: 5px;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);	
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);	
 }
 
-#profileimage {
+#smallinfoheaderbackground {
+	border: 1px solid lightgray;
+	background-color: lightgray;
+	border-radius: 5px;
 	position: absolute;
-	width: 65px;
-	height: 65px;
+	width: 211px;
+	height: 38px;
+	left: -1px;
+	top: -1px;
+	z-index: 2;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+#smallinfoheaderbackgroundtop {
 	border: 1px solid black;
-	border-radius: 50%;
-	top: 10px;
-	left: 72.5px;
+	background-color: black;
+	opacity: 0.6;
+	border-radius: 5px;
+	position: absolute;
+	width: 211px;
+	height: 38px;
+	left: -1px;
+	top: -1px;
+	z-index: 2;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
-#profilename {
-	font-weight: bold;
-	position: absolute;
+#smallinfoheader {
+	color: white;
+	filter: brightness(110%);
 	font-size: 16px;
-	top: 79px;
-	left: 15px;
+	font-weight: bold;
+	z-index: 3;
+	position: absolute;
+	top: -2px;
+	left: 47px;
 }
 
-#profiletag {
-	color: gray;
+#smallinfobuttonbackground {
+	width: 190px;
+	height: 45px;
+	border: 1px solid whitesmoke;
+	border-radius: 5px;
+	background-color: whitesmoke;
 	position: absolute;
-	top: 109px;
-	left: 15px;
+	top: 47px;
+	left: 10px;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+
+}
+
+#smallinfoline {
+	background-color: lightgray;
+	height: 0.5px;
+	position: relative;
+	top: 11px;	
+	margin-bottom: 0px;
+	z-index: 4;
+}
+
+.closeinfo {
+	width: 175px;
+	height: 30px;
+	position: absolute;
+	top: 7.5px;
+	left: 7.5px;	
+	font-size: 14px;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+	border: 0px;
+	outline: none;
+	background-color: palevioletred;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	filter: drop-shadow(1px 1px 1px palevioletred) brightness(108%);
+}
+
+.closeinfo:hover {
+	opacity: 0.9;
+}
+
+.openinfo {
+	width: 175px;
+	height: 30px;
+	position: absolute;
+	top: 7.5px;
+	left: 7.5px;	
+	font-size: 14px;
+	color: white;
+	font-weight: bold;
+	border: 0px;
+	outline: none;
+	border-radius: 5px;
+	background-color: black;
+	opacity: 0.6;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	filter: drop-shadow(1px 1px 1px black);
+}
+
+.openinfo:hover {
+	opacity: 0.5;
+}
+
+
+#smallinfopopup {
+	position: absolute;
+	width: 640px;
+	height: 580px;
+	border: 0px solid black;
+	background-color: white;
+	z-index: 5;
+	left: 240px;
+	top: -5px;
+	border-radius: 5px;
+	display: none;
+	box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
 }
 
 /***************************main content**************************/
 
 #maincontent {
-	top: 0px;
+	top: 90px;
 	border:  0px solid black;
-	height: auto;
+	height: 800px;
 	width: 1210px;
 	position: relative;
 
 }
 
-/*****************Squabble *******************************/
-
-#squabbleblock {
+#mainblock {
 	border: 1px solid white;
 	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	width: 680px;
-	height: 495px;
-	margin-top: 93px;
-	left: 205px;
-	position: relative;
+	height: 560px;
+	top: 5px;
+	left: 220px;
+	position: absolute;
 
+}
+
+
+
+.quote {
+	position: absolute;
+	left: 251px;
+	top: 54px;
+	color: lightgray;
+}
+
+#feedquote {
+	position: absolute;
+	left: 280px;
+	top: 54px;
+	color: lightgray;
+}
+
+/*****************Squabble *******************************/
+
+#squabline {
+	background-color: lightgray;
+	height: 0.5px;
+	position: relative;
+	top: 52px;	
+	margin-bottom: 0px;
+}
+
+#squabheader {
+	text-align: left;
+	color: white;
+	position: absolute;
+	font-weight: bold;
+	font-size: 33px;
+	left: 210px;
+	top: -2px;
+	filter: brightness(110%);
+}
+
+#squabheaderbackground {
+	background-color: lightgray;
+	filter: brightness(110%);
+	opacity: 1;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 680px;
+	height: 80px;
+	border-radius: 5px;
+	border: 0px solid palevioletred;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+#squabheaderbackgroundtop {
+	background-color: black;
+	opacity: 0.6;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 680px;
+	height: 80px;
+	border-radius: 5px;
+	border: 0px solid palevioletred;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
 .menubuttons {
@@ -282,13 +446,13 @@ body {
 
 #soloinfo {
 	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	width: 195px;
 	height: 260px;
-	top: 20px;
+	top: 90px;
 	left: 20px;
 
 }
@@ -297,7 +461,7 @@ body {
 	position: absolute;
 	border: 1px solid palevioletred;
 	background-color: palevioletred;
-	filter: brightness(112%);
+	filter: brightness(108%);
 	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	width: 175px;
@@ -309,16 +473,15 @@ body {
 
 #solobuttonborder {
 	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
 	width: 195px;
 	height: 65px;
 	left: 20px;
-	top: 293px;
+	top: 363px;
 }
-
 
 #soloheaderbackground {
 	position: absolute;
@@ -353,7 +516,7 @@ body {
 	color: white;
 	background-color: palevioletred;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
+	filter: drop-shadow(1px 1px 1px palevioletred) brightness(108%);
 	border: none;
 	font-size: 16px;
 	font-weight: bold;
@@ -362,7 +525,6 @@ body {
 	height: 45px;
 	top: 9px;
 	left: 9px;
-	outline: none;
 }
 
 #solobutton:hover {
@@ -383,13 +545,13 @@ body {
 
 #multiinfo {
 	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	width: 195px;
 	height: 260px;
-	top: 20px;
+	top: 90px;
 	left: 240px;
 
 }
@@ -398,7 +560,7 @@ body {
 	position: absolute;
 	border: 1px solid palevioletred;
 	background-color: palevioletred;
-	filter: brightness(112%);
+	filter: brightness(108%);
 	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	width: 175px;
@@ -410,15 +572,14 @@ body {
 
 #multibuttonborder {
 	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
 	width: 195px;
 	height: 65px;
 	left: 240px;
-	top: 293px;
-	outline: none;
+	top: 363px;
 }
 
 #multiheaderbackground {
@@ -454,7 +615,7 @@ body {
 	color: white;
 	background-color: palevioletred;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
+	filter: brightness(108%);
 	border: none;
 	font-size: 16px;
 	font-weight: bold;
@@ -463,7 +624,6 @@ body {
 	height: 45px;
 	top: 9px;
 	left: 9px;
-	outline: none;
 }
 
 #multibutton:hover {
@@ -480,14 +640,14 @@ body {
 
 #createinfo {
 	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	width: 195px;
 	height: 260px;
-	top: 20px;
-	right: 20px;
+	top: 90px;
+	left: 460px;
 
 }
 
@@ -506,14 +666,14 @@ body {
 
 #createbuttonborder {
 	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
 	width: 195px;
 	height: 65px;
-	right: 20px;
-	top: 293px;
+	left: 460px;
+	top: 363px;
 }
 
 #createheaderbackground {
@@ -557,7 +717,6 @@ body {
 	height: 45px;
 	top: 9px;
 	left: 9px;
-	outline: none;
 }
 
 #createbutton:hover {
@@ -592,14 +751,14 @@ body {
 
 #spectatebuttonborder {
 	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
 	width: 320px;
 	height: 65px;
 	left: 180px;
-	top: 405px;
+	top: 470px;
 	display: block;
 }
 
@@ -609,50 +768,117 @@ body {
 	opacity: 1;
 	position: absolute;
 	left: -1px;
-	top: 375px;
+	top: 442px;
 	width: 680px;
 	height: 12px;
 	box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 /***********************************************************Profile Tab **********************************************************************/
-#profileblock {
-	border: 1px solid white;
-	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
-	width: 680px;
-	height: 495px;
-	margin-top: 93px;
-	left: 205px;
+
+#profileline {
+	background-color: lightgray;
+	height: 0.5px;
 	position: relative;
+	top: 52px;	
+	margin-bottom: 0px;
+}
+
+#profileheader {
+	color: white;
+	position: absolute;
+	font-weight: bold;
+	font-size: 33px;
+	left: 20px;
+	top: -2px;
+	filter: brightness(110%);
+}
+
+#profileheaderbackground {
+	background-color: lightgray;
+	filter: brightness(100%);
+	opacity: 1;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 680px;
+	height: 80px;
+	border-radius: 5px;
+	border: 0px solid palevioletred;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+
+}
+
+#profileheaderbackgroundtop {
+	background-color: black;
+	opacity: 0.6;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 680px;
+	height: 80px;
+	border-radius: 5px;
+	border: 0px solid palevioletred;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 
 }
 
 /***********************************************************explore Tab **********************************************************************/
 
-#exploreblock {
-	border: 1px solid white;
-	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
-	width: 680px;
-	height: 495px;
-	margin-top: 93px;
-	left: 205px;
+#exploreline {
+	background-color: lightgray;
+	height: 0.5px;
 	position: relative;
+	top: 52px;	
+	margin-bottom: 0px;
+}
 
+#exploreheader {
+	color: white;
+	position: absolute;
+	font-weight: bold;
+	font-size: 33px;
+	left: 20px;
+	top: -2px;
+	filter: brightness(110%);
+}
+
+#exploreheaderbackground {
+	background-color: lightgray;
+	filter: brightness(100%);
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 680px;
+	height: 80px;
+	border-radius: 5px;
+	border: 0px solid palevioletred;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+#exploreheaderbackgroundtop {
+	background-color: black;
+	opacity: 0.6;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 680px;
+	height: 80px;
+	border-radius: 5px;
+	border: 0px solid palevioletred;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 #explorediv {
 	border: 0px solid black;
-	background-color: white;
+	background-color: whitesmoke;
 	border-radius: 5px;
 	position: absolute;
-	width: 680px;
+	width: 640px;
 	height: 385px;
-	left: 0px;
-	bottom: 5px;
-	overflow-y: scroll;
+	left: 20px;
+	bottom: 20px;
+	box-shadow: inset 0 1.5px 3px 0 rgba(0,0,0,0.2);
+	overflow-y: scroll
 }
 
 #exploresearch {
@@ -660,41 +886,28 @@ body {
 	border: 0px solid black;
 	border-radius: 5px;
 	height: 55px;
-	width: 680px;
-	left: 0px;
-	top: 0px;
+	width: 640px;
+	left: 20px;
+	top: 90px;
 	box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
 	background-color: lightgray;
 	opacity: 0.6;
 	font-size: 19px;
-    z-index: 3;
 }
 
 /*********************************start nav styling*********************************************************************************************/
 
-.mainnav {
+#mainblocknav {
 	border: 1px solid white;
 	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
 	border-radius: 5px;
 	width: 210px;
 	height: 270px;
 	left: -3px;
-	top: 253px;
+	top: 125px;
 	position: absolute;
 
-}
-
-.uppernavtrans {
-	border: 1px solid white;
-	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
-	border-radius: 5px;
-	width: 210px;
-	height: 270px;
-	left: -3px;
-	top: 93px;
-	position: absolute;
 }
 
 .navbuttons {
@@ -705,7 +918,8 @@ body {
 	width: 193px;
 	height: 66px;
 	display: inline-block;
-	outline: none;
+
+
 }
 
 .navbuttondiv {
@@ -747,7 +961,7 @@ body {
 
 .active .stylebuttonwrapper .navbuttondiv {
 	color: palevioletred;
-	filter: brightness(112%);
+	filter: brightness(108%);
 
 }
 
@@ -796,31 +1010,60 @@ body {
 
 /**********************************feed styling****************/
 
-#feedblock {
-	border: 1px solid white;
-	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
+#feedline {
+	background-color: lightgray;
+	height: 0.5px;
+	position: relative;
+	top: 52px;	
+	margin-bottom: 0px;
+}
+
+#feedheader {
+	color: white;
+	position: absolute;
+	font-weight: bold;
+	font-size: 33px;
+	left: 300px;
+	top: -4px;
+	filter: brightness(110%);
+}
+
+#feedheaderbackground {
+	background-color: lightgray;
+	filter: brightness(100%);
+	opacity: 1;
+	position: absolute;
+	left: -1px;
+	top: -1px;
 	width: 680px;
 	height: 80px;
-	margin-top: 93px;
-	left: 205px;
-	position: relative;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
 
-
+#feedheaderbackgroundtop {
+	background-color: black;
+	filter: brightness(100%);
+	opacity: 0.6;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 680px;
+	height: 80px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 #feedmenu {
 	position: absolute;
-	top: 10px;
-	left: 131px;
+	top: 88px;
+	left: 181px;
 	border: 0px solid black;
 	background-color: whitesmoke;
 	border-radius: 5px;
-	width: 413px;
+	width: 313px;
 	height: 57px;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	z-index: 4;
 }
 
 #feeddiscover {
@@ -833,15 +1076,14 @@ body {
 	border-radius: 5px;
 	position: absolute;
 	height: 48px;
-	width: 190px;
-	margin-top: 4px;
+	width: 140px;
+	top: 4px;
 	left: 10px;
 	border: none;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	background-color: palevioletred;
-	filter: brightness(112%);
+	filter: brightness(108%);
 	opacity: 1;
-    font-size: 16px;
 }
 
 .openfeed:hover {
@@ -852,14 +1094,13 @@ body {
 	border-radius: 5px;
 	position: absolute;
 	height: 48px;
-	width: 190px;
-	margin-top: 4px;
+	width: 140px;
+	top: 4px;
 	left: 10px;
 	border: none;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	background-color: black;
 	opacity: 0.6;
-    font-size: 16px;
 }
 
 .closedfeed:hover {
@@ -867,279 +1108,202 @@ body {
 }
 
 #feedfollowing {
-	left: 215px;
+	left: 167px;
 	font-weight: bold;
 	color: white;
 }
-.feeddiv {
+
+#feeddiv {
+	border: 0px solid black;
 	background-color: whitesmoke;
 	border-radius: 5px;
-	position: relative;
-	width: 680px;
-	min-height: 405px;
-	left: 205px;
-	margin-top: 2px;
-}
-
-.activefeed {
-	display: inline-block;
-}
-
-.inactivefeed {
-	display: none;
-}
-
-.feedbubble {
-	width: 680px;
-	min-height: 200px;
-	position: relative;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	background-color: white;
-	margin-top: 6px;
-	border-radius: 5px;
-
+	position: absolute;
+	width: 640px;
+	height: 385px;
+	left: 20px;
+	bottom: 20px;
+	box-shadow: inset 0 1.5px 3px 0 rgba(0,0,0,0.2);
+	overflow-y: scroll;
 }
 
 /********************************************************************** stream styling **********************/
 
 #stream {
-	left: 915px;
-	top: 91px;
+	border: 1px solid white;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	border-radius: 5px;
+	width: 290px;
+	height: 820px;
+	left: 920px;
+	top: 5px;
 	position: absolute;
 	z-index: 1;
 }
 
-#streambackground {
-	border: 1px solid white;
-	background-color: white;
-	border-radius: 5px;
-	width: 298px;
-	height: 426px;
-	left: 0px;
-	top: 70px;
-	position: absolute;
-	z-index: 2;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-#streamdiv {
-	background-color: white;
-	border-radius: 0px;
-	position: absolute;
-	width: 298px;
-	height: 422px;
-	top: 67.5px;
-	left: 0px;
-	z-index: 3;
-	overflow-y: scroll;
-}
-
-.streambubble {
-    position: relative;
-    width: 288px;
-    min-height: 0px;
-    border: 0px solid black;
-    margin-top: 5px;
-    overflow: hidden;
-}
-
-.streambubblepictureblock {
-    position: absolute;
-    border: 1px solid black;
-    width: 60px;
-    height: 60px;
-    left: 15px;
-    top: 5px;
-    border-radius: 50%;
-}
-
-.streambubbleuser {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 45px;
-    top: 67px;
-    color: gray;
-}
-
-.streambubbleheaderblock {
-    position: relative;
-    width: 190px;
-    right: -88px;
-}
-
-.streambubbleheader {
-    font-size: 16px;
-    font-weight: bold;
-    position: relative;
-    
-}
-
-.streambubbletextblock {
-    position: relative;
-    width: 175px;
-    left: 105px;
-    border: 0px solid black;
-}
-
-.streambubbletext {
-    overflow-y: hidden;
-    text-overflow: ellipsis;
-    max-height: 43px
-
-}
-
-.streambuboverflowblock {
-    position: absolute;
-    left: 220px;
-    bottom: 0px
-}
-
-.streambuboverflow {
-    font-size: 13px;
-    background: none;
-    outline: none;
-    border: none;
-}
-
-.strmoverflowclosed {
-    color: palevioletred;
-    font-size: 13px;
-    background: none;
-    outline: none;
-    border: none;
-}
-
-.strmoverflowopen {
-    color: black;
-    font-size: 13px;
-    background: none;
-    outline: none;
-    border: none;
-}
-
-.streambubblebottomline {
-	margin-top: 15px;
-    margin-bottom: 0px;
-	position: relative;
-	z-index: 9;
-	height: 0.5px;
-	filter: brightness(112%);
-	background-color: lightgray;
-}
-
-#notificationdiv {
-	background-color: white;
-	border-radius: 0px;
-	position: absolute;
-	width: 298px;
-	height: 422px;
-	top: 67.5px;
-	left: 0px;
-	z-index: 3;
-	overflow-y: scroll;
-}
-
-.activeside {
-    display: block;
-}
-
-.inactiveside {
-    display: none;
-}
-
-.openstream {
-	border-radius: 5px;
-	position: absolute;
-	height: 70px;
-	width: 148px;
-	top: 0px;
-	left: 0px;
-	border: none;
-	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
-	color: palevioletred;
-	filter: brightness(112%);
-	background-color: white;
-	font-weight: 800;
-
-}
-
-.openstream:hover {
-	opacity: 0.9;
-}
-
-.closedstream {
-	border-radius: 5px;
-	position: absolute;
-	height: 70px;
-	width: 148px;
-	top: 0px;
-	left: 0px;
-	border: none;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	color: gray;
-	filter: brightness(112%);
-	background-color: white;
+#streamheader {
+	color: white;
+	filter: brightness(110%);
+	font-size: 30px;
 	font-weight: bold;
-
-}
-
-.closedstream:hover {
-	opacity: 0.9;
-}
-
-#streambutton {
-	z-index: 2;
+	position: absolute;
+	left: 92px;
 	top: 2px;
-	outline: none;
-	font-size: 21px;
+	z-index: 4;
+
 }
 
-#notificationbutton {
-	left: 150px;
-	z-index: 2;
-	top: 2px;
-	outline: none;
-	font-size: 19px;
+#streamheaderbackground {
+	background-color: lightgray;
+	filter: brightness(110%);
+	opacity: 1;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 290px;
+	height: 80px;
+	border-radius: 5px;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	z-index: 3;
+}
+
+#streamheaderbackgroundtop {
+	background-color: black;
+	filter: brightness(110%);
+	opacity: 0.6;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	width: 290px;
+	height: 80px;
+	border-radius: 5px;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	z-index: 3;
 }
 
 #streamline {
-	top: 44.5px;
-	left: 0px;
-	width: 149px;
-	position: absolute;
-	z-index: 9;
-	height: 1.5px;
-	filter: brightness(112%);
-	background-color: palevioletred;
-}
-
-#notifyline {
-	top: 46px;
-	left: 150px;
-	width: 149px;
-	position: absolute;
-	z-index: 9;
-	height: 0.5px;
-	filter: brightness(112%);
 	background-color: lightgray;
+	height: 0.5px;
+	position: relative;
+	top: 52px;	
+	margin-bottom: 0px;
+	z-index: 3;
 }
 
-/*******************************************************bottom thing *******************************/
+#streamdiv {
+	background-color: whitesmoke;
+	border-radius: 0px;
+	position: absolute;
+	width: 260px;
+	height: 682px;
+	top: 79px;
+	left: 14.5px;
+	z-index: 2;
+	box-shadow: inset 0 1.5px 3px 0 rgba(0,0,0,0.2);
+	overflow-y: scroll;
+}
+
+#streambottombackground {
+	background-color: lightgray;
+	opacity: 1;
+	position: absolute;
+	left: -1px;
+	top: 760px;
+	width: 290px;
+	height: 60px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	z-index: 3;
+}
+
+#streambottombackgroundtop {
+	background-color: black;
+	opacity: 0.6;
+	position: absolute;
+	left: -1px;
+	top: 760px;
+	width: 290px;
+	height: 60px;
+	border-radius: 5px;
+	z-index: 3;
+}
+
+#bottomstreamline {
+	background-color: lightgray;
+	height: 0.5px;
+	position: relative;
+	top: 723px;
+	z-index: 3;
+}
+
+#streamquote {
+	position: absolute;
+	display: inline;
+	left: 52px;
+	top: 767px;
+	color: lightgray;
+	z-index: 4;
+}
+
+
+/*******************************************************bottomblock *******************************/
+
+#bottomheader {
+	text-align: center;
+	font-weight: bold;
+	color: white;
+	position: absolute;
+	top: 180px;
+	left: 290px;
+	z-index: 2;
+}
+
+#bottomline {
+	background-color: lightgray;
+	height: 0.5px;
+	position: relative;
+	top: 52px;	
+	margin-bottom: 0px;
+	top: 155px;
+	z-index: 2;
+}
+
 #bottomblock {
 	border: 1px solid white;
 	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	width: 680px;
-	height: 175px;
-	top: 0px;
-	left: 205px;
-	margin-top: 20px;
-	margin-bottom: 30px;
-	position: relative;
-	display: inline-block;
+	height: 230px;
+	top: 595px;
+	left: 220px;
+	position: absolute;
 }
 
+#bottomheaderbackground {
+	background-color: lightgray;
+	opacity: 1;
+	position: absolute;
+	left: -1px;
+	top: 168px;
+	width: 680px;
+	height: 60px;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+#bottomheaderbackgroundtop {
+	background-color: black;
+	opacity: 0.6;
+	position: absolute;
+	left: -1px;
+	top: 168px;
+	width: 680px;
+	height: 60px;
+	border-radius: 5px;
+	z-index: 1;
+}
 
 /*account type*/
 
@@ -1256,7 +1420,7 @@ body {
 	border: 1px solid whitesmoke;
 	background-color: whitesmoke;
 	border-radius: 5px;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 
 }
 
@@ -1281,89 +1445,18 @@ body {
 	opacity: 0.5;
 }
 
-
-#smallinfobuttonbackground {
+#clock {
+	left: 280px;
+	top: 35px;
 	position: absolute;
-	width: 190px;
-	height: 50px;
+	font-weight: bold;
+	font-size: 28px;
+	color: palevioletred;
 	border: 1px solid whitesmoke;
 	background-color: whitesmoke;
 	border-radius: 5px;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-	top: 30px;
-	left: 245px;
 }
-
-.closeinfo {
-	width: 170px;
-	height: 30px;
-	position: absolute;
-	top: 9px;
-	left: 9px;	
-	font-size: 14px;
-	color: white;
-	font-weight: bold;
-	border-radius: 5px;
-	border: 0px;
-	outline: none;
-	background-color: palevioletred;
-	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
-	filter: brightness(110%);
-}
-
-.closeinfo:hover {
-	opacity: 0.9;
-}
-
-.openinfo {
-	width: 170px;
-	height: 30px;
-	position: absolute;
-	top: 10px;
-	left: 9px;	
-	font-size: 14px;
-	color: white;
-	font-weight: bold;
-	border: 0px;
-	outline: none;
-	border-radius: 5px;
-	background-color: black;
-	opacity: 0.6;
-	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
-	filter: drop-shadow(1px 1px 1px black);
-}
-
-.openinfo:hover {
-	opacity: 0.5;
-}
-
-
-#smallinfopopup {
-	position: absolute;
-	width: 640px;
-	height: 580px;
-	border: 0px solid black;
-	background-color: white;
-	z-index: 5;
-	left: 240px;
-	top: 85px;
-	border-radius: 5px;
-	display: none;
-	box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
-}
-
-#smallinfopopupclose {
-	background-color: white;
-	outline: none;
-	border: 0px;
-	right: 8px;
-	top: 8px;
-	position: absolute;
-	color: red;
-	font-weight: bold;
-	font-size: 18px;
-}
-
 /********************************************************footer styling****************************/
 
 footer {
@@ -1398,8 +1491,200 @@ li {
 
 #footerlist {
 	list-style: none;
-	font-size: 14px;
+	font-size: 13px;
 	display: inline;
 }
 
 /******************************************************************************** LARGE SCREEN ADJUSTMENTS **********************************/
+
+@media only screen and (min-width: 1600px) {
+	#backgroundid {
+		height: 1010px;
+	}
+
+	#maincontent {
+	top: 100px;
+	width: 1560px;
+		height: 865px;
+	border: 0px solid black;
+	}
+
+	#stream {
+		left: 1255px;
+		width: 300px;
+		height: 860px;
+	}
+
+	#streamdiv {
+		height: 721px;
+	}
+
+	#streamheaderbackground {
+		width: 300px;
+	}
+
+	#streambottombackground {
+		width: 300px;
+		top: 800px;
+	}
+
+	#bottomstreamline {
+		top: 760px;
+	}
+
+	#mainblock {
+	width: 980px;
+	height: 580px;
+	top: 5px;
+	left: 250px;
+	}
+
+	#mainblocknav {
+	width: 225px;
+	height: 270px;
+	left: 0px;
+	top: 135px;
+	}
+
+	#spectatelinebackground {
+		display: none;
+	}
+
+	#smallinfo {
+	width: 225px;
+	height: 115px;
+	left: 0px;
+	top: 5px;
+}
+	#smallinfoheaderbackground {
+		width: 225px;
+	}
+
+	#streamdiv {
+		width: 270px;
+}
+	#squabheader {
+		left: 350px;
+		font-size: 38px;
+	}
+
+	#squabheaderbackground {
+		width: 980px;
+	}
+
+	#profileheaderbackground {
+		width: 980px;
+	}
+
+	#feedheaderbackground {
+		width: 980px;
+	}
+
+	#feedmenu {
+		left: 335px;
+	}
+
+	#feeddiv {
+		width: 940px;
+	}
+
+	#exploreheaderbackground {
+		width: 980px;
+	}
+
+	#bottomblock {
+		left: 250px;
+		width: 980px;
+		top: 615px;
+		height: 250px;
+
+	}
+
+	#bottomheaderbackground {
+		width: 980px;
+		top: 190px;
+	}
+
+	#bottomheader {
+		top: 200px;
+	}
+
+	#bottomline {
+		top: 175px;
+	}
+
+	#hidebuttonblock {
+	left: 400px;
+	top: 100px;
+}
+
+#accounttype {
+	right: 20px;
+	top: 20px;
+	height: 150px;
+	width: 260px;
+}
+
+#accountinterior {
+	left: 9px;
+	top: 10px;
+	height: 130px;
+	width: 240px;
+}
+
+#accounttypeheaderbackground {
+	top: 72px;
+	height: 37px;
+	width: 190px;
+	left: -1px;
+}
+
+#accounttypeheader {
+	top: 70px;
+	left: 54px;
+}
+
+
+
+#credentials {
+	left: 20px;
+	top: 20px;
+	height: 150px;
+	width: 260px;
+}
+
+#credentialsinterior {
+	left: 9px;
+	top: 10px;
+	height: 130px;
+	width: 240px;
+}
+
+#credentialscroll {
+	left: -1px;
+	top: -1px;
+	height: 72px;
+	width: 240px;
+}
+
+#credentialsheaderbackground {
+	top: 92px;
+	height: 37px;
+	width: 240px;
+	left: -1px;
+}
+
+#credentialsheader {
+	top: 90px;
+	left: 65px;
+}
+
+	#footerlist {
+	font-size: 15px;
+}
+
+#clock {
+	left: 432px;
+	}
+
+}

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<script src="https://kit.fontawesome.com/ea05a55ff2.js" crossorigin="anonymous"></script>-->
+	<link rel="stylesheet" href="static/css/all.css">
+	<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='squabblerfavicon.png') }}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" href="static/css/homestylesheet.css">
+	<title>Squabbler | Home</title>
+</head>
+
+<body>
+	<div class="container-fluid" id="header">
+		<div class="container-fluid" id="headertop"></div>
+		<div class="container-fluid" id="subheader">
+			<div id="popupmenu">
+				<i class="fa-solid fa-bars fa-2x popupbutton" id="popupbuttondiv"></i>
+				<div class="dropdown">
+					<button id="popupbutton" onclick="myFunction()" class="dropbtn"></button>
+
+				</div>
+			</div>
+
+			<div id="searchdiv">
+				<form>
+					<input type="text" id="searchmenu" placeholder="&#xF002; Search Squabbler" style="font-family:FontAwesome, Lato;">
+				</form>
+			</div>
+			<img src="static/squabblerfavicon.png" id="squabblerimage" alt="squabbler logo"/>
+			<h4 id="headersquab">SQUABBLER</h4>
+				<div id="myDropdown" class="dropdown-content">
+				<a href=""><i class="fa-solid fa-user fa-lg" id="dropdownaccount"></i><span class="linktext">Account</span></a>
+				<a href=""><i class="fa-solid fa-circle-info fa-lg" id="dropdowninfo"></i><span class="linktext">Information</span></a>
+				<a href=""><i class="fa-solid fa-message fa-lg" id="dropdownfeedback"></i><span class="linktext">Feedback</span></a>
+				<a href=""><i class="fa-solid fa-arrow-right-from-bracket fa-lg" id="dropdownexit"></i><span class="linktext">Exit</span></a>
+			</div>
+		</div>
+		<hr id="headerline">
+	</div>
+
+	<div id="backgroundid" class="container-fluid">
+
+
+		<div class="container" id="maincontent">
+			<div id="smallinfo">
+				<div id="smallinfoheaderbackground"></div>
+				<div id="smallinfoheaderbackgroundtop"></div>
+				<h5 id="smallinfoheader">Where to start?</h5>
+				<hr id="smallinfoline">
+				<div id="smallinfobuttonbackground">
+					<button id="smallinfobutton" class="closeinfo" onclick="infoOpen('smallinfobutton')">Click For Info</button>
+				</div>
+			</div>
+
+			<div id="smallinfopopup">
+				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
+			</div>
+
+			<div class="container" id="mainblocknav">
+				<button onclick="openCity(event, 'squabble')" class="tablinks navbuttons active"><span class="stylebuttonwrapper" id="squabblebutton"><span class="navbuttondiv"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Squabble</h3><br><small class="navbuttonsubtext">Join the conversation</small></span></span></button>
+				<hr style="margin:0;">
+				<button onclick="openCity(event, 'feed')" class="tablinks navbuttons"><span class="stylebuttonwrapper" id="feedbutton"><span class="navbuttondiv"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></span></span></button>
+				<hr style="margin:0;">
+				<button onclick="openCity(event, 'profile')" class="tablinks navbuttons"><span class="stylebuttonwrapper" id="profilebutton"><span class="navbuttondiv"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></span></span></button>	
+				<hr style="margin:0;">
+				<button onclick="openCity(event, 'explore')" class="tablinks navbuttons"><span class="stylebuttonwrapper" id="otherbutton"><span class="navbuttondiv"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></span></span></button>
+
+			</div>
+			<div class="" id="mainblock">
+
+
+				<div id="squabble" class="tabcontent">  <!--squabble tab menu content-->
+					<div id="squabheaderbackground">
+					</div>
+
+					<div id="squabheaderbackgroundtop">
+					</div>
+
+					<h1 id="squabheader">Squabble Menu</h1>
+					<p class="quote">VERITAS VOS LIBERABIT</p>
+					<hr id="squabline">
+
+					<div id="solowrapper">
+						<div id="soloinfo">
+							<div id="solodisplay">
+								<div id="soloheaderbackground"></div>
+								<h2 id="soloheader">Solo</h2>
+								<p id="solop">1v1 Squabble</p>
+
+								<i class="fa-solid fa-user fa-9x menuicons" id="soloicon"></i>
+							</div>
+						</div>
+						<div id="solobuttonborder">
+							<button id="solobutton" class="menubuttons">Find Solo Squabble</button>
+						</div>
+					</div>
+
+					<div id="multiwrapper">
+						<div id="multiinfo">
+							<div id="multidisplay">
+								<div id="multiheaderbackground"></div>
+								<h2 id="multiheader">Multi</h2>
+								<p id="multip">Group Squabble</p>
+
+								<i class="fa-solid fa-users fa-9x menuicons" id="multiicon"></i>
+							</div>
+						</div>
+						<div id="multibuttonborder">
+							<button id="multibutton" class="menubuttons">Find Multi Squabble</button>
+						</div>
+					</div>
+
+					<div id="createwrapper">
+						<div id="createinfo">
+							<div id="createdisplay">
+								<div id="createheaderbackground"></div>
+								<h2 id="createheader">Create</h2>
+								<p id="createp">Choose your own topic</p>
+
+								<i class="fa-solid fa-plus fa-9x menuicons" id="createicon"></i>
+							</div>
+						</div>
+						<div id="createbuttonborder">
+							<button id="createbutton" class="menubuttons">Create Squabble</button>
+						</div>
+					</div>
+					<div id="spectatelinebackground">
+					</div>
+
+					<div id="spectatewrapper">
+						<div id="spectatebuttonborder">
+							<button id="spectatebutton" class="menubuttons">Spectate Others</button> 
+						</div>
+					</div>
+
+  			</div> <!--squabble tab menu content end-->
+
+				<div id="feed" class="tabcontent" style="display: none;">
+					<div id="feedheaderbackground"></div>
+					<div id="feedheaderbackgroundtop"></div>
+
+					<h1 id="feedheader">Feed</h1>
+					<p id="feedquote">DICTUM FACTUM</p>
+					<hr id="feedline">
+
+					<div id="feedmenu">
+						<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons openfeed">Discover</button>
+						<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons closedfeed">Following</button>
+					</div>
+
+					<div id="feeddiv">
+
+					</div>
+
+				</div>
+
+  			<div id="profile" class="tabcontent" style="display: none;"> <!--profile tab menu content-->
+					<div id="profileheaderbackground"></div>
+					<div id="profileheaderbackgroundtop"></div>
+
+					<h1 id="profileheader">Profile</h1>
+					<p class="quote">NIMIUM NE CREDE COLORI</p>
+					<hr id="profileline">
+				</div> <!--profile tab menu content end-->
+
+
+				<div id="explore" class="tabcontent" style="display: none;">
+					<div id="exploreheaderbackground"></div>
+					<div id="exploreheaderbackgroundtop"></div>
+
+					<h1 id="exploreheader">Explore</h1>
+					<p class="quote">EX NIHILO NIHIL FIT</p>
+					<hr id="exploreline">
+
+					<input type="text" id="exploresearch" placeholder="&#xF002; Search for others" style="font-family:FontAwesome, Lato;">
+
+					</input>
+
+					<div id="explorediv">
+
+					</div>
+
+				</div>
+				
+
+
+			</div>
+
+			<div id="bottomblock">
+				<div id="accounttype">
+					<div id="accountinterior">
+						<div id="accounttypeheaderbackground">
+						</div>
+						<h4 id="accounttypeheader">Session:</h4>
+					</div>
+				</div>
+
+				<div id="clock"></div>
+
+				<div id="hidebuttonblock">
+					<button id="hidebutton">Hide Info</button>
+					<div id="hidebuttonborder">
+					</div>
+				</div>
+
+				<div id="credentials">
+					<div id="credentialsinterior">
+						<div id="credentialscroll"></div>
+						<div id="credentialsheaderbackground">
+						</div>
+						<h4 id="credentialsheader">Credentials:</h4>
+					</div>
+				</div>
+
+				<hr id="bottomline">
+				<h4 id="bottomheader">Logged in as:</h4>
+				<div id="bottomheaderbackground"></div>
+				<div id="bottomheaderbackgroundtop"></div>
+			</div>
+
+			<div id="stream" class="">
+
+				<div id="streamheaderbackground">
+				</div>
+
+				<div id="streamheaderbackgroundtop">
+				</div>
+
+				<h2 id="streamheader">Stream</h2>
+				<hr id="streamline">
+
+				<div id="streamdiv">
+
+				</div>
+
+				<div id="streambottombackground"></div>
+				<div id="streambottombackgroundtop"></div>
+				<p id="streamquote">BRACCAS MEAS VESCIMINI</p>
+				<hr id="bottomstreamline">
+
+			</div>
+
+
+
+
+		</div>
+
+
+	</div>
+
+</body>
+                
+<footer>
+	<div id="footerborder" class="container-fluid">
+		<ul id="footerlist">
+			<li><a href="" class="footerlink">Feedback</a></li>
+			<li><a href="" class="footerlink">Squabbler Info</a></li>
+			<li><a href="" class="footerlink">Regulations</a></li>
+			<li><a href="" class="footerlink">Terms of Service</a></li>
+			<li><a href="" class="footerlink">Anonymity</a></li>
+			<li><a href="" class="footerlink">Data Rights</a></li>
+			<li><a href="" class="footerlink">Privacy Policy</a></li>
+			<li><a href="" class="footerlink">Help</a></li>
+		</ul>
+		<hr id="footerline">
+		<p>Squabbler © 2022</p>
+	</div>
+
+</footer>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<script>
+        setInterval(showTime, 1000);
+        function showTime() {
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+            am_pm = "AM";
+  
+            if (hour > 12) {
+                hour -= 12;
+                am_pm = "PM";
+            }
+            if (hour == 0) {
+                hr = 12;
+                am_pm = "AM";
+            }
+  
+            hour = hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+
+  
+            let currentTime = hour + ":" 
+                + min + " " + am_pm;
+  
+            document.getElementById("clock")
+                .innerHTML = currentTime;
+        }
+  
+        showTime();
+    </script>
+
+    <script type="text/javascript">
+    	function infoOpen(objName) {
+    		const objItem = document.getElementById(objName);
+    		if (objItem.classList.contains('openinfo')) {
+    			objItem.innerHTML = "Click For Info";
+    			objItem.classList.remove('openinfo');
+    			objItem.className += "closeinfo";
+    			document.getElementById('smallinfopopup').style.display = "none";
+    		}
+
+    		else {
+    			objItem.innerHTML = "Close";
+    			objItem.classList.remove('closeinfo');
+    			objItem.className += "openinfo";
+    			document.getElementById('smallinfopopup').style.display = "block";
+    		}
+    	}
+
+    </script>
+
+    <script type="text/javascript">
+    	function feedOpen(objValue) {
+    		let objItem = document.getElementById(objValue);
+
+    		if (objValue === 'feeddiscover') {
+    			let otherItem = document.getElementById('feedfollowing');
+    			if (objItem.classList.contains('openfeed')) {
+    			}
+    			else {
+    				objItem.className += " openfeed";
+    				objItem.classList.remove('closedfeed');
+    				otherItem.className += " closedfeed"
+    				otherItem.classList.remove('openfeed');
+    			}
+    		}
+
+    		else {
+    			let otherItem = document.getElementById('feeddiscover');
+    			if (objItem.classList.contains('openfeed')) {
+
+    			}
+    			else {
+    				objItem.className += " openfeed";
+    				objItem.classList.remove('closedfeed');
+    				otherItem.className += " closedfeed"
+    				otherItem.classList.remove('openfeed');
+
+    			}
+    		}
+    	}
+    		
+    </script>
+    <script type="text/javascript">
+    	function infoinexit() {
+    		const item = document.getElementById('smallinfopopup');
+    		const button = document.getElementsById('smallinfobutton');
+
+    		document.getElementsById('smallinfobutton').classList.remove('openfeed');
+    		document.getElementsById('smallinfobutton').className += " closedfeed";
+    		document.getElementById('smallinfopopup').style.display = "none";	
+    	}
+    </script>
+
+</html>
