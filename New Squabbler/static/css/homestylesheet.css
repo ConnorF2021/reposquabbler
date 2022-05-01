@@ -1,6 +1,5 @@
 body {
 	font-family: 'Lato', sans-serif;
-
 }
 
 #backgroundid {
@@ -23,7 +22,6 @@ body {
 	width: 100%;
 	height: 70px;
 	position: relative;
-
 }
 
 #searchmenu {
@@ -65,13 +63,9 @@ body {
 		font-weight: bold;
 		color: palevioletred;
 		filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(112%);
-
 }
 
 /*******dropdown*****/
-
-
-/* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
   position: fixed;
@@ -248,79 +242,79 @@ body {
 /***************************main content**************************/
 
 #maincontent {
-	top: 0px;
 	border:  0px solid black;
 	height: auto;
 	width: 1210px;
 	position: relative;
+}
 
+.blocks {
+ 	border: 1px solid white;
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	border-radius: 5px;   
+    margin-top: 93px;
+    position: relative;
+    left: 205px;
 }
 
 /*****************Squabble *******************************/
 
 #squabbleblock {
-	border: 1px solid white;
-	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
 	width: 680px;
 	height: 495px;
-	margin-top: 93px;
-	left: 205px;
-	position: relative;
-
 }
 
 .menubuttons {
 	position: absolute;
-	display: inline;
+    border: none;
+    color: white;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 5px;
+	width: 175px;
+	height: 45px;
+	top: 9px;
+	left: 9px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	outline: none;
 }
 
 .menubuttons:hover {
 	opacity: 0.8;
 }
 
-#soloinfo {
+.infoboxes {
 	position: absolute;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	width: 195px;
-	height: 260px;
-	top: 20px;
-	left: 20px;
-
+	height: 260px;    
 }
 
-#solodisplay {
-	position: absolute;
-	border: 1px solid palevioletred;
-	background-color: palevioletred;
-	filter: brightness(112%);
-	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
-	width: 175px;
-	height: 240px;
-	left: 9px;
-	top: 9px;
-
+.displayboxes {
+    position: absolute;
+    box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    width: 175px;
+    height: 240px;
+    left: 9px;
+    top: 9px;
 }
 
-#solobuttonborder {
-	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	background-color: whitesmoke;
+.menubuttonborders {
+    position: absolute;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
 	width: 195px;
 	height: 65px;
-	left: 20px;
-	top: 293px;
 }
 
-
-#soloheaderbackground {
+.menuheaderbackgrounds {
 	position: absolute;
 	top: -1px;
 	border: 1px solid black;
@@ -332,240 +326,124 @@ body {
 	opacity: 0.6;
 }
 
-#soloheader {
+.menuheaders {
 	font-weight: bold;
 	color: white;
 	position: absolute;
+}
+
+.menup {
+ 	font-weight: bold;
+	color: white;
+	position: absolute;   
+}
+
+.menuicons {
+    position: absolute;
+	color: white;
+}
+
+#soloinfo {
+	top: 20px;
+	left: 20px;
+}
+
+#solodisplay {
+	background-color: palevioletred;
+	filter: brightness(112%);
+    border: 1px solid palevioletred;
+}
+
+#solobuttonborder {
+	left: 20px;
+	top: 293px;
+}
+
+#soloheader {
 	top: -13px;
 	left: 52px;
 }
 
 #solop {
-	font-weight: bold;
-	color: white;
-	position: absolute;
 	top: 53px;
 	left: 41px;
 }
 
 #solobutton {
-	position: absolute;
-	color: white;
 	background-color: palevioletred;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
-	border: none;
-	font-size: 16px;
-	font-weight: bold;
-	border-radius: 5px;
-	width: 175px;
-	height: 45px;
-	top: 9px;
-	left: 9px;
-	outline: none;
-}
-
-#solobutton:hover {
-
 }
 
 #soloicon {
-	position: absolute;
 	left: 30.5px;
 	top: 90px;
 }
 
-
-.menuicons {
-	color: white;
-}
-
-
 #multiinfo {
-	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
-	background-color: whitesmoke;
-	border: 1px solid whitesmoke;
-	width: 195px;
-	height: 260px;
 	top: 20px;
 	left: 240px;
-
 }
 
 #multidisplay {
-	position: absolute;
 	border: 1px solid palevioletred;
 	background-color: palevioletred;
 	filter: brightness(112%);
-	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
-	width: 175px;
-	height: 240px;
-	left: 9px;
-	top: 9px;
-
 }
 
 #multibuttonborder {
-	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	background-color: whitesmoke;
-	border: 1px solid whitesmoke;
-	border-radius: 5px;
-	width: 195px;
-	height: 65px;
 	left: 240px;
 	top: 293px;
-	outline: none;
 }
-
-#multiheaderbackground {
-	position: absolute;
-	top: -1px;
-	border: 1px solid black;
-	background-color: black;
-	height: 50px;
-	width: 175px;
-	left: -1px;
-	border-radius: 5px;
-	opacity: 0.6;
-}
-
 #multiheader {
-	font-weight: bold;
-	color: white;
-	position: absolute;
 	top: -13px;
 	left: 52px;
 }
 
 #multip {
-	font-weight: bold;
-	color: white;
-	position: absolute;
 	top: 52px;
 	left: 34px;
 }
 
 #multibutton {
-	position: absolute;
-	color: white;
 	background-color: palevioletred;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
-	border: none;
-	font-size: 16px;
-	font-weight: bold;
-	border-radius: 5px;
-	width: 175px;
-	height: 45px;
-	top: 9px;
-	left: 9px;
-	outline: none;
-}
-
-#multibutton:hover {
-
 }
 
 #multiicon {
-	position: absolute;
 	left: 9px;
 	top: 90px;
 }
 
-/**/
-
 #createinfo {
-	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
-	background-color: whitesmoke;
-	border: 1px solid whitesmoke;
-	width: 195px;
-	height: 260px;
 	top: 20px;
 	right: 20px;
-
 }
 
 #createdisplay {
-	position: absolute;
 	border: 1px solid lightgray;
 	background-color: lightgray;
-	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
-	width: 175px;
-	height: 240px;
-	left: 9px;
-	top: 9px;
-
 }
 
 #createbuttonborder {
-	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	background-color: whitesmoke;
-	border: 1px solid whitesmoke;
-	border-radius: 5px;
-	width: 195px;
-	height: 65px;
 	right: 20px;
 	top: 293px;
 }
 
-#createheaderbackground {
-	position: absolute;
-	top: -1px;
-	border: 1px solid black;
-	background-color: black;
-	height: 50px;
-	width: 175px;
-	left: -1px;
-	border-radius: 5px;
-	opacity: 0.6;
-}
-
 #createheader {
-	font-weight: bold;
-	color: white;
-	position: absolute;
 	top: -13px;
 	left: 40px;
 }
 
 #createp {
-	font-weight: bold;
-	color: white;
-	position: absolute;
 	top: 53px;
 	left: 10px;
 }
 
 #createbutton {
-	position: absolute;
-	color: white;
 	background-color: lightgray;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-	border: none;
-	font-size: 16px;
-	font-weight: bold;
-	border-radius: 5px;
-	width: 175px;
-	height: 45px;
-	top: 9px;
-	left: 9px;
-	outline: none;
-}
-
-#createbutton:hover {
-
 }
 
 #createicon {
-	position: absolute;
 	left: 30px;
 	top: 90px;
 }
@@ -616,31 +494,161 @@ body {
 }
 /***********************************************************Profile Tab **********************************************************************/
 #profileblock {
-	border: 1px solid white;
-	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
 	width: 680px;
-	height: 495px;
-	margin-top: 93px;
-	left: 205px;
-	position: relative;
+	min-height: 495px;
+}
 
+#profilebackgroundimg {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 680px;
+    height: 200px;
+    border-radius: 5px;
+    z-index: 4;
+    background-color: palevioletred;
+}
+
+#profilebackgroundimgspace {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 0px solid black;
+    background-color: white;
+    z-index: 4;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 39%;
+}
+
+#profbackimg {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border: 0px solid black;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%; 
+}   
+
+#profname {
+    position: absolute;
+    top: 210px;
+    left: 45px;
+    font-weight: bold;
+    font-size: 20px
+}
+
+#proftag {
+    position: absolute;
+    top: 245px;
+    left: 45px;
+    color: gray;
+}
+
+#editprofbuttonback {
+    position: absolute;
+    width: 135px;
+    height: 40px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+.editprofbutclose {
+    filter: brightness(112%);
+    right: 65px;
+    width: 120px;
+    height: 30px;
+    background-color: palevioletred;
+}
+
+.editprofbutopen {
+    background-color: lightgray;
+    right: 130px;
+    width: 80px;
+    height: 30px;
+}
+
+#editprofbutton {  
+    color: white; 
+    font-weight: bold;
+    position: absolute;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    top: 220px;
+}
+
+#saveprofedit {
+    color: white; 
+    font-weight: bold;
+    position: absolute;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    top: 220px;
+    background-color: lawngreen;
+    right: 40px;
+    width: 80px;
+    height: 30px;
+}
+
+.profileeditinactive {
+    display: none;
+}
+
+#changename {
+    position: absolute;
+    top: 220px;
+    left: 30px;
+    height: 40px;
+    border-radius: 5px; 
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+    box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+#changeuser {
+    position: absolute;
+    top: 270px;
+    left: 30px;
+    height: 40px;
+    border-radius: 5px; 
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+    box-shadow: inset 0 0.5px 1px 0 rgba(0,0,0,0.2);
+}
+
+#changesite {
+    position: absolute;
+    top: 320px;
+    left: 30px;
+    height: 40px;
+    border-radius: 5px; 
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
+    box-shadow: inset 0 0.5px 1px 0 rgba(0,0,0,0.2);
+}
+
+#changedesc {
+    position: absolute;
+    top: 370px;
+    left: 30px;
+    height: 100px;
 }
 
 /***********************************************************explore Tab **********************************************************************/
-
 #exploreblock {
-	border: 1px solid white;
-	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
 	width: 680px;
 	height: 495px;
-	margin-top: 93px;
-	left: 205px;
-	position: relative;
-
 }
 
 #explorediv {
@@ -712,10 +720,6 @@ body {
 	margin-top: 8px;
 }
 
-.navbuttondiv:hover {
-
-}
-
 .navbuttonh3 {
 	margin-bottom: 0px; 
 	margin-top: 6px;
@@ -754,12 +758,10 @@ body {
 .active .stylebuttonwrapper .navbuttondiv .navbuttonicon {
 	color: palevioletred;
 	opacity: 1;
-
 }
 
 #squabblebutton {
 	color: gray;
-
 }
 
 #squabblebutton:hover {
@@ -797,17 +799,8 @@ body {
 /**********************************feed styling****************/
 
 #feedblock {
-	border: 1px solid white;
-	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
 	width: 680px;
 	height: 80px;
-	margin-top: 93px;
-	left: 205px;
-	position: relative;
-
-
 }
 
 #feedmenu {
@@ -945,7 +938,7 @@ body {
 
 .streambubblepictureblock {
     position: absolute;
-    border: 1px solid black;
+    border: 0px solid black;
     width: 60px;
     height: 60px;
     left: 15px;
@@ -982,10 +975,21 @@ body {
 }
 
 .streambubbletext {
-    overflow-y: hidden;
-    text-overflow: ellipsis;
-    max-height: 43px
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
 
+.streambubbletextexp {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 10; /* number of lines to show */
+           line-clamp: 10; 
+   -webkit-box-orient: vertical;   
 }
 
 .streambuboverflowblock {
@@ -1140,23 +1144,18 @@ body {
 	display: inline-block;
 }
 
-
-/*account type*/
-
-#accounttype {
+.botmainborders {
 	border: 1px solid whitesmoke;
 	border-radius: 5px;
 	background-color: whitesmoke;
 	position: absolute;
-	right: 20px;
-	top: 20px;
 	height: 130px;
 	width: 210px;
 	box-shadow:  0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
-#accountinterior {
-	border: 1px solid lightgray;
+.botmaininterior {
+    border: 1px solid lightgray;
 	border-radius: 5px;
 	background-color: lightgray;
 	position: absolute;
@@ -1167,7 +1166,7 @@ body {
 	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
-#accounttypeheaderbackground {
+.botmainheadback {
 	position: absolute;
 	top: 72px;
 	border: 1px solid black;
@@ -1179,38 +1178,35 @@ body {
 	opacity: 0.6;
 }
 
-#accounttypeheader {
-	font-weight: bold;
-	color: white;
-	position: absolute;
-	top: 70px;
-	left: 54px;
-}
-
-
-
-#credentials {
-	border: 1px solid whitesmoke;
-	border-radius: 5px;
+.botbuttonborders {
+ 	position: absolute;
+	width: 190px;
+	height: 50px;
+    border: 1px solid whitesmoke;
 	background-color: whitesmoke;
-	position: absolute;
-	left: 20px;
-	top: 20px;
-	height: 130px;
-	width: 210px;
+	border-radius: 5px;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
-#credentialsinterior {
-	border: 1px solid lightgray;
-	border-radius: 5px;
-	background-color: lightgray;
+.botmainhead {
+  	font-weight: bold;
+	color: white;
 	position: absolute;
-	left: 9px;
-	top: 10px;
-	height: 110px;
-	width: 190px;
-	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
+	top: 70px;  
+}
+
+#accounttype {
+    right: 20px;
+	top: 20px;
+}
+
+#accounttypeheader {
+	left: 54px;
+}
+
+#credentials {
+	left: 20px;
+	top: 20px;
 }
 
 #credentialscroll {
@@ -1223,23 +1219,7 @@ body {
 	width: 190px;
 }
 
-#credentialsheaderbackground {
-	position: absolute;
-	top: 72px;
-	border: 1px solid black;
-	background-color: black;
-	height: 37px;
-	width: 190px;
-	left: -1px;
-	border-radius: 5px;
-	opacity: 0.6;
-}
-
 #credentialsheader {
-	font-weight: bold;
-	color: white;
-	position: absolute;
-	top: 70px;
 	left: 43px;
 }
 
@@ -1247,17 +1227,6 @@ body {
 	position: absolute;
 	left: 245px;
 	top: 90px;
-}
-
-#hidebuttonborder {
-	position: absolute;
-	width: 190px;
-	height: 50px;
-	border: 1px solid whitesmoke;
-	background-color: whitesmoke;
-	border-radius: 5px;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-
 }
 
 #hidebutton {
@@ -1281,33 +1250,29 @@ body {
 	opacity: 0.5;
 }
 
-
 #smallinfobuttonbackground {
-	position: absolute;
-	width: 190px;
-	height: 50px;
-	border: 1px solid whitesmoke;
-	background-color: whitesmoke;
-	border-radius: 5px;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	top: 30px;
 	left: 245px;
 }
 
-.closeinfo {
+.info {
 	width: 170px;
 	height: 30px;
 	position: absolute;
 	top: 9px;
-	left: 9px;	
-	font-size: 14px;
+	left: 9px;
+    font-size: 14px;
 	color: white;
 	font-weight: bold;
 	border-radius: 5px;
 	border: 0px;
 	outline: none;
+    box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+    
+}
+
+.closeinfo {
 	background-color: palevioletred;
-	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
 	filter: brightness(110%);
 }
 
@@ -1316,20 +1281,8 @@ body {
 }
 
 .openinfo {
-	width: 170px;
-	height: 30px;
-	position: absolute;
-	top: 10px;
-	left: 9px;	
-	font-size: 14px;
-	color: white;
-	font-weight: bold;
-	border: 0px;
-	outline: none;
-	border-radius: 5px;
 	background-color: black;
 	opacity: 0.6;
-	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
 	filter: drop-shadow(1px 1px 1px black);
 }
 
@@ -1376,20 +1329,16 @@ footer {
 	color: #777;
 	margin-top: 30px;
 	text-align: center;
-
 }
-
 
 li {
 	display: inline;
 	margin-right: 8px;
 	margin-left: 8px;
-
 }
 
 .footerlink {
 	color: #777;
-
 }
 
 .footerlink:hover {
@@ -1401,5 +1350,3 @@ li {
 	font-size: 14px;
 	display: inline;
 }
-
-/******************************************************************************** LARGE SCREEN ADJUSTMENTS **********************************/
