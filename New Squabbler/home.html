@@ -33,8 +33,6 @@
 				</form>
 			</div>
             
-            <div id="locationheader"><h3 id="locationheadertext"></h3></div>
-            
 			<img src="static/squabblerfavicon.png" id="squabblerimage" alt="squabbler logo"/>
 			<h4 id="headersquab">SQUABBLER</h4>
 				<div id="myDropdown" class="dropdown-content">
@@ -44,32 +42,40 @@
 				<a href=""><i class="fa-solid fa-arrow-right-from-bracket fa-lg" id="dropdownexit"></i><span class="linktext">Exit</span></a>
 			</div>
 		</div>
+        
+        <div id="uselessbarlol"></div>
+        <h4 id="currenttabhead">Squabble</h4>
 
 	</div>
 
 	<div id="backgroundid" class="container-fluid">
 
 		<div class="container" id="maincontent">
-			<div id="profilesmall">
-				<div id="profileimage"></div>
-				<h4 id="profilename">John Squabbler</h4>
-				<p id="profiletag">@johnsquabbler</p>
-			</div>
   
 			<div id="smallinfopopup">
 				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
 			</div>
-
-			<div class="container mainnav" id="mainblocknav">
-				<button onclick="openCity(event, 'squabble');   smallprofilevis('squabble');" class="tablinks navbuttons active"><span class="stylebuttonwrapper" id="squabblebutton"><span class="navbuttondiv"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Squabble</h3><br><small class="navbuttonsubtext">Join the conversation</small></span></span></button>
-				<hr style="margin:0;">
-				<button onclick="openCity(event, 'feed'); smallprofilevis('feed');" class="tablinks navbuttons"><span class="stylebuttonwrapper" id="feedbutton"><span class="navbuttondiv"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></span></span></button>
-				<hr style="margin:0;">
-				<button onclick="openCity(event, 'profile'); smallprofilevis('profile');" class="tablinks navbuttons"><span class="stylebuttonwrapper" id="profilebutton"><span class="navbuttondiv"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></span></span></button>	
-				<hr style="margin:0;">
-				<button onclick="openCity(event, 'explore'); smallprofilevis('explore');" class="tablinks navbuttons"><span class="stylebuttonwrapper" id="otherbutton"><span class="navbuttondiv"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></span></span></button>
-
-			</div>
+            <div id="sidebar">
+            
+                <div class="container mainnav" id="mainblocknav">
+                    <div id="profilesmallwrapper">
+                        <div id="profilesmall">
+                            <img src="static/johnsquabbler.jpg" id="profileimage">
+                            <h4 id="profilename">John Squabbler</h4>
+                            <p id="profiletag">@johnsquabbler</p>
+                        </div>
+                    </div>
+                    <button onclick="openCity(event, 'squabble');   smallprofilevis('squabble');" class="tablinks navbuttons active"><span class="stylebuttonwrapper" id="squabblebutton"><span class="navbuttondiv"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Squabble</h3><br><small class="navbuttonsubtext">Join the conversation</small></span></span></button>
+                    <hr style="margin:0;">
+                    <button onclick="openCity(event, 'feed'); smallprofilevis('feed');" class="tablinks navbuttons"><span class="stylebuttonwrapper" id="feedbutton"><span class="navbuttondiv"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></span></span></button>
+                    <hr style="margin:0;">
+                    <button onclick="openCity(event, 'profile'); smallprofilevis('profile');" class="tablinks navbuttons"><span class="stylebuttonwrapper" id="profilebutton"><span class="navbuttondiv"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></span></span></button>	
+                    <hr style="margin:0;">
+                    <button onclick="openCity(event, 'explore'); smallprofilevis('explore');" class="tablinks navbuttons"><span class="stylebuttonwrapper" id="otherbutton"><span class="navbuttondiv"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></span></span></button>
+                </div>
+            
+            </div>
+            
 				<div id="squabble" class="tabcontent">  <!--squabble tab menu content-->
 					<div class="blocks" id="squabbleblock">
 
@@ -162,11 +168,21 @@
                 
                     <div id="profileedit" class="profileeditinactive">
                         <form id="changeprofform">
+                            <label for="changeprofimg">
+                                <i class="fa-solid fa-camera fa-3x" id="changebannericon"></i>
+                                <div id="changebannerback"></div>
+                            </label>
+                            <label for="changebanner">
+                                <i class="fa-solid fa-camera fa-2x" id="changeprofimgicon"></i>
+                                <div id="changeprofimgback"></div>
+                            </label>
+                            <input type="file" id="changebanner" style="display: none;">
+                            <input type="file" id="changeprofimg" style="display: none;">
                             <input type="text" id="changename" placeholder="Profile Name">
                             <input type="text" id="changeuser" placeholder="User Tag">
                             <input type="text" id="changesite" placeholder="Website">
                             <input type="text" id="changedesc">
-                            <input type="submit" id="saveprofedit">
+                            <input type="submit" id="saveprofedit" value="Save">
                         </form>
                         
                     </div>
@@ -273,20 +289,21 @@
 </script>    
     
 <script>
-function smallprofilevis(val) {
-    navblock = document.getElementById('mainblocknav');
-    profileblock = document.getElementById('profilesmall');
-    if (val === 'profile') {
-        profileblock.style.display = "none";
-        navblock.classList.remove('mainnav');
-        navblock.className += " uppernavtrans";
-    }
-    else {
-        profileblock.style.display = "block";
-        navblock.classList.remove('uppernavtrans');
-        navblock.className += " mainnav";
-    }
-} 
+    function smallprofilevis(val) {
+        const navblock = document.getElementById('mainblocknav');
+        const profileblock = document.getElementById('profilesmall');
+        
+        if (val === 'profile') {
+            profileblock.style.display = "none";
+            navblock.classList.remove('mainnav');
+            navblock.className += " uppernavtrans";
+        }
+        else {
+            profileblock.style.display = "block";
+            navblock.classList.remove('uppernavtrans');
+            navblock.className += " mainnav";
+        }
+    } 
 </script>
  
 <script>
