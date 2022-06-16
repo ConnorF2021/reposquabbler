@@ -1,0 +1,253 @@
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+#backgroundid {
+	background-color: whitesmoke;
+	min-height: 600px;
+}
+
+#header {
+	border:  0px solid black;
+	background-color: white;
+	width: 100%;
+	height: 70px;
+	position: fixed;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+	z-index: 8;
+}
+
+#subheader {
+	border: 0px solid black;
+	width: 100%;
+	height: 70px;
+	position: relative;
+}
+
+#searchmenu {
+	border: none;
+	border-radius: 6px;
+	background-color: lightgray;
+	color: black;
+	opacity: 0.6;
+	width: 250px;
+	height: 45px;
+	position: absolute;
+	top: 12px;
+	left: 78px;
+	font-size: 16px;
+
+}
+
+#squabblerimage {
+	position: absolute;
+	top: 4px;
+	right: 116px;
+	height: 60px;
+	width: 60px;
+	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
+}
+
+#headersquab {
+		top: 16px;
+		right: 10px;
+		position: absolute;
+		font-weight: bold;
+		color: palevioletred;
+		filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(112%);
+}
+
+#uselessbarlol {
+    position: absolute;
+    width: 5px;
+    height: 50px;
+    border-radius: 6px;
+    filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(112%);
+    background-color: palevioletred;
+    z-index: 9;
+    top: 9px;
+    left: 365px
+}
+
+.currenttabhead {
+    position: absolute;
+    color: palevioletred;
+    font-weight: bold;
+    filter: drop-shadow(0.25px 0.25px 0.25px palevioletred) brightness(112%);
+    z-index: 9;
+    top: 8px;
+    left: 385px;
+    font-size: 20px;
+}
+
+
+
+.topheaders {
+    display: none;
+}
+
+.currentheader {
+    display: block;
+}
+
+.quote {
+	position: absolute;
+    z-index: 9;
+    top: 43px;
+    left: 390px;
+	color: darkgray;
+    font-size: 12px;
+}
+
+/*******dropdown*****/
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: white;
+  min-width: 197px;
+  text-decoration: none;
+  box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.2);
+  z-index: 9;
+  left: 42px;
+  top: 70px;
+  color: gray;
+  border-radius: 6px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: gray;
+  padding: 17px 16px;
+  font-weight: bold;
+  font-size: 15px;
+  display: block;
+  z-index: 8;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #ddd;
+	text-decoration: none;
+}
+
+.linktext {
+	position: relative;
+	top: 0px;
+}
+
+#dropdownaccount {
+	color: darkgray;
+	filter: drop-shadow(0.5px 0.5px 0.5px gray);
+	opacity: 0.6;
+	margin-right: 9px;
+}
+
+#dropdowninfo {
+	color: darkgray;
+	filter: drop-shadow(0.5px 0.5px 0.5px gray);
+	opacity: 0.6;
+	margin-right: 9px;
+}
+
+#dropdownfeedback {
+	color: darkgray;
+	filter: drop-shadow(0.5px 0.5px 0.5px gray);
+	opacity: 0.6;
+	margin-right: 9px;
+}
+
+#dropdownexit {
+	color: darkgray;
+	filter: drop-shadow(0.5px 0.5px 0.5px gray);
+	opacity: 0.6;
+	margin-right: 9px;
+}
+
+.show {
+	display:block;
+}
+
+#popupbuttondiv {
+	position: relative;
+	top: 11px;
+	left: 13px;
+	color: palevioletred;
+	background: none;
+	filter: drop-shadow(1px 1px 1px palevioletred) brightness(108%);
+	border: 0px solid black;
+
+}
+
+#popupbutton {
+	position: relative;
+	top: -35px;
+	left: 0px;
+	width: 55px;
+	height: 55px;
+	opacity: 0;
+}
+
+#popupmenu {
+	border: 0px solid #777;
+	box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.2), 0 0.5px 2px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 6px;
+	background-color: white;
+	display: inline-block;
+	color: gray;
+	width: 55px;
+	height: 55px;
+	position: absolute;
+	top: 6px;
+	left: 10px;
+	font-size: 16px;
+
+}
+
+
+
+#popupmenu:hover {
+	opacity: 0.8;
+}
+
+/************************************************start scrollbar************************************************************/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2.5px lightgray; 
+  border-radius: 0px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: lightgray; 
+  border-radius: 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: lightgray; 
+  opacity: 0.9;
+}
+
+/***************************main content**************************/
+
+#maincontent {
+	border:  0px solid black;
+	height: auto;
+	width: 1210px;
+	position: relative;
+}
+
+.blocks {
+ 	border: 1px solid white;
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	border-radius: 6px;   
+    margin-top: 93px;
+    position: relative;
+   	left: 205px;
+}

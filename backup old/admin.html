@@ -1,0 +1,94 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<script src="https://kit.fontawesome.com/ea05a55ff2.js" crossorigin="anonymous"></script>-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+	<link rel="stylesheet" href="static/css/all.css">
+	<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='squabblerfavicon.png') }}">
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+  <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="static/css/adminstylesheet.css">
+	<title>Squabbler | Admin</title>
+</head>
+<body>
+	<div class="container-fluid" id="header">
+		<div class="container-fluid" id="headertop"></div>
+		<div class="container-fluid" id="subheader">
+			<div id="popupmenu">
+				<i class="fa-solid fa-bars fa-2x popupbutton" id="popupbuttondiv"></i>
+				<div class="dropdown">
+					<button id="popupbutton" onclick="myFunction()" class="dropbtn"></button>
+
+				</div>
+			</div>
+ 
+			<div id="searchdiv">
+				<form>
+					<input type="text" id="searchmenu" placeholder="&#xF002; Search Squabbler" style="font-family:FontAwesome, Lato;">
+				</form>
+			</div>
+            
+            <div id="locationheader"><h3 id="locationheadertext"></h3></div>
+            
+			<img src="static/squabblerfavicon.png" id="squabblerimage" alt="squabbler logo"/>
+			<h4 id="headersquab">SQUABBLER ADMIN</h4>
+				<div id="myDropdown" class="dropdown-content">
+				<a href=""><i class="fa-solid fa-user fa-lg" id="dropdownaccount"></i><span class="linktext">Account</span></a>
+				<a href=""><i class="fa-solid fa-circle-info fa-lg" id="dropdowninfo"></i><span class="linktext">Information</span></a>
+				<a href=""><i class="fa-solid fa-message fa-lg" id="dropdownfeedback"></i><span class="linktext">Feedback</span></a>
+				<a href=""><i class="fa-solid fa-arrow-right-from-bracket fa-lg" id="dropdownexit"></i><span class="linktext">Exit</span></a>
+			</div>
+		</div>
+
+	</div>
+	<div id="backgroundid" class="container-fluid">
+        <div class="container" id="maincontent">
+        </div>
+    </div>     
+</body>
+
+<footer>
+	<div id="footerborder" class="container-fluid">
+		<ul id="footerlist">
+			<li><a href="" class="footerlink">Feedback</a></li>
+            <li><a href="" class="footerlink">Fulbrick</a></li>
+			<li><a href="" class="footerlink">Squabbler Info</a></li>
+			<li><a href="" class="footerlink">Regulations</a></li>
+			<li><a href="" class="footerlink">Terms of Service</a></li>
+			<li><a href="" class="footerlink">Anonymity</a></li>
+			<li><a href="" class="footerlink">Data Rights</a></li>
+			<li><a href="" class="footerlink">Privacy Policy</a></li>
+			<li><a href="" class="footerlink">Help</a></li>
+		</ul>
+		<hr id="footerline">
+		<p>Squabbler © 2022</p>
+	</div>
+</footer>
+    
+<script>
+    function myFunction() {
+      const profilediv = document.getElementById("myDropdown");
+        profilediv.classList.toggle("show");
+
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+</script>
+</html>

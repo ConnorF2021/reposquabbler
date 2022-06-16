@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<script src="https://kit.fontawesome.com/ea05a55ff2.js" crossorigin="anonymous"></script>-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+	<link rel="stylesheet" href="static/css/all.css">
+	<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='squabblerfavicon.png') }}">
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+  	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+  	<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+  	<link rel="stylesheet" href="{{url_for('static', filename='css/createstylesheet.css')}}">
+	<title>Squabbler | Create Account</title>
+</head>
+
+<body>
+	<div id="backgroundid" class="container-fluid">
+			<img id="squabblerlogo" src="{{url_for('static', filename='squabblerfavicon.png') }}">
+				<div id="anonformbox">
+					<h3 class="formtext"><b>Join Squabbler</b></h3>
+					<p class="paratext">Protect your information and opinions.</p>
+					<p class="msg">{{ msg }}</p>
+					<form id="anonform" method="post">
+						<input type="text" id="fullname" name="fullname" placeholder="Full name">
+						<input type="text" id="username" name="username" placeholder="Username">
+						<input type="password" id="password" name="password" placeholder="Password">
+						<input type="password" id="password2" name="password2" placeholder="Re-enter password">
+						<input type="submit" id="aliassubmit" value="Create account" style="color:white; font-weight: bold;">
+					</form>
+
+				</div>
+	</div>
+</body>
+
+<footer>
+	<div id="footerborder" class="container-fluid">
+		<ul id="footerlist">
+			<li><a href="{{url_for('login')}}">Log In</a></li>
+			<li><a href="{{url_for('register')}}">Join</a></li>
+			<li><a href="">Squabbler Info</a></li>
+			<li><a href="">Regulations</a></li>
+			<li><a href="">Terms of Service</a></li>
+			<li><a href="">Anonymity</a></li>
+			<li><a href="">Data Rights</a></li>
+			<li><a href="">Privacy Policy</a></li>
+			<li><a href="">Help</a></li>
+		</ul>
+		<hr id="footerline" size="2px">
+		<p>Squabbler © 2022</p>
+	</div>
+
+</footer>
+
+</html>
