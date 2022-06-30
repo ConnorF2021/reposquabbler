@@ -1,0 +1,817 @@
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+#backgroundid {
+	background-color: whitesmoke;
+	min-height: 600px;
+}
+
+#header {
+	border:  0px solid black;
+	background-color: white;
+	width: 100%;
+	height: 70px;
+	position: fixed;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+	z-index: 8;
+}
+
+#subheader {
+	border: 0px solid black;
+	width: 100%;
+	height: 70px;
+	position: relative;
+}
+
+#searchmenu {
+	border: none;
+	border-radius: 6px;
+	background-color: lightgray;
+	color: black;
+	opacity: 0.7;
+	width: 250px;
+	height: 45px;
+	position: absolute;
+	top: 12px;
+	left: 78px;
+	font-size: 16px;
+
+}
+
+#squabblerimage {
+	position: absolute;
+	top: 4px;
+	right: 116px;
+	height: 60px;
+	width: 60px;
+	filter: drop-shadow(1px 1px 1px #f95288) brightness(112%);
+}
+
+#headersquab {
+		top: 16px;
+		right: 10px;
+		position: absolute;
+		font-weight: bold;
+		color: #f95288;
+		filter: drop-shadow(0.75px 0.75px 0.75px #f95288) brightness(112%);
+}
+
+#uselessbarlol {
+    position: absolute;
+    width: 5px;
+    height: 50px;
+    border-radius: 6px;
+    filter: drop-shadow(0.75px 0.75px 0.75px #f95288) brightness(112%);
+    background-color: #f95288;
+    z-index: 9;
+    top: 9px;
+    left: 365px
+}
+
+.currenttabhead {
+    position: absolute;
+    color: #f95288;
+    font-weight: bold;
+    filter: drop-shadow(0.25px 0.25px 0.25px #f95288) brightness(112%);
+    z-index: 9;
+    top: 8px;
+    left: 385px;
+    font-size: 20px;
+}
+
+/** transition effects **/
+
+.fadein {
+	-moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    -webkit-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+
+.ffadein {
+	-moz-transition: all .05s ease-in;
+    -o-transition: all .05s ease-in;
+    -webkit-transition: all .05s ease-in;
+    transition: all .05s ease-in;
+}
+
+
+.topheaders {
+    display: none;
+}
+
+.currentheader {
+    display: block;
+}
+
+.quote {
+	position: absolute;
+    z-index: 9;
+    top: 43px;
+    left: 390px;
+	color: darkgray;
+    font-size: 12px;
+}
+
+/*******dropdown*****/
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: white;
+  min-width: 197px;
+  text-decoration: none;
+  box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.2);
+  z-index: 9;
+  left: 42px;
+  top: 70px;
+  color: gray;
+  border-radius: 6px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: gray;
+  padding: 17px 16px;
+  font-weight: bold;
+  font-size: 15px;
+  display: block;
+  z-index: 8;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #ddd;
+	text-decoration: none;
+}
+
+.linktext {
+	position: relative;
+	top: 0px;
+}
+
+#dropdownaccount {
+	color: darkgray;
+	filter: drop-shadow(0.5px 0.5px 0.5px gray);
+	opacity: 0.7;
+	margin-right: 9px;
+}
+
+#dropdowninfo {
+	color: darkgray;
+	filter: drop-shadow(0.5px 0.5px 0.5px gray);
+	opacity: 0.7;
+	margin-right: 9px;
+}
+
+#dropdownfeedback {
+	color: darkgray;
+	filter: drop-shadow(0.5px 0.5px 0.5px gray);
+	opacity: 0.7;
+	margin-right: 9px;
+}
+
+#dropdownexit {
+	color: darkgray;
+	filter: drop-shadow(0.5px 0.5px 0.5px gray);
+	opacity: 0.7;
+	margin-right: 9px;
+}
+
+.show {
+	display:block;
+}
+
+#popupbuttondiv {
+	position: relative;
+	top: 11px;
+	left: 13px;
+	color: #f95288;
+	background: none;
+	filter: drop-shadow(1px 1px 1px #f95288) brightness(108%);
+	border: 0px solid black;
+
+}
+
+#popupbutton {
+	position: relative;
+	top: -35px;
+	left: 0px;
+	width: 55px;
+	height: 55px;
+	opacity: 0;
+}
+
+#popupmenu {
+	border: 0px solid #777;
+	box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.2), 0 0.5px 2px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 6px;
+	background-color: white;
+	display: inline-block;
+	color: gray;
+	width: 55px;
+	height: 55px;
+	position: absolute;
+	top: 6px;
+	left: 10px;
+	font-size: 16px;
+
+}
+
+
+
+#popupmenu:hover {
+	opacity: 0.8;
+}
+
+/************************************************start scrollbar************************************************************/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2.5px lightgray; 
+  border-radius: 0px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: lightgray; 
+  border-radius: 0px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: lightgray; 
+  opacity: 0.9;
+}
+
+/***************************main content**************************/
+
+#maincontent {
+	border:  0px solid black;
+	height: auto;
+	width: 1210px;
+	position: relative;
+}
+
+.blocks {
+	background-color: white;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	border-radius: 6px;   
+  	margin-top: 93px;
+ 	position: relative;
+  	left: 205px;
+}
+
+/*********************************start nav styling*********************************************************************************************/
+#sidebar {
+    position: absolute;
+    border: 0px solid black;
+    width: 220px;
+    height: calc(100% - 121px);
+    left: -8px;
+    top: 91px;
+}
+
+.mainnav {
+	background-color: white;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2); 
+	border-radius: 6px;
+	width: 210px;
+	height: 270px;
+  	top: 252px;
+  	left: 0px;
+	position: sticky;
+}
+
+.uppernavtrans {
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
+	border-radius: 6px;
+	width: 210px;
+	height: 270px;
+  top: 93px;
+  left: 0px;
+	position: sticky;
+}
+
+.navbuttons {
+	border: 0px solid black;
+	background-color: white;
+	text-align: left;
+	font-weight: bold;
+	width: 193px;
+	height: 66px;
+	display: inline-block;
+	outline: none;
+
+}
+
+.navbuttons:hover {
+	text-decoration: none;
+}
+
+.navbuttondiv {
+	margin-top: 8px;
+}
+
+.navbuttonh3 {
+	margin-bottom: 0px; 
+	margin-top: 6px;
+	display: inline;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.navbuttonicon {
+	display: inline; 
+	margin-right: 10px;
+	vertical-align: middle;
+	opacity: 0.5;
+
+}
+
+.stylebuttonwrapper:hover .navbuttondiv .navbuttonicon {
+	opacity: 1;
+}
+
+.navbuttonsubtext {
+	margin-left: 48px;
+}
+
+
+.mainblocknav button.active {
+  background-color: #ccc;
+}
+
+.active .stylebuttonwrapper .navbuttondiv {
+	color: #f95288;
+	filter: brightness(112%);
+
+}
+
+.active .stylebuttonwrapper .navbuttondiv .navbuttonicon {
+	color: #f95288;
+	opacity: 1;
+}
+
+#squabblebutton {
+	color: gray;
+}
+
+#squabblebutton:hover {
+	color: #f95288;
+	opacity: 1;
+}
+
+#profilebutton {
+	color: gray;
+}
+
+#profilebutton:hover {
+	color: #f95288;
+	opacity: 1;
+}
+
+#otherbutton {
+	color: gray;
+}
+
+#otherbutton:hover {
+	color: #f95288;
+	opacity: 1;
+}
+
+#feedbutton {
+	color: gray;
+}
+
+#feedbutton:hover {
+	color: #f95288;
+	opacity: 1;
+}
+
+/********************************************************************** stream styling **********************/
+
+#stream {
+	left: 915px;
+	top: 91px;
+	position: absolute;
+	z-index: 1;
+}
+
+.streambubble {
+    position: relative;
+    width: 288px;
+    min-height: 0px;
+    border: 0px solid black;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.streambubblepictureblock {
+    position: absolute;
+    border: 0px solid black;
+    width: 60px;
+    height: 60px;
+    left: 15px;
+    top: 5px;
+    border-radius: 50%;
+}
+
+.streambubbleuser {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 45px;
+    top: 67px;
+    color: gray;
+}
+
+.streambubbleheaderblock {
+    position: relative;
+    width: 190px;
+    right: -88px;
+}
+
+.streambubbleheader {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    
+}
+
+.streambubbletextblock {
+    position: relative;
+    width: 175px;
+    left: 105px;
+    border: 0px solid black;
+}
+
+.streambubbletext {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+
+.streambubbletextexp {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 10; /* number of lines to show */
+           line-clamp: 10; 
+   -webkit-box-orient: vertical;   
+}
+
+.streambuboverflowblock {
+    position: absolute;
+    left: 220px;
+    bottom: 0px
+}
+
+.streambuboverflow {
+    font-size: 13px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.strmoverflowclosed {
+    color: #f95288;
+    font-size: 13px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.strmoverflowopen {
+    color: black;
+    font-size: 13px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.streambubblebottomline {
+	margin-top: 15px;
+    margin-bottom: 0px;
+	position: relative;
+	z-index: 9;
+	height: 0.5px;
+	filter: brightness(112%);
+	background-color: lightgray;
+}
+
+#notificationdiv {
+	background-color: white;
+	border-radius: 0px;
+	position: absolute;
+	width: 298px;
+	height: 422px;
+	top: 67.5px;
+	left: 0px;
+	z-index: 3;
+	overflow-y: scroll;
+}
+
+.activeside {
+    display: block;
+}
+
+.inactiveside {
+    display: none;
+}
+
+.openstream {
+	border-radius: 6px;
+	position: absolute;
+	height: 70px;
+	width: 148px;
+	top: 0px;
+	left: 0px;
+	border: none;
+	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+	color: #f95288;
+	filter: brightness(112%);
+	background-color: white;
+	font-weight: 800;
+
+}
+
+.openstream:hover {
+	opacity: 0.9;
+}
+
+.closedstream {
+	border-radius: 6px;
+	position: absolute;
+	height: 70px;
+	width: 148px;
+	top: 0px;
+	left: 0px;
+	border: none;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	color: gray;
+	filter: brightness(112%);
+	background-color: white;
+	font-weight: bold;
+
+}
+
+.closedstream:hover {
+	opacity: 0.9;
+}
+
+#streambutton {
+	z-index: 2;
+	top: 2px;
+	outline: none;
+	font-size: 21px;
+}
+
+#notificationbutton {
+	left: 150px;
+	z-index: 2;
+	top: 2px;
+	outline: none;
+	font-size: 19px;
+}
+
+#streamline {
+	top: 44.5px;
+	left: 0px;
+	width: 149px;
+	position: absolute;
+	z-index: 9;
+	height: 1.5px;
+	filter: brightness(112%);
+	background-color: #f95288;
+}
+
+#notifyline {
+	top: 46px;
+	left: 150px;
+	width: 149px;
+	position: absolute;
+	z-index: 9;
+	height: 0.5px;
+	filter: brightness(112%);
+	background-color: lightgray;
+}
+
+/*****************************small info start **********************/
+
+
+#profilesmall {
+    position: absolute;
+	border: 1px solid white;
+	background-color: white;
+	width: 210px;
+	height: 150px;
+	border-radius: 6px;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+    top: -159px;
+    left: 0px;
+}
+
+#profilesmallbanner {
+    position: absolute;
+    width: 210px;
+    height: 57px;
+    border-radius: 6px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: #f95288;
+    top: -1px;
+    left: -1px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+#profileimageback {
+  	position: absolute;
+	width: 72.5px;
+	height: 72.5px;
+  	background-color: white;
+	border-radius: 50%;
+	top: 14px;
+  	transform: translateX(-50%);
+  	left: 50%;
+  	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);                                          
+}
+
+#profileimage {
+	position: absolute;
+	width: 65px;
+	height: 65px;
+	border-radius: 50%;
+    top: 3.5px;
+    left: 3.5px;
+}
+
+#profilename {
+	font-weight: bold;
+	position: absolute;
+	font-size: 16px;
+	top: 87px;
+	left: 15px;
+}
+
+#profiletag {
+	color: gray;
+	position: absolute;
+	top: 117px;
+	left: 15px;
+}
+
+.postblock {
+	position: relative;
+	width: 680px;
+	min-height: 180px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	background-color: white;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	left: 205px;
+	border-radius: 6px;
+}
+
+.posttext {
+	border-radius: 6px;
+	outline: none;
+	border: 1px solid #777;
+	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
+	opacity: 0.5;
+	width: 570px;
+	min-height: 80px;
+	margin-top: 20px;
+	margin-left: 15px;
+	margin-bottom: 0px;
+	position: relative;
+	font-size: 16px;
+}
+
+.postimage {
+	display: none;
+}
+
+.postimagelabel {
+	opacity: 0.7;
+	position: absolute;
+	right: 35px;
+	top: 60px;
+}
+
+.postimagelabel:hover {
+	cursor:pointer;
+	opacity: 0.65;
+}
+
+.postsubmit {
+	border-radius: 6px;
+	outline: none;
+	border: none;
+	background-color: #f95288;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	filter: brightness(112%);
+	color: white;
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	font-weight: bold;
+	width: 100px;
+	height: 30px;
+	font-size: 16px;
+}
+
+.postclearbutton {
+	border-radius: 6px;
+	outline: none;
+	border: none;
+	background-color: black;
+	opacity: 0.7;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	filter: brightness(112%);
+	color: white;
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	font-weight: bold;
+	width: 100px;
+	height: 30px;
+	font-size: 16px;
+}
+
+/*******************small info**/
+
+#smallinfopopupclose {
+	background-color: white;
+	outline: none;
+	border: 0px;
+	right: 8px;
+	top: 8px;
+	position: absolute;
+	color: red;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#smallinfopopup {
+	position: absolute;
+	width: 640px;
+	height: 700px;
+	border: 0px solid black;
+	background-color: white;
+	z-index: 7;
+	left: 240px;
+	top: 85px;
+	border-radius: 6px;
+	display: none;
+	box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
+}
+
+#smallinfobutton:hover {
+	cursor: pointer;
+}
+
+/********************************************************footer styling****************************/
+
+footer {
+	font-family: 'Lato', sans-serif;
+}
+
+#footerborder {
+	background-color: white;
+	height: 191px;
+	color: #777;
+	margin-top: 30px;
+	text-align: center;
+}
+
+li {
+	display: inline;
+	margin-right: 8px;
+	margin-left: 8px;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+
+.footerlink {
+	color: #777;
+}
+
+.footerlink:hover {
+	color: #7777;
+}
+
+#footerlist {
+	list-style: none;
+	font-size: 14px;
+	display: inline;
+}

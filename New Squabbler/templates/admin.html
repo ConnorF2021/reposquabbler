@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Squabbler | Find Squabble{% endblock %}
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" href="{{url_for('static', filename='css/squabble.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="header">
+<div class="container-fluid" id="headertop"></div>
+	<div class="container-fluid" id="subheader">
+		<div id="popupmenu">
+			<i class="fa-solid fa-bars fa-2x popupbutton" id="popupbuttondiv"></i>
+			<div class="dropdown">
+				<button id="popupbutton" onclick="myFunction()" class="dropbtn"></button>
+			</div>
+		</div>
+ 
+		<div id="searchdiv">
+			<form>
+				<input type="text" id="searchmenu" placeholder="&#xF002; Search Squabbler" style="font-family:FontAwesome, Lato;">
+			</form>
+		</div>
+            
+		<img src="static/squabblerfavicon.png" id="squabblerimage" alt="squabbler logo"/>
+		<h4 id="headersquab">SQUABBLER</h4>
+		<div id="myDropdown" class="dropdown-content">
+			<a href="{{url_for('account')}}"><i class="fa-solid fa-user fa-lg" id="dropdownaccount"></i><span class="linktext">Account</span></a>
+			<a onclick="infoOpen('smallinfobutton')" id="smallinfobutton"><i class="fa-solid fa-circle-info fa-lg" id="dropdowninfo"></i><span class="linktext">Information</span></a>
+			<a href=""><i class="fa-solid fa-message fa-lg" id="dropdownfeedback"></i><span class="linktext">Feedback</span></a>
+			<a href="{{url_for('logout')}}"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" id="dropdownexit"></i><span class="linktext">Exit</span></a>
+		</div>
+	</div>
+        
+    <div id="uselessbarlol"></div>
+        <div id="currentheadersdiv">
+            <div id="currentheadersquab" class="topheaders currentheader">
+                <h4 class="currenttabhead">Squabbler Administration</h4>
+                <p class="quote">VENI, VIDI, VICI.</p>
+            </div>
+        </div>
+</div>
+
+	<div id="backgroundid" class="container-fluid">
+
+		<div class="container" id="maincontent">
+  
+			<div id="smallinfopopup">
+				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
+			</div>
+            <div id="sidebar">
+            
+                <div class="container mainnav" id="mainblocknav">
+                    <div id="profilesmallwrapper">
+                        <div id="profilesmall">
+                            <img src="static/connormaddieback.jpg" id="profilesmallbanner">
+                            <div id="profileimageback">
+                                <img src="static/ConnorFulbright.png" id="profileimage">
+                            </div>
+                            <h4 id="profilename">{{ fullname }}</h4>
+                            <p id="profiletag">@{{ username }}</p>
+                        </div>
+                    </div>
+                    <a href="" class="navbuttons active"><div class="stylebuttonwrapper" id="squabblebutton"><div class="navbuttondiv"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Stream</h3><br><small class="navbuttonsubtext">Adjust stream posts</small></div></div></a>
+                    <hr style="margin:0;">
+                    <a href="{{url_for('feed')}}" class="navbuttons"><div class="stylebuttonwrapper" id="feedbutton"><div class="navbuttondiv"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Users</h3><br><small class="navbuttonsubtext">See what's happening</small></div></div></a>
+                    <hr style="margin:0;">
+                    <a href="{{url_for('profile')}}" class="navbuttons"><div class="stylebuttonwrapper" id="profilebutton"><div class="navbuttondiv"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></div></div></a>	
+                    <hr style="margin:0;">
+                    <a href="{{url_for('explore')}}" class="navbuttons"><div class="stylebuttonwrapper" id="otherbutton"><div class="navbuttondiv"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></div></a>
+                </div>
+            
+            </div>
+            
+		</div>
+	</div>
+{% endblock %}

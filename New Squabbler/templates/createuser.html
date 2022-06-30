@@ -4,33 +4,34 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="https://kit.fontawesome.com/ea05a55ff2.js" crossorigin="anonymous"></script>
+	<!--<script src="https://kit.fontawesome.com/ea05a55ff2.js" crossorigin="anonymous"></script>-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+	<link rel="stylesheet" href="static/css/all.css">
 	<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='squabblerfavicon.png') }}">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  	<link rel="stylesheet" href="{{url_for('static', filename='css/createuserstylesheet.css')}}">
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+  	<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
+  	<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+  	<link rel="stylesheet" href="{{url_for('static', filename='css/createstylesheet.css')}}">
 	<title>Squabbler | Create Account</title>
 </head>
 
 <body>
 	<div id="backgroundid" class="container-fluid">
-		<div class="container">
 			<img id="squabblerlogo" src="{{url_for('static', filename='squabblerfavicon.png') }}">
-			<div id="forms" class="col-sm-6">
 				<div id="anonformbox">
 					<h3 class="formtext"><b>Join Squabbler</b></h3>
 					<p class="paratext">Protect your information and opinions.</p>
-					<form id="anonform">
-						<input required type="text" id="username" placeholder="Username">
-						<input required type="text" id="password" placeholder="Password">
-						<input required type="text" id="password2" placeholder="Re-enter password">
+					<p class="msg">{{ msg }}</p>
+					<form id="anonform" method="post">
+						<input type="text" id="fullname" name="fullname" placeholder="Full name">
+						<input type="text" id="username" name="username" placeholder="Username">
+						<input type="password" id="password" name="password" placeholder="Password">
+						<input type="password" id="password2" name="password2" placeholder="Re-enter password">
 						<input type="submit" id="aliassubmit" value="Create account" style="color:white; font-weight: bold;">
 					</form>
 
 				</div>
-			</div>
-		</div>
 	</div>
 </body>
 

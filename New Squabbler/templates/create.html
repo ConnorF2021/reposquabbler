@@ -1,0 +1,158 @@
+{% extends "base.html" %}
+{% block title %}Squabbler | Create Squabble{% endblock %}
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" href="{{url_for('static', filename='css/create.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="header">
+<div class="container-fluid" id="headertop"></div>
+	<div class="container-fluid" id="subheader">
+		<div id="popupmenu">
+			<i class="fa-solid fa-bars fa-2x popupbutton" id="popupbuttondiv"></i>
+			<div class="dropdown">
+				<button id="popupbutton" onclick="myFunction()" class="dropbtn"></button>
+			</div>
+		</div>
+ 
+		<div id="searchdiv">
+			<form>
+				<input type="text" id="searchmenu" placeholder="&#xF002; Search Squabbler" style="font-family:FontAwesome, Lato;">
+			</form>
+		</div>
+            
+		<img src="static/squabblerfavicon.png" id="squabblerimage" alt="squabbler logo"/>
+		<h4 id="headersquab">SQUABBLER</h4>
+		<div id="myDropdown" class="dropdown-content">
+			<a href="{{url_for('account')}}"><i class="fa-solid fa-user fa-lg" id="dropdownaccount"></i><span class="linktext">Account</span></a>
+			<a onclick="infoOpen('smallinfobutton')" id="smallinfobutton"><i class="fa-solid fa-circle-info fa-lg" id="dropdowninfo"></i><span class="linktext">Information</span></a>
+			<a href=""><i class="fa-solid fa-message fa-lg" id="dropdownfeedback"></i><span class="linktext">Feedback</span></a>
+			<a href="{{url_for('logout')}}"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" id="dropdownexit"></i><span class="linktext">Exit</span></a>
+		</div>
+	</div>
+        
+    <div id="uselessbarlol"></div>
+        <div id="currentheadersdiv">
+            <div id="currentheadersquab" class="topheaders currentheader">
+                <h4 class="currenttabhead">Create</h4>
+                <p class="quote">BRACCAS MEAS VESCIMINI</p>
+            </div>
+        </div>
+</div>
+
+	<div id="backgroundid" class="container-fluid">
+
+		<div class="container" id="maincontent">
+  
+			<div id="smallinfopopup">
+				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
+			</div>
+            <div id="sidebar">
+            
+                <div class="container mainnav" id="mainblocknav">
+                    <div id="profilesmallwrapper">
+                        <div id="profilesmall">
+                            <img src="static/connormaddieback.jpg" id="profilesmallbanner">
+                            <div id="profileimageback">
+                                <img src="static/ConnorFulbright.png" id="profileimage">
+                            </div>
+                            <h4 id="profilename">{{ fullname }}</h4>
+                            <p id="profiletag">@{{ username }}</p>
+                        </div>
+                    </div>
+                    <a href="{{url_for('squabble')}}" class="navbuttons"><div class="stylebuttonwrapper ffadein" id="squabblebutton"><div class="navbuttondiv"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Squabble</h3><br><small class="navbuttonsubtext">Join the conversation</small></div></div></a>
+                    <hr style="margin:0;">
+                    <a href="{{url_for('feed')}}" class="navbuttons"><div class="stylebuttonwrapper ffadein" id="feedbutton"><div class="navbuttondiv"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></div></div></a>
+                    <hr style="margin:0;">
+                    <a href="{{url_for('profile')}}" class="navbuttons"><div class="stylebuttonwrapper ffadein" id="profilebutton"><div class="navbuttondiv"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></div></div></a>	
+                    <hr style="margin:0;">
+                    <a href="{{url_for('explore')}}" class="navbuttons"><div class="stylebuttonwrapper ffadein" id="otherbutton"><div class="navbuttondiv"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></div></a>
+                </div>
+            </div>
+            <div id="menublock" class="blocks">
+	            <div id="menu">
+					<button id="solomenubutton" onclick="menuOpen('solomenubutton')" class="openfeed">Solo</button>
+					<button id="multimenubutton" onclick="menuOpen('multimenubutton')" class="closedfeed">Multi</button>
+				</div>
+			</div>
+			<div id="createblock" class="blocks">
+				<div id="solomenudiv" class="activefeed">
+					<h3 id="solomenuhead">Create Solo Squabble</h3>
+					<p id="paratext">Not reccomended for the weak of mind.</p>
+					<p style="color:red; text-align: center;">{{ msg }}</p>
+					<form method="post">
+						<input type="text" name="solotitleinput" id="solotitleinput" class="inputbars" placeholder=" Squabble Title">
+						<input type="text" name="solodescinput" id="solodescinput" class="inputbars" placeholder=" Description">
+					    <div class="multiselect">
+					    	<div class="selectBox" onclick="showCheckboxes()">
+					      	<select class="inputbars" id="soloallowed">
+					        	<option> Set user types allowed</option>
+					      	</select>
+					      	<div class="overSelect"></div>
+					    	</div>
+					    	<div id="checkboxes" class="inputbars">
+					      	<label for="one">
+					        	<input type="checkbox" id="one"/>Anonymous Users</label>
+					      	<label for="two">
+					        	<input type="checkbox" id="two"/>Basic Users</label>
+					      	<label for="three">
+					        	<input type="checkbox" id="three"/>Trusted Users</label>
+					        <label for="four">
+					        	<input type="checkbox" id="four"/>Scholarly Users</label>
+					    	</div>
+					  	</div>
+					  	<div id="solocaptchadiv" class="inputbars"></div>
+					  	<input type="submit" id="soloformsubmit" value="Create Squabble">
+					</form>
+				</div>
+				<div id="multimenudiv" class="inactivefeed">
+					<h3 id="multimenuhead">Create Multi Squabble</h3>
+					<p id="paratext">A good argument can change the mind of a spectator.</p>
+					<form action="post">
+						<input type="text" name="multititleinput" id="multititleinput" class="inputbars" placeholder=" Squabble Title">
+						<input type="text" name="multidescinput" id="multidescinput" class="inputbars" placeholder=" Description">
+					    <div class="multiselect">
+					    	<div class="selectBox" onclick="showCheckboxes()">
+					      	<select class="inputbars" id="multiallowed">
+					        	<option> Set user types allowed</option>
+					      	</select>
+					      	<div class="overSelect"></div>
+					    	</div>
+					    	<div id="checkboxes" class="inputbars">
+					      	<label for="one">
+					        	<input type="checkbox" id="one"/>Anonymous Users</label>
+					      	<label for="two">
+					        	<input type="checkbox" id="two"/>Basic Users</label>
+					      	<label for="three">
+					        	<input type="checkbox" id="three"/>Trusted Users</label>
+					        <label for="four">
+					        	<input type="checkbox" id="four"/>Scholarly Users</label>
+					    	</div>
+					  	</div>
+					  	<select class="inputbars" id="multisize">
+					  		<option>Choose a room size</option>
+					  		<option>3</option>
+					  		<option>4</option>
+					  		<option>5</option>
+					  		<option>6</option>
+					  		<option>7</option>
+					  		<option>8</option>
+					  	</select>
+					  	<div id="multicaptchadiv" class="inputbars"></div>
+					  	<input type="submit" id="multiformsubmit" value="Create Squabble">
+					</form>
+				</div>
+			</div>
+ 			<div id="stream">
+				<hr id="streamline">
+				<div id="streambackground"></div>
+				<button id="streambutton" onclick="streamOpen('streambutton')" class=" openstream">Stream</button>
+				<hr id="notifyline">
+				<button id="notificationbutton" onclick="streamOpen('notificationbutton')" class=" closedstream">Notifications</button>
+                <div id="streamdiv" class="activeside"><div class="streambubble"><img src="static/squabblerfavicon.png" class="streambubblepictureblock"><h5 class="streambubbleuser">squabbler</h5><div class="streambubbleheaderblock"><h4 class="streambubbleheader">Welcome to Squabbler</h4></div><div class="streambubbletextblock"><p class="streambubbletext streambubbletexthold">Squabbler is a pretty cool platform. This is an example admin post. The stream is used for admin posting only.</p></div><div class="streambuboverflowblock"><button class="streambuboverflow strmoverflowclosed" onclick="expandStream(this);">expand</button></div><hr class="streambubblebottomline"></div><div class="streambubble"><img src="static/johnsquabbler.jpg" class="streambubblepictureblock"><h5 class="streambubbleuser">john</h5><div class="streambubbleheaderblock"><h4 class="streambubbleheader">How to get started</h4></div><div class="streambubbletextblock"><p class="streambubbletext streambubbletexthold">It's your friend John Squabbler, providing you with</p></div><div class="streambuboverflowblock"><button class="streambuboverflow strmoverflowclosed" onclick="expandStream(this);">expand</button></div><hr class="streambubblebottomline"></div></div>
+                <div id="notificationdiv" class="inactiveside"><div class="notificationbubble"><p>this is a notification bubble</p></div></div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,251 @@
+/*****************Squabble *******************************/
+
+#squabbleblock {
+	width: 680px;
+	height: 495px;
+}
+
+.menubuttons {
+	position: absolute;
+    border: none;
+    color: white;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 6px;
+	width: 175px;
+	height: 45px;
+	transform: translate(-50%,-50%);
+	left: 50%;
+	top: 50%;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	outline: none;
+	text-align: center;
+	line-height: 45px;
+}
+
+.menubuttons:hover {
+	filter: brightness(115%);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	text-decoration: none;
+	color: white;
+}
+
+.menubuttons:active {
+	filter: brightness(115%);
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	text-decoration: none;
+	color: white;
+}
+
+.infoboxes {
+	position: absolute;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	border-radius: 6px;
+	background-color: whitesmoke;
+	width: 195px;
+	height: 260px;    
+}
+
+.displayboxes {
+    position: absolute;
+    border-radius: 6px;
+    width: 175px;
+    height: 240px;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+
+.menubuttonborders {
+    position: absolute;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+    background-color: whitesmoke;
+	border-radius: 6px;
+	width: 195px;
+	height: 65px;
+}
+
+.menuheaderbackgrounds {
+	position: absolute;
+	background-color: black;
+	height: 50px;
+	width: 175px;
+	border-radius: 6px;
+	opacity: 0.7;
+	transform: translateX(-50%);
+	left: 50%;
+}
+
+.menuheaders {
+	font-weight: bold;
+	color: white;
+	position: absolute;
+	transform: translateX(-50%);
+	left: 50%;
+}
+
+.menup {
+ 	font-weight: bold;
+	color: white;
+	position: absolute;
+	transform: translateX(-50%);
+	left: 50%;
+	width: 170px;
+	text-align: center;
+	top: 54px;
+}
+
+.menuicons {
+    position: absolute;
+	color: white;
+	transform: translateX(-50%);
+	left: 50%;
+}
+
+#soloinfo {
+	top: 20px;
+	left: 20px;
+}
+
+#solodisplay {
+	background-color: #f95288;
+}
+
+#solobuttonborder {
+	left: 20px;
+	top: 293px;
+}
+
+#soloheader {
+	top: -13px;
+}
+
+#solobutton {
+	background-color: #f95288;
+}
+
+#soloicon {
+	top: 90px;
+}
+
+#multiinfo {
+	top: 20px;
+	left: 240px;
+}
+
+#multidisplay {
+	background-color: #f95288;
+}
+
+#multibuttonborder {
+	left: 240px;
+	top: 293px;
+}
+#multiheader {
+	top: -13px;
+}
+
+#multibutton {
+	background-color: #f95288;
+}
+
+#multiicon {
+	top: 90px;
+}
+
+#createinfo {
+	top: 20px;
+	right: 20px;
+}
+
+#createdisplay {
+	background-color: #D2042D;
+}
+
+#createbuttonborder {
+	right: 20px;
+	top: 293px;
+}
+
+#createheader {
+	top: -13px;
+}
+
+#createbutton {
+	background-color: #D2042D;
+}
+
+#createicon {
+	top: 90px;
+}
+
+#spectatebutton {
+	position: absolute;
+	color: white;
+	background-color: black;
+	opacity: 0.7;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	border: none;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 6px;
+	width: 300px;
+	height: 45px;
+}
+
+#spectatebutton:hover {
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	text-decoration: none;
+	color: white;
+}
+
+#spectatebuttonborder {
+	position: absolute;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	background-color: whitesmoke;
+	border: 1px solid whitesmoke;
+	border-radius: 6px;
+	width: 320px;
+	height: 65px;
+	left: 180px;
+	top: 405px;
+	display: block;
+}
+
+
+#spectatelinebackground {
+	background-color: whitesmoke;
+	opacity: 1;
+	position: absolute;
+	left: -1px;
+	top: 375px;
+	width: 680px;
+	height: 12px;
+	box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+/***** stream adjustments **********/
+ #streambackground {
+	border: 1px solid white;
+	background-color: white;
+	border-radius: 6px;
+	width: 298px;
+	height: 617px;
+	left: 0px;
+	top: 70px;
+	position: absolute;
+	z-index: 2;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+}
+
+#streamdiv {
+	background-color: white;
+	border-radius: 0px;
+	position: absolute;
+	width: 298px;
+	height: 615px;
+	top: 67.5px;
+	left: 0px;
+	z-index: 3;
+	overflow-y: scroll;
+}

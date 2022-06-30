@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<html lang="en">
+
+<head>
+	{% block head %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<script src="https://kit.fontawesome.com/ea05a55ff2.js" crossorigin="anonymous"></script>-->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+	<link rel="stylesheet" href="static/css/all.css">
+	<link rel="icon" type="image/x-icon" href="{{url_for('static', filename='squabblerfavicon.png') }}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  	<script src="{{url_for('static', filename='js/base.js')}}"></script>
+  	<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+  	<link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
+	<title>{% block title %}{% endblock %}</title>
+	{% endblock %}
+</head>
+
+<body>
+	{% block content %}
+	{% endblock %}
+</body>
+
+<footer>
+	<div id="footerborder" class="container-fluid">
+		<ul id="footerlist">
+			<li><a href="" class="footerlink">Feedback</a></li>
+            <li><a href="https://www.fulbricked.com" class="footerlink">Fulbricked</a></li>
+			<li><a href="" class="footerlink">Squabbler Info</a></li>
+			<li><a href="" class="footerlink">Regulations</a></li>
+			<li><a href="" class="footerlink">Terms of Service</a></li>
+			<li><a href="" class="footerlink">Anonymity</a></li>
+			<li><a href="" class="footerlink">Data Rights</a></li>
+			<li><a href="" class="footerlink">Privacy Policy</a></li>
+			<li><a href="" class="footerlink">Help</a></li>
+		</ul>
+		<hr id="footerline">
+		<p>Squabbler © 2022</p>
+	</div>
+</footer>
+
+</html>

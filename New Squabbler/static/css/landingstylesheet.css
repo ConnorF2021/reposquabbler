@@ -12,7 +12,6 @@ footer {
 }
 
 #logomain {
-	border: 0px solid palevioletred;
 	top: 260px; 
 	left:250px; 
 	transform: translate(-50%, -50%);
@@ -25,25 +24,25 @@ footer {
 	top: 89px; 
 	left:130px; 
 	transform: translate(-50%, -50%);
-	filter: drop-shadow(1px 1px 1px palevioletred);
+	filter: drop-shadow(1px 1px 1px #f95288) brightness(112%);
 }
 
 #mainh1 {
 	display: inline-block;
 	font-family: 'Lato', sans-serif;
-	color: palevioletred;
+	color: #f95288;
 	position: relative; 
 	top:60px; 
 	left:165px;
 	transform: translate(-50%, -50%);
-	filter: drop-shadow(1px 1px 1px palevioletred);
+	filter: drop-shadow(1px 1px 1px #f95288) brightness(112%);
 }
 
 #subtext {
 	display: inline-block;
 	font-family: 'Lato', sans-serif;
 	position: relative; 
-	top:34px; 
+	top:37px; 
 	left:317px;
 	transform: translate(-50%, -50%);
 	width: 450px;
@@ -83,7 +82,7 @@ footer {
 }
 
 textarea:focus, input:focus {
-	outline: palevioletred;
+	outline: #f95288;
 	}
 
 #aliassubmit {
@@ -116,13 +115,14 @@ textarea:focus, input:focus {
 	left:235px;
 	transform: translate(-50%, -50%);
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
+    filter: brightness(112%);
 }
 
 
 #joinsubmit {
 	display: inline-block;
-	border: 1px solid palevioletred;
-	background-color: palevioletred;
+	border: 1px solid #f95288;
+	background-color: #f95288;
 	width: 340px;
 	height: 40px;
 	border-radius: 5px;
@@ -153,28 +153,13 @@ textarea:focus, input:focus {
 }
 
 .formtext {
-	filter: drop-shadow(0.25px 0.25px 0.25px palevioletred);
-	color: palevioletred;
+	filter: drop-shadow(0.25px 0.25px 0.25px #f95288) brightness(112%);
+	color: #f95288;
 	font-size:18px;
 }
 
 .paratext {
 	color: #777;
-}
-
-#footerborder {
-	background-color: white;
-	height: 120px;
-	color: #777;
-	margin-top: 30px;
-	text-align: center;
-
-}
-
-li {
-	display: inline;
-	margin-right: 8px;
-	margin-left: 8px;
 }
 
 a {
@@ -190,8 +175,8 @@ a:hover {
 }
 
 #forms {
-	border: 1px solid palevioletred;
-	background-color: palevioletred;
+	border: 1px solid #f95288;
+	background-color: #f95288;
 	height: 720px;
 	width: 500px;
 }
@@ -218,10 +203,42 @@ a:hover {
   content: "";
   width: 6px;
   height: 32px;
-  background: palevioletred;
+  background: #f95288;
   display: inline-block;
   margin-left: 4px;
   animation: cursor-blink 1.2s steps(2) infinite;
+}
+
+footer {
+	font-family: 'Lato', sans-serif;
+}
+
+#footerborder {
+	background-color: white;
+	height: 191px;
+	color: #777;
+	margin-top: 30px;
+	text-align: center;
+}
+
+li {
+	display: inline;
+	margin-right: 8px;
+	margin-left: 8px;
+}
+
+.footerlink {
+	color: #777;
+}
+
+.footerlink:hover {
+	color: #7777;
+}
+
+#footerlist {
+	list-style: none;
+	font-size: 14px;
+	display: inline;
 }
 
 /********** gradient button  *******************/

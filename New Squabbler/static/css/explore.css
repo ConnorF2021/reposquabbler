@@ -1,0 +1,114 @@
+/***********************************************************explore Tab **********************************************************************/
+#exploreblock {
+	width: 680px;
+	min-height: 60px;
+}
+
+#exploresearch {
+	position: relative;
+	border-radius: 6px;
+	height: 60px;
+	width: 680px;
+	left: -1px;
+	top: -1px;
+	background-color: white;
+	opacity: 0.6;
+	font-size: 19px;
+    z-index: 3;
+    outline: none;
+    border: none;
+}
+
+#explorediv {
+	background-color: whitesmoke;
+	border-radius: 6px;
+	position: relative;
+	width: 680px;
+	min-height: 405px;
+	left: 205px;
+	margin-top: 2px;
+}
+
+.explorebubble {
+	position: relative;
+	background-color: white;
+	margin-top: 5px;
+	border-radius: 6px;
+	border: none;
+	width: 680px;
+	min-height: 110px;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2); 
+}
+
+.bottomfeedbubble {
+	width: 680px;
+	height: 80px;
+	position: relative;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	background-color: white;
+	margin-top: 6px;
+	margin-bottom: 30px;
+	border-radius: 6px;
+}
+
+.botfeedbuttons {
+	transform: translateY(-50%);
+	position: absolute;
+	top: 50%;
+	width: 140px;
+	height: 30px;
+	border-radius: 6px;
+	outline: none;
+	border: none;
+	font-weight: bold;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+.feedbacktotop {
+	left: 30px;
+	background-color: black;
+	opacity: 0.6;
+	color: white;
+}
+
+.feedload {
+	right: 30px;
+	background-color: #f95288;
+	color: white;
+}
+
+.bottomfeedimg {
+	height: 55px;
+	width: 55px;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	filter: drop-shadow(0.75px 0.75px 0.75px #f95288) brightness(112%);
+}
+
+/***** stream adjustments **********/
+ #streambackground {
+	border: 1px solid white;
+	background-color: white;
+	border-radius: 6px;
+	width: 298px;
+	height: 507px;
+	left: 0px;
+	top: 70px;
+	position: absolute;
+	z-index: 2;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+}
+
+#streamdiv {
+	background-color: white;
+	border-radius: 0px;
+	position: absolute;
+	width: 298px;
+	height: 505px;
+	top: 67.5px;
+	left: 0px;
+	z-index: 3;
+	overflow-y: scroll;
+}

@@ -1,221 +1,3 @@
-body {
-	font-family: 'Lato', sans-serif;
-}
-
-#backgroundid {
-	background-color: whitesmoke;
-	min-height: 600px;
-}	
-
-#header {
-	border:  0px solid black;
-	background-color: white;
-	width: 100%;
-	height: 70px;
-	position: fixed;
-	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
-	z-index: 8;
-}
-
-#subheader {
-	border: 0px solid black;
-	width: 100%;
-	height: 70px;
-	position: relative;
-}
-
-#searchmenu {
-	border: 0px solid #777;
-	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2);
-	border-radius: 5px;
-	background-color: lightgray;
-	color: black;
-	opacity: 0.6;
-	width: 250px;
-	height: 45px;
-	position: absolute;
-	top: 12px;
-	left: 73px;
-	font-size: 16px;
-
-}
-
-#squabblerimage {
-	position: absolute;
-	top: 4px;
-	right: 116px;
-	height: 60px;
-	width: 60px;
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
-}
-
-#headersquab {
-		top: 16px;
-		right: 10px;
-		position: absolute;
-		font-weight: bold;
-		color: palevioletred;
-		filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(112%);
-}
-
-#uselessbarlol {
-    position: absolute;
-    width: 5px;
-    height: 50px;
-    border-radius: 5px;
-    filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(112%);
-    background-color: palevioletred;
-    z-index: 9;
-    top: 9px;
-    left: 355px
-}
-
-#currenttabhead {
-    position: absolute;
-    color: palevioletred;
-    font-weight: bold;
-    filter: drop-shadow(0.25px 0.25px 0.25px palevioletred) brightness(112%);
-    z-index: 9;
-    top: 8px;
-    left: 370px;
-    font-size: 20px;
-}
-
-/*******dropdown*****/
-.dropdown-content {
-  display: none;
-  position: fixed;
-  background-color: white;
-  min-width: 197px;
-  text-decoration: none;
-  box-shadow: 0px 4px 6px 0px rgba(0,0,0,0.2);
-  z-index: 9;
-  left: 42px;
-  top: 70px;
-  color: gray;
-  border-radius: 5px;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: gray;
-  padding: 17px 16px;
-  font-weight: bold;
-  font-size: 15px;
-  display: block;
-  z-index: 8;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {
-	background-color: #ddd;
-	text-decoration: none;
-}
-
-.linktext {
-	position: relative;
-	top: 0px;
-}
-
-#dropdownaccount {
-	color: darkgray;
-	filter: drop-shadow(0.5px 0.5px 0.5px gray);
-	opacity: 0.6;
-	margin-right: 9px;
-}
-
-#dropdowninfo {
-	color: darkgray;
-	filter: drop-shadow(0.5px 0.5px 0.5px gray);
-	opacity: 0.6;
-	margin-right: 9px;
-}
-
-#dropdownfeedback {
-	color: darkgray;
-	filter: drop-shadow(0.5px 0.5px 0.5px gray);
-	opacity: 0.6;
-	margin-right: 9px;
-}
-
-#dropdownexit {
-	color: darkgray;
-	filter: drop-shadow(0.5px 0.5px 0.5px gray);
-	opacity: 0.6;
-	margin-right: 9px;
-}
-
-.show {
-	display:block;
-}
-
-#popupbuttondiv {
-	position: relative;
-	top: 11px;
-	left: 13px;
-	color: palevioletred;
-	background: none;
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(108%);
-	border: 0px solid black;
-
-}
-
-#popupbutton {
-	position: relative;
-	top: -35px;
-	left: 0px;
-	width: 55px;
-	height: 55px;
-	opacity: 0;
-}
-
-#popupmenu {
-	border: 0px solid #777;
-	box-shadow: 0 0.5px 0.5px 0 rgba(0, 0, 0, 0.2), 0 0.5px 2px 0 rgba(0, 0, 0, 0.19);
-	border-radius: 5px;
-	background-color: white;
-	display: inline-block;
-	color: gray;
-	width: 55px;
-	height: 55px;
-	position: absolute;
-	top: 6px;
-	left: 10px;
-	font-size: 16px;
-
-}
-
-
-
-#popupmenu:hover {
-	opacity: 0.8;
-}
-
-/************************************************start scrollbar************************************************************/
-
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2.5px lightgray; 
-  border-radius: 0px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: lightgray; 
-  border-radius: 0px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: lightgray; 
-  opacity: 0.9;
-}
-
-
 /*****************************small info start **********************/
 
 
@@ -225,10 +7,33 @@ body {
 	background-color: white;
 	width: 210px;
 	height: 145px;
-	border-radius: 5px;
+	border-radius: 6px;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
     top: -159px;
     left: 0px;
+}
+
+#profilesmallbanner {
+    position: absolute;
+    width: 210px;
+    height: 55px;
+    border-radius: 6px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background-color: palevioletred;
+    top: -1px;
+    left: -1px;
+}
+
+#profileimageback {
+    position: absolute;
+	width: 72.5px;
+	height: 72.5px;
+    background-color: white;
+	border-radius: 50%;
+	top: 14px;
+    transform: translateX(-50%);
+    left: 50%;                                            
 }
 
 #profileimage {
@@ -236,42 +41,23 @@ body {
 	width: 65px;
 	height: 65px;
 	border-radius: 50%;
-	top: 10px;
-	left: 72.5px;
+    top: 3.5px;
+    left: 3.5px;
 }
 
 #profilename {
 	font-weight: bold;
 	position: absolute;
 	font-size: 16px;
-	top: 79px;
+	top: 82px;
 	left: 15px;
 }
 
 #profiletag {
 	color: gray;
 	position: absolute;
-	top: 109px;
+	top: 112px;
 	left: 15px;
-}
-
-/***************************main content**************************/
-
-#maincontent {
-	border:  0px solid black;
-	height: auto;
-	width: 1210px;
-	position: relative;
-}
-
-.blocks {
- 	border: 1px solid white;
-	background-color: white;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;   
-    margin-top: 93px;
-    position: relative;
-    left: 205px;
 }
 
 /*****************Squabble *******************************/
@@ -287,7 +73,7 @@ body {
     color: white;
 	font-size: 16px;
 	font-weight: bold;
-	border-radius: 5px;
+	border-radius: 6px;
 	width: 175px;
 	height: 45px;
 	top: 9px;
@@ -302,8 +88,8 @@ body {
 
 .infoboxes {
 	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	border-radius: 6px;
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
 	width: 195px;
@@ -313,7 +99,7 @@ body {
 .displayboxes {
     position: absolute;
     box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
-    border-radius: 5px;
+    border-radius: 6px;
     width: 175px;
     height: 240px;
     left: 9px;
@@ -322,10 +108,10 @@ body {
 
 .menubuttonborders {
     position: absolute;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
     background-color: whitesmoke;
 	border: 1px solid whitesmoke;
-	border-radius: 5px;
+	border-radius: 6px;
 	width: 195px;
 	height: 65px;
 }
@@ -338,7 +124,7 @@ body {
 	height: 50px;
 	width: 175px;
 	left: -1px;
-	border-radius: 5px;
+	border-radius: 6px;
 	opacity: 0.6;
 }
 
@@ -387,7 +173,7 @@ body {
 
 #solobutton {
 	background-color: palevioletred;
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
+	filter: brightness(112%);
 }
 
 #soloicon {
@@ -422,7 +208,7 @@ body {
 
 #multibutton {
 	background-color: palevioletred;
-	filter: drop-shadow(1px 1px 1px palevioletred) brightness(112%);
+	filter: brightness(112%);
 }
 
 #multiicon {
@@ -469,11 +255,11 @@ body {
 	color: white;
 	background-color: black;
 	opacity: 0.6;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
 	border: none;
 	font-size: 16px;
 	font-weight: bold;
-	border-radius: 5px;
+	border-radius: 6px;
 	width: 300px;
 	height: 45px;
 	top: 9px;
@@ -486,10 +272,10 @@ body {
 
 #spectatebuttonborder {
 	position: absolute;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	background-color: whitesmoke;
 	border: 1px solid whitesmoke;
-	border-radius: 5px;
+	border-radius: 6px;
 	width: 320px;
 	height: 65px;
 	left: 180px;
@@ -511,7 +297,7 @@ body {
 /***********************************************************Profile Tab **********************************************************************/
 #profileblock {
 	width: 680px;
-	min-height: 495px;
+	min-height: 370px;
 }
 
 #profilebackgroundimg {
@@ -519,8 +305,10 @@ body {
     left: -1px;
     top: -1px;
     width: 680px;
-    height: 200px;
-    border-radius: 5px;
+    height: 185px;
+    border-radius: 6px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
     z-index: 3;
     background-color: palevioletred;
 }
@@ -533,9 +321,9 @@ body {
     border: 0px solid black;
     background-color: white;
     z-index: 5;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
+    top: 107px;
     left: 50%;
-    top: 39%;
 }
 
 #profbackimg {
@@ -544,25 +332,131 @@ body {
     height: 140px;
     border: 0px solid black;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
+    top: 5px;
     left: 50%;
-    top: 50%; 
     z-index: 5;
 }   
 
 #profname {
     position: absolute;
     top: 210px;
-    left: 45px;
+    left: 35px;
     font-weight: bold;
-    font-size: 20px
+    font-size: 22px
 }
 
 #proftag {
     position: absolute;
-    top: 245px;
-    left: 45px;
+    top: 248px;
+    left: 35px;
     color: gray;
+}
+
+#proffollowers {
+    position: absolute;
+    top: 280px;
+    left: 35px;
+}
+
+#proffollowing {
+    position: absolute;
+    top: 280px;
+    left: 130px;
+}
+
+#profsite {
+    position: absolute;
+    top: 312px;
+    left: 35px;
+    color: gray;
+}
+
+#profdesc {
+    color: black;
+	position: relative;
+	margin-top: 345px;
+	left: 35px;
+    width: 450px;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.postblock {
+	position: relative;
+	width: 680px;
+	min-height: 180px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	left: 205px;
+	border-radius: 6px;
+}
+
+.posttext {
+	border-radius: 6px;
+	outline: none;
+	border: none;
+	background-color: whitesmoke;
+	width: 570px;
+	min-height: 80px;
+	margin-top: 20px;
+	margin-left: 15px;
+	margin-bottom: 0px;
+	position: relative;
+	font-size: 16px;
+}
+
+.postimage {
+	display: none;
+}
+
+.postimagelabel {
+	opacity: 0.7;
+	position: absolute;
+	right: 35px;
+	top: 60px;
+}
+
+.postimagelabel:hover {
+	cursor:pointer;
+	opacity: 0.65;
+}
+
+.postsubmit {
+	border-radius: 6px;
+	outline: none;
+	border: none;
+	background-color: palevioletred;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	filter: brightness(112%);
+	color: white;
+	position: absolute;
+	bottom: 15px;
+	right: 15px;
+	font-weight: bold;
+	width: 100px;
+	height: 30px;
+	font-size: 16px;
+}
+
+.postclearbutton {
+	border-radius: 6px;
+	outline: none;
+	border: none;
+	background-color: black;
+	opacity: 0.6;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	filter: brightness(112%);
+	color: white;
+	position: absolute;
+	bottom: 15px;
+	left: 15px;
+	font-weight: bold;
+	width: 100px;
+	height: 30px;
+	font-size: 16px;
 }
 
 #editprofbuttonback {
@@ -570,13 +464,29 @@ body {
     width: 135px;
     height: 40px;
     background-color: whitesmoke;
-    border-radius: 5px;
+    border-radius: 6px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+#successmsg {
+	color: green;
+	position: relative;
+	z-index: 4;
+	margin-top: 470px;
+	margin-left: 30px;
+}
+
+#failmsg {
+	color: red;
+	position: relative;
+	z-index: 4;
+	margin-top: 470px;
+	margin-left: 30px;
 }
 
 .editprofbutclose {
     filter: brightness(112%);
-    right: 65px;
+    right: 35px;
     width: 120px;
     height: 30px;
     background-color: palevioletred;
@@ -595,9 +505,9 @@ body {
     position: absolute;
     outline: none;
     border: none;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-    top: 220px;
+    border-radius: 6px;
+    box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+    top: 210px;
 }
 
 #saveprofedit {
@@ -606,9 +516,9 @@ body {
     position: absolute;
     outline: none;
     border: none;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-    top: 220px;
+    border-radius: 6px;
+    box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+    top: 210px;
     background-color: lawngreen;
     right: 40px;
     width: 80px;
@@ -624,11 +534,13 @@ body {
     left: -1px;
     top: -1px;
     width: 680px;
-    height: 200px;
-    border-radius: 5px;
+    height: 185px;
+    border-radius: 6px;
     z-index: 4;
     background-color: black;
     opacity: 0.4;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 #changebannerback:hover {
@@ -638,7 +550,7 @@ body {
 #changebannericon {
     position: absolute;
     left: 320px;
-    top: 40px;
+    top: 35px;
     color: white;
     z-index: 6;
     opacity: 0.9;
@@ -656,7 +568,7 @@ body {
     border-radius: 50%;
     background-color: black;
     left: 270px;
-    top: 122px;
+    top: 112px;
     opacity: 0.4;
     z-index: 5;
 }
@@ -670,7 +582,7 @@ body {
     color: white;
     z-index: 6;
     left: 327px;
-    top: 175px;
+    top: 170px;
     opacity: 0.9;
 }
 
@@ -683,77 +595,181 @@ body {
 #changename {
     position: absolute;
     top: 220px;
-    left: 30px;
+    left: 20px;
     height: 40px;
-    border-radius: 5px; 
+    border-radius: 6px; 
     border: none;
     outline: none;
     background-color: whitesmoke;
-    box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
 }
 
 #changeuser {
     position: absolute;
     top: 270px;
-    left: 30px;
+    left: 20px;
     height: 40px;
-    border-radius: 5px; 
+    border-radius: 6px; 
     border: none;
     outline: none;
     background-color: whitesmoke;
-    box-shadow: inset 0 0.5px 1px 0 rgba(0,0,0,0.2);
 }
 
 #changesite {
     position: absolute;
     top: 320px;
-    left: 30px;
+    left: 20px;
     height: 40px;
-    border-radius: 5px; 
+    border-radius: 6px; 
     border: none;
     outline: none;
     background-color: whitesmoke;
-    box-shadow: inset 0 0.5px 1px 0 rgba(0,0,0,0.2);
 }
 
 #changedesc {
     position: absolute;
-    top: 370px;
-    left: 30px;
+    top: 375px;
+    left: 20px;
     height: 100px;
+    width: 435px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background-color: whitesmoke;
 }
 
 /***********************************************************explore Tab **********************************************************************/
 #exploreblock {
 	width: 680px;
-	height: 495px;
-}
-
-#explorediv {
-	border: 0px solid black;
-	background-color: white;
-	border-radius: 5px;
-	position: absolute;
-	width: 680px;
-	height: 385px;
-	left: 0px;
-	bottom: 5px;
-	overflow-y: scroll;
+	min-height: 60px;
 }
 
 #exploresearch {
-	position: absolute;
-	border: 0px solid black;
-	border-radius: 5px;
-	height: 55px;
+	position: relative;
+	border-radius: 6px;
+	height: 60px;
 	width: 680px;
-	left: 0px;
-	top: 0px;
-	box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-	background-color: lightgray;
+	left: -1px;
+	top: -1px;
+	background-color: white;
 	opacity: 0.6;
 	font-size: 19px;
     z-index: 3;
+    outline: none;
+    border: none;
+}
+
+#explorediv {
+	background-color: whitesmoke;
+	border-radius: 6px;
+	position: relative;
+	width: 680px;
+	min-height: 405px;
+	left: 205px;
+	margin-top: 2px;
+}
+
+.explorebubble {
+	position: relative;
+	background-color: white;
+	margin-top: 5px;
+	border-radius: 6px;
+	border: none;
+	width: 680px;
+	min-height: 110px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
+}
+
+/**************************************squabble blocks************************************/
+
+#soloblock {
+	width: 490px;
+	height: 70px;
+	margin-bottom: 3px;
+}
+
+#solosearch {
+}
+
+.sideblocks {
+	height: 70px;
+	width: 185px;
+	position: absolute;
+	left: 715px;
+	top: 93px;
+	background-color: white;
+	border-radius: 6px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
+}
+
+.squabbletype {
+	position: absolute;
+	outline: none;
+	width: 165px;
+	left: 10px;
+	top: 10px;
+	border: none;
+	background-color: whitesmoke;
+	border-radius: 6px;
+}
+
+.squabblesearch {
+	width: 468px;
+	height: 68px;
+	top: 1px;
+	left: 1px;
+	border-radius: 6px;
+	outline: none;
+	opacity: 0.6;
+	border: none;
+	position: relative;
+	background-color: white;
+}
+
+.squabblesubmit {
+	position: absolute;
+	border-radius: 6px;
+	border: none;
+	outline: none;
+	background-color: palevioletred;
+	filter: brightness(112%);
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	bottom: 10px;
+	left: 10px;
+	height: 25px;
+	width: 165px;
+	color: white;
+	font-weight: bold;
+}
+
+.squabbledivs {
+	background-color: whitesmoke;
+	border-radius: 6px;
+	position: relative;
+	width: 680px;
+	min-height: 405px;
+	left: 205px;
+	margin-top: 2px;
+}
+
+.squabblebubbles {
+	position: relative;
+	background-color: white;
+	margin-top: 5px;
+	border-radius: 6px;
+	border: none;
+	width: 680px;
+	min-height: 150px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
+}
+
+#multiblock {
+	width: 680px;
+	height: 495px;
+}
+
+#createblock {
+	width: 680px;
+	height: 495px;
 }
 
 /*********************************start nav styling*********************************************************************************************/
@@ -761,30 +777,31 @@ body {
     position: absolute;
     border: 0px solid black;
     width: 220px;
-    height: 86%;
-    left: -5px;
+    height: calc(100% - 121px);
+    left: -8px;
     top: 91px;
 }
 
 .mainnav {
 	background-color: white;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
-	border-radius: 5px;
+	border-radius: 6px;
 	width: 210px;
 	height: 270px;
     top: 252px;
-    left: -5px;
+    left: 0px;
 	position: sticky;
 }
 
 .uppernavtrans {
-	border: 1px solid white;
 	background-color: white;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2); 
-	border-radius: 5px;
+	border-radius: 6px;
 	width: 210px;
 	height: 270px;
-	position: fixed;
+    top: 93px;
+    left: 0px;
+	position: sticky;
 }
 
 .navbuttons {
@@ -818,7 +835,7 @@ body {
 
 }
 
-.navbuttonicon:hover {
+.stylebuttonwrapper:hover .navbuttondiv .navbuttonicon {
 	opacity: 1;
 }
 
@@ -891,24 +908,24 @@ body {
 	left: 131px;
 	border: 0px solid black;
 	background-color: whitesmoke;
-	border-radius: 5px;
+	border-radius: 6px;
 	width: 413px;
 	height: 57px;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	z-index: 4;
 }
 
 #feeddiscover {
 	font-weight: bold;
 	color: white;
-	left: 7px;
+	left: 5px;
 }
 
 .openfeed {
-	border-radius: 5px;
+	border-radius: 6px;
 	position: absolute;
 	height: 48px;
-	width: 190px;
+	width: 195px;
 	margin-top: 4px;
 	left: 10px;
 	border: none;
@@ -917,6 +934,7 @@ body {
 	filter: brightness(112%);
 	opacity: 1;
     font-size: 16px;
+    outline: none;
 }
 
 .openfeed:hover {
@@ -924,10 +942,10 @@ body {
 }
 
 .closedfeed {
-	border-radius: 5px;
+	border-radius: 6px;
 	position: absolute;
 	height: 48px;
-	width: 190px;
+	width: 195px;
 	margin-top: 4px;
 	left: 10px;
 	border: none;
@@ -935,6 +953,7 @@ body {
 	background-color: black;
 	opacity: 0.6;
     font-size: 16px;
+    outline: none;
 }
 
 .closedfeed:hover {
@@ -942,13 +961,13 @@ body {
 }
 
 #feedfollowing {
-	left: 215px;
+	left: 213px;
 	font-weight: bold;
 	color: white;
 }
 .feeddiv {
 	background-color: whitesmoke;
-	border-radius: 5px;
+	border-radius: 6px;
 	position: relative;
 	width: 680px;
 	min-height: 405px;
@@ -971,9 +990,58 @@ body {
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	background-color: white;
 	margin-top: 6px;
-	border-radius: 5px;
+	border-radius: 6px;
 
 }
+
+.bottomfeedbubble {
+	width: 680px;
+	height: 80px;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	background-color: white;
+	margin-top: 6px;
+	margin-bottom: 30px;
+	border-radius: 6px;
+}
+
+.botfeedbuttons {
+	transform: translateY(-50%);
+	position: absolute;
+	top: 50%;
+	width: 140px;
+	height: 30px;
+	border-radius: 6px;
+	outline: none;
+	border: none;
+	font-weight: bold;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+.feedbacktotop {
+	left: 30px;
+	background-color: black;
+	opacity: 0.6;
+	color: white;
+}
+
+.feedload {
+	right: 30px;
+	background-color: palevioletred;
+	color: white;
+	filter: brightness(112%);
+}
+
+.bottomfeedimg {
+	height: 55px;
+	width: 55px;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	filter: drop-shadow(0.75px 0.75px 0.75px palevioletred) brightness(112%);
+}
+
 
 /********************************************************************** stream styling **********************/
 
@@ -987,9 +1055,9 @@ body {
 #streambackground {
 	border: 1px solid white;
 	background-color: white;
-	border-radius: 5px;
+	border-radius: 6px;
 	width: 298px;
-	height: 426px;
+	height: 617px;
 	left: 0px;
 	top: 70px;
 	position: absolute;
@@ -1002,7 +1070,7 @@ body {
 	border-radius: 0px;
 	position: absolute;
 	width: 298px;
-	height: 422px;
+	height: 615px;
 	top: 67.5px;
 	left: 0px;
 	z-index: 3;
@@ -1134,7 +1202,7 @@ body {
 }
 
 .openstream {
-	border-radius: 5px;
+	border-radius: 6px;
 	position: absolute;
 	height: 70px;
 	width: 148px;
@@ -1154,7 +1222,7 @@ body {
 }
 
 .closedstream {
-	border-radius: 5px;
+	border-radius: 6px;
 	position: absolute;
 	height: 70px;
 	width: 148px;
@@ -1215,100 +1283,12 @@ body {
 	border: 1px solid white;
 	background-color: white;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	border-radius: 5px;
-	width: 680px;
-	height: 175px;
-	top: 0px;
-	left: 205px;
-	margin-top: 20px;
-	margin-bottom: 30px;
-	position: relative;
-	display: inline-block;
-}
-
-.botmainborders {
-	border: 1px solid whitesmoke;
-	border-radius: 5px;
-	background-color: whitesmoke;
+	border-radius: 6px;
+	width: 298px;
+	min-height: 100px;
+	left: 915px;
+	top: 601px;
 	position: absolute;
-	height: 130px;
-	width: 210px;
-	box-shadow:  0 1px 2px 0 rgba(0,0,0,0.2);
-}
-
-.botmaininterior {
-    border: 1px solid lightgray;
-	border-radius: 5px;
-	background-color: lightgray;
-	position: absolute;
-	left: 9px;
-	top: 10px;
-	height: 110px;
-	width: 190px;
-	box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
-}
-
-.botmainheadback {
-	position: absolute;
-	top: 72px;
-	border: 1px solid black;
-	background-color: black;
-	height: 37px;
-	width: 190px;
-	left: -1px;
-	border-radius: 5px;
-	opacity: 0.6;
-}
-
-.botbuttonborders {
- 	position: absolute;
-	width: 190px;
-	height: 50px;
-    border: 1px solid whitesmoke;
-	background-color: whitesmoke;
-	border-radius: 5px;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-}
-
-.botmainhead {
-  	font-weight: bold;
-	color: white;
-	position: absolute;
-	top: 70px;  
-}
-
-#accounttype {
-    right: 20px;
-	top: 20px;
-}
-
-#accounttypeheader {
-	left: 54px;
-}
-
-#credentials {
-	left: 20px;
-	top: 20px;
-}
-
-#credentialscroll {
-	border: 0px solid black;
-	border-radius: 5px;
-	position: absolute;
-	left: -1px;
-	top: -1px;
-	height: 72px;
-	width: 190px;
-}
-
-#credentialsheader {
-	left: 43px;
-}
-
-#hidebuttonblock {
-	position: absolute;
-	left: 245px;
-	top: 90px;
 }
 
 #hidebutton {
@@ -1316,12 +1296,14 @@ body {
 	opacity: 0.6;
 	outline: none;
 	border: 0px solid lightgray;
-	border-radius: 5px;
-	position: absolute;
+	border-radius: 6px;
+	position: relative;
 	height: 30px;
-	width: 170px;
-	left: 9px;
-	top: 10px;
+	width: 210px;
+	transform: translate(-50%);
+	left: 50%;
+	margin-top: 10px;
+	margin-bottom: 20px;
 	z-index: 4;
 	font-weight: bold;
 	color: white;
@@ -1332,21 +1314,18 @@ body {
 	opacity: 0.5;
 }
 
-#smallinfobuttonbackground {
-	top: 30px;
-	left: 245px;
-}
 
 .info {
-	width: 170px;
+	width: 210px;
 	height: 30px;
-	position: absolute;
-	top: 9px;
-	left: 9px;
+	position: relative;
+	margin-top: 15px;
+	transform: translate(-50%);
+	left: 50%;
     font-size: 14px;
 	color: white;
 	font-weight: bold;
-	border-radius: 5px;
+	border-radius: 6px;
 	border: 0px;
 	outline: none;
     box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
@@ -1372,17 +1351,20 @@ body {
 	opacity: 0.5;
 }
 
+#smallinfobutton:hover {
+	cursor: pointer;
+}
 
 #smallinfopopup {
 	position: absolute;
 	width: 640px;
-	height: 580px;
+	height: 700px;
 	border: 0px solid black;
 	background-color: white;
 	z-index: 7;
 	left: 240px;
 	top: 85px;
-	border-radius: 5px;
+	border-radius: 6px;
 	display: none;
 	box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
 }
@@ -1397,6 +1379,41 @@ body {
 	color: red;
 	font-weight: bold;
 	font-size: 18px;
+}
+
+#sessionbackground {
+	width: 100%;
+	border:  0px solid black;
+	min-height: 40px;
+	position: relative;
+}
+
+#bottomblockline {
+	top: 24.5px;
+	left: 0px;
+	width: 100%;
+	position: absolute;
+	z-index: 9;
+	height: 1.5px;
+	filter: brightness(112%);
+	background-color: palevioletred;
+}
+
+#sessionhead {
+	position: relative;
+	font-weight: bold;
+	text-align: center;
+	color: palevioletred;
+	filter: brightness(112%);
+	margin-top: 12px;
+}
+
+#credentialsbackground {
+	width: 100%;
+	border:  0px solid black;
+	height: auto;
+	position: relative;
+	margin-top: 5px;
 }
 
 /********************************************************footer styling****************************/

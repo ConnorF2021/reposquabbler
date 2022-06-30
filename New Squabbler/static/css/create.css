@@ -1,0 +1,288 @@
+#createblock {
+	width: 680px;
+	min-height: 485px;
+	margin-bottom: 30px;
+	background-color: white;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	border-radius: 6px;   
+  	margin-top: 10px;
+ 	position: relative;
+  	left: 205px;
+}
+
+#menublock {
+	width: 680px;
+	height: 80px;
+}
+
+#menu {
+	position: absolute;
+	top: 10px;
+	left: 131px;
+	border: 0px solid black;
+	background-color: whitesmoke;
+	border-radius: 6px;
+	width: 413px;
+	height: 57px;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	z-index: 4;
+}
+
+#solomenubutton {
+	font-weight: bold;
+	color: white;
+	left: 5px;
+}
+
+.openfeed {
+	border-radius: 6px;
+	position: absolute;
+	height: 48px;
+	width: 195px;
+	margin-top: 4px;
+	left: 10px;
+	border: none;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	background-color: #f95288;
+	filter: brightness(112%);
+	opacity: 1;
+    font-size: 18px;
+    outline: none;
+}
+
+.openfeed:hover {
+	opacity: 0.9;
+}
+
+.closedfeed {
+	border-radius: 6px;
+	position: absolute;
+	height: 48px;
+	width: 195px;
+	margin-top: 4px;
+	left: 10px;
+	border: none;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	background-color: black;
+	opacity: 0.7;
+    font-size: 18px;
+    outline: none;
+}
+
+.closedfeed:hover {
+	opacity: 0.5;
+}
+
+#multimenubutton {
+	left: 213px;
+	font-weight: bold;
+	color: white;
+}
+.feeddiv {
+	background-color: whitesmoke;
+	border-radius: 6px;
+	position: relative;
+	width: 680px;
+	min-height: 405px;
+	left: 205px;
+	margin-top: 2px;
+}
+
+.activefeed {
+	display: inline-block;
+}
+
+.inactivefeed {
+	display: none;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: none;
+  background-color: white;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+.inputbars {
+	width: 560px;
+	position: relative;
+	left: 60px;
+	border-radius: 6px;
+	border: none;
+	margin-top: 12px;
+}
+
+#solotitleinput {
+	height: 65px;
+	border: 1px solid #777;
+	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
+	opacity: 0.5;
+	font-size: 20px;
+}
+
+#solodescinput {
+	height: 140px;
+	border: 1px solid #777;
+	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
+	opacity: 0.5;
+	font-size: 17px;
+}
+
+#soloallowed {
+	height: 55px;
+	color: gray;
+	border: 1px solid #777;
+	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
+	opacity: 0.5;
+	font-size: 17px;
+}
+
+#soloallowedchecks {
+}
+
+#soloformsubmit {
+	position: relative;
+	left: 20px;
+	border-radius: 6px;
+	border: none;
+	background-color: lightgreen;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	color: white;
+	width: 640px;
+	height: 45px;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+#solocaptchadiv {
+	height: 80px;
+	background-color: white;
+}
+
+#solomenuhead {
+	font-weight: bold;
+	color: #f95288;
+	filter: brightness(112%) drop-shadow(0.25px 0.25px 0.25px #f95288);
+	text-align: center;
+}
+
+#paratext {
+	color: #777;
+	text-align: center;
+}
+
+#multititleinput {
+	height: 65px;
+	border: 1px solid #777;
+	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
+	opacity: 0.5;
+}
+
+#multidescinput {
+	height: 140px;
+	border: 1px solid #777;
+	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
+	opacity: 0.5;
+}
+
+#multiallowed {
+	height: 55px;
+	color: gray;
+	border: 1px solid #777;
+	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
+	opacity: 0.5;
+}
+
+#multiallowedchecks {
+}
+
+#multisubmitbuttondiv {
+	height: 70px;
+	margin-bottom: 20px;
+	background-color: whitesmoke;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+#multiformsubmit {
+	position: relative;
+	left: 20px;
+	border-radius: 6px;
+	border: none;
+	background-color: lightgreen;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	color: white;
+	width: 640px;
+	height: 45px;
+	font-weight: bold;
+	font-size: 18px;
+	margin-bottom: 20px;
+}
+
+#multicaptchadiv {
+	height: 80px;
+	background-color: white;
+}
+
+#multimenuhead {
+	font-weight: bold;
+	color: #f95288;
+	filter: brightness(112%) drop-shadow(0.25px 0.25px 0.25px #f95288);
+	text-align: center;
+}
+
+#multisize {
+	height: 40px;
+	background-color: white;
+	border: 1px solid #777;
+	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
+	opacity: 0.5;
+}
+
+/***** stream adjustments **********/
+ #streambackground {
+	border: 1px solid white;
+	background-color: white;
+	border-radius: 6px;
+	width: 298px;
+	height: 507px;
+	left: 0px;
+	top: 70px;
+	position: absolute;
+	z-index: 2;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+#streamdiv {
+	background-color: white;
+	border-radius: 0px;
+	position: absolute;
+	width: 298px;
+	height: 505px;
+	top: 67.5px;
+	left: 0px;
+	z-index: 3;
+	overflow-y: scroll;
+}
