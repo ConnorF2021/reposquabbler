@@ -1,13 +1,13 @@
 {% extends "base.html" %}
-{% block title %}Squabbler | Feed{% endblock %}
+{% block title %}Squabbler | {{ otherusername }}{% endblock %}
 {% block head %}
 	{{ super() }}
-	<link rel="stylesheet" href="{{url_for('static', filename='css/feed.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/otherprofiles.css')}}">
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid" id="header">
-<div class="container-fluid" id="headertop"></div>
+	<div class="container-fluid" id="headertop"></div>
 	<div class="container-fluid" id="subheader">
 		<div id="popupmenu">
 			<i class="fa-solid fa-bars fa-2x popupbutton" id="popupbuttondiv"></i>
@@ -34,9 +34,9 @@
         
     <div id="uselessbarlol"></div>
         <div id="currentheadersdiv">
-            <div id="currentheaderfeed" class="topheaders currentheader">
-                <h4 class="currenttabhead">Feed</h4>
-                <p class="quote">DICTUM FACTUM</p>
+            <div id="currentheaderprofile" class="topheaders currentheader">
+                <h4 class="currenttabhead">{{ othername }}'s Profile</h4>
+                <p class="quote">NIMIUM NE CREDE COLORI</p>
             </div>
         </div>
 </div>
@@ -48,6 +48,7 @@
 			<div id="smallinfopopup">
 				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
 			</div>
+
             <div id="sidebar">
             
                 <div class="container mainnav" id="mainblocknav">
@@ -63,7 +64,7 @@
                     </div>
                     <a href="{{url_for('squabble')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Squabble</h3><br><small class="navbuttonsubtext">Join the conversation</small></div></a>
                     <hr style="margin:0;">
-                    <a href="" class="navbuttons active"><div class="navbuttondiv ffadein"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></div></a>
+                    <a href="{{url_for('feed')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></div></a>
                     <hr style="margin:0;">
                     <a href="{{url_for('profile')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></div></a>	
                     <hr style="margin:0;">
@@ -71,127 +72,50 @@
                 </div>
             
             </div>
-
-            	<div id="feed">
-					<div id="wrapperfeeddiv" class="feeddiv">
+          
+  			<div id="profile">
+                <div class="blocks" id="profileblock">
+                    <img src="static/connormaddieback.jpg" id="profilebackgroundimg">
+                    <div id="profilebackgroundimgspace"><img src="static/ConnorFulbright.png" id="profbackimg"></div>
+                    <div id="profiledisplay" class="profileeditactive">
+                        <h4 id="profname">{{ othername }}</h4>
+                        <p id="proftag">@{{ otherusername }}</p>
+                        <p id="proffollowers"><span id="followernumber" style="color: black; font-weight: bold;">{{ otherfollowers }}</span><span style="color: gray;"> Followers</span></p>
+                        <p id="proffollowing"><span id="followingnumber" style="color: black; font-weight: bold;">{{ otherfollowing }}</span><span style="color: gray;"> Following</span></p>
+                        <a href="https://{{ site }}" id="profsite">{{ othersite }}</a>
+                        <p id="profdesc">{{ otherdesc }}</p>
+                    </div>
+                    <button id="editprofbutton" class="editprofbutclose fadein">Follow</button>
+                
+                </div>
+            <div id="wrapperfeeddiv" class="feeddiv">
 						<div id="discoverfeeddiv" class="activefeed">
-							{% if not discoverposts %}
+							{% if not posts %}
 							<div class="feedbubble" id="nopostsdiscover">
 								<div id="feedmenu">
-									<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-earth-asia"></i> Discover</button>
-									<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-user-group"></i> Following</button>
+									<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
+									<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
 								</div>
 								<div id="firstfeedline"></div>
 									<div class="postimgback postimgbackfirst"><img src="static/squabblerfavicon.png" class="postimg"></div>
 									<div class="postoptionmenu postoptionmenufirst i"></div>
 									<h4 class="postauthorname postauthornamefirst">Squabbler</h4>
 									<h5 class="postauthor postauthorfirst">@squabbler</h5>
-									<div class="postcontentdiv"><p class="postcontent postcontentfirst">No posts avaliable right now! Check back soon!</p></div>
+									<div class="postcontentdiv"><p class="postcontent postcontentfirst">{{ othername }} has not posted anything yet. Encourage them to engage in conversation!</p></div>
 									<div class="postmenu">
 										<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 69</button>
 										<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 420</button>
-										<button class="postcomment postmenubuttons fadein"><i class="fa-solid fa-comment fa-lg"></i> 0</button>
+										<button class="postcomment postmenubuttons fadein"><i class="fa-solid fa-comment fa-lg"></i></button>
 										<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
 									</div>
 								</div>
 							{% else %}
-								{% for row in discoverposts %}
+								{% for row in posts %}
 									{% if loop.first %}
 									<div class="feedbubble" id="{{ row.pid }}">
 										<div id="feedmenu">
-											<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-earth-asia"></i> Discover</button>
-											<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-user-group"></i> Following</button>
-										</div>
-										<div id="firstfeedline"></div>
-										<div class="postimgback postimgbackfirst"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
-										<button class="postoptionbutton postoptionbuttonfirst" onclick="postmenuopen({{ row.pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
-										<div class="postoptionmenu postoptionmenufirst i"></div>
-										<h4 class="postauthorname postauthornamefirst"><a href="/{{ row.author }}" class="authornamelink">{{ row.authorname }}</a></h4>
-										<h5 class="postauthor postauthorfirst"><a href="/{{ row.author }}" class="authorlink">@{{ row.author }}</a> &nbsp; {{ row.postdate }}</h5>
-										<div class="postcontentdiv"><p class="postcontent postcontentfirst">{{ row.content }}</p></div>
-										<div class="postmenu">
-											<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
-											<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
-											<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ row.pid }}); get_comments({{ row.pid }});"><i class="fa-solid fa-comment fa-lg"></i></button>
-											<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-										</div>
-										<div class="postcommentopen i" onclick="commentopen({{ row.pid }});">
-											<img class="copenimg" src="static/ConnorFulbright.png">
-											<h4 class="copentxt">Engage with post...</h4>
-										</div>
-										<div class="postcommentwrite i">
-											<img class="commentwriteimg" src="static/ConnorFulbright.png">
-											<form id="commentform" name="commentform">
-												<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
-												<input class="commentsubmit fadein" type="submit" value="Post">
-											</form>
-											<button class="commentcancel" onclick="commentcancel({{ row.pid }});">Cancel</button>
-										</div>
-									</div>
-									{% else %}
-									<div class="feedbubble" id="{{ row.pid }}">
-										<div class="postimgback"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
-										<button class="postoptionbutton" onclick="postmenuopen({{ row.pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
-										<div class="postoptionmenu i"></div>
-										<h4 class="postauthorname"><a href="/{{ row.author }}" class="authornamelink">{{ row.authorname }}</a></h4>
-										<h5 class="postauthor"><a href="/{{ row.author }}" class="authorlink">@{{ row.author }}</a> &nbsp; {{ row.postdate }}</h5>
-										<div class="postcontentdiv"><p class="postcontent">{{ row.content }}</p></div>
-										<div class="postmenu">
-											<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
-											<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
-											<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ row.pid }});"><i class="fa-solid fa-comment fa-lg"></i></button>
-											<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-										</div>
-											<div class="postcommentopen i" onclick="commentopen({{ row.pid }});">
-												<img class="copenimg" src="static/ConnorFulbright.png">
-												<h4 class="copentxt">Engage with post...</h4>
-											</div>
-											<div class="postcommentwrite i">
-												<img class="commentwriteimg" src="static/ConnorFulbright.png">
-												<form id="commentform" name="commentform">
-													<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
-													<input class="commentsubmit fadein" type="submit" value="Post">
-												</form>
-												<button class="commentcancel" onclick="commentcancel({{ row.pid }});">Cancel</button>
-											</div>
-									</div>
-									{% endif %}
-								{% endfor %}
-							<div class="bottomfeedbubble">
-								<button class="feedbacktotop botfeedbuttons fadein" onclick="window.scrollTo(0, 0);">Back to top</button>
-								<img src="static/squabblerfavicon.png" class="bottomfeedimg">
-								<button class="feedload botfeedbuttons fadein">Load more</button>
-							</div>
-							{% endif %}
-
-						</div>
-						<div id="followingfeeddiv" class="inactivefeed">
-							{% if not followingposts %}
-							<div class="feedbubble" id="nopostsdiscover">
-								<div id="feedmenu">
-									<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-earth-asia"></i> Discover</button>
-									<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-user-group"></i> Following</button>
-								</div>
-								<div id="firstfeedline"></div>
-									<div class="postimgback postimgbackfirst"><img src="static/squabblerfavicon.png" class="postimg"></div>
-									<div class="postoptionmenu postoptionmenufirst i"></div>
-									<h4 class="postauthorname postauthornamefirst">Squabbler</h4>
-									<h5 class="postauthor postauthorfirst">@squabbler</h5>
-									<div class="postcontentdiv"><p class="postcontent postcontentfirst">No posts from users that you are following avaliable right now! Follow users that you find controversial and their content will appear here!</p></div>
-									<div class="postmenu">
-										<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 69</button>
-										<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 420</button>
-										<button class="postcomment postmenubuttons fadein"><i class="fa-solid fa-comment fa-lg"></i> 0</button>
-										<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-									</div>
-								</div>
-							{% else %}
-								{% for row in followingposts %}
-									{% if loop.first %}
-									<div class="feedbubble" id="{{ row.pid }}">
-										<div id="feedmenu">
-											<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-earth-asia"></i> Discover</button>
-											<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-user-group"></i> Following</button>
+											<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
+											<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
 										</div>
 									<div id="firstfeedline"></div>
 										<div class="postimgback postimgbackfirst"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
@@ -254,11 +178,102 @@
 								<button class="feedload botfeedbuttons fadein">Load more</button>
 							</div>
 							{% endif %}
+
+						</div>
+						<div id="followingfeeddiv" class="inactivefeed">
+							{% if not posts %}
+							<div class="feedbubble" id="nopostsdiscover">
+								<div id="feedmenu">
+									<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
+									<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
+								</div>
+								<div id="firstfeedline"></div>
+									<div class="postimgback postimgbackfirst"><img src="static/squabblerfavicon.png" class="postimg"></div>
+									<div class="postoptionmenu postoptionmenufirst i"></div>
+									<h4 class="postauthorname postauthornamefirst">Squabbler</h4>
+									<h5 class="postauthor postauthorfirst">@squabbler</h5>
+									<div class="postcontentdiv"><p class="postcontent postcontentfirst">{{ othername }} has not been mentioned yet. Tag them in a post!</p></div>
+									<div class="postmenu">
+										<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 69</button>
+										<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 420</button>
+										<button class="postcomment postmenubuttons fadein"><i class="fa-solid fa-comment fa-lg"></i></button>
+										<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
+									</div>
+								</div>
+							{% else %}
+								{% for row in posts %}
+									{% if loop.first %}
+									<div class="feedbubble" id="{{ row.pid }}">
+										<div id="feedmenu">
+											<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
+											<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
+										</div>
+									<div id="firstfeedline"></div>
+										<div class="postimgback postimgbackfirst"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
+										<button class="postoptionbutton postoptionbuttonfirst" onclick="postmenuopen({{ row.pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
+										<div class="postoptionmenu postoptionmenufirst i"></div>
+										<h4 class="postauthorname postauthornamefirst"><a href="/{{ row.author }}" class="authornamelink">{{ row.authorname }}</a></h4>
+										<h5 class="postauthor postauthorfirst"><a href="/{{ row.author }}" class="authorlink">@{{ row.author }}</a> &nbsp; {{ row.postdate }}</h5>
+										<div class="postcontentdiv"><p class="postcontent postcontentfirst">{{ row.content }}</p></div>
+										<div class="postmenu">
+											<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
+											<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
+											<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ row.pid }});"><i class="fa-solid fa-comment fa-lg"></i></button>
+											<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
+										</div>
+											<div class="postcommentopen i" onclick="commentopen({{ row.pid }});">
+												<img class="copenimg" src="static/ConnorFulbright.png">
+												<h4 class="copentxt">Engage with post...</h4>
+											</div>
+											<div class="postcommentwrite i">
+												<img class="commentwriteimg" src="static/ConnorFulbright.png">
+												<form id="commentform" name="commentform">
+													<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
+													<input class="commentsubmit fadein" type="submit" value="Post">
+												</form>
+												<button class="commentcancel" onclick="commentcancel({{ row.pid }});">Cancel</button>
+											</div>
+									</div>
+									{% else %}
+									<div class="feedbubble" id="{{ row.pid }}">
+										<div class="postimgback"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
+										<button class="postoptionbutton" onclick="postmenuopen({{ row.pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
+										<div class="postoptionmenu i"></div>
+										<h4 class="postauthorname"><a href="/{{ row.author }}" class="authornamelink">{{ row.authorname }}</a></h4>
+										<h5 class="postauthor"><a href="/{{ row.author }}" class="authorlink">@{{ row.author }}</a> &nbsp; {{ row.postdate }}</h5>
+										<div class="postcontentdiv"><p class="postcontent">{{ row.content }}</p></div>
+										<div class="postmenu">
+											<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
+											<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
+											<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ row.pid }});"><i class="fa-solid fa-comment fa-lg"></i> 22</button>
+											<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
+										</div>
+											<div class="postcommentopen i" onclick="commentopen({{ row.pid }});">
+												<img class="copenimg" src="static/ConnorFulbright.png">
+												<h4 class="copentxt">Engage with post...</h4>
+											</div>
+											<div class="postcommentwrite i">
+												<img class="commentwriteimg" src="static/ConnorFulbright.png">
+												<form id="commentform" name="commentform">
+													<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
+													<input class="commentsubmit fadein" type="submit" value="Post">
+												</form>
+												<button class="commentcancel" onclick="commentcancel({{ row.pid }});">Cancel</button>
+											</div>
+									</div>
+									{% endif %}
+								{% endfor %}
+							<div class="bottomfeedbubble">
+								<button class="feedbacktotop botfeedbuttons fadein" onclick="window.scrollTo(0, 0);">Back to top</button>
+								<img src="static/squabblerfavicon.png" class="bottomfeedimg">
+								<button class="feedload botfeedbuttons fadein">Load more</button>
+							</div>
+							{% endif %}
 						</div>
 					</div>
-				</div>
+            </div>
 
- 			<div id="stream" class="">
+ 			<div id="stream">
 				<hr id="streamline">
 				<div id="streambackground"></div>
 				<button id="streambutton" onclick="streamOpen('streambutton')" class=" openstream">Stream</button>
@@ -269,47 +284,4 @@
 			</div>
 		</div>
 	</div>
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
-	<script type="text/javascript" charset="utf-8">
-	    var socket = io('http://127.0.0.1:5000');
-	    socket.on('connect', function() {
-	    });
-
-	    let commentinput = document.getElementById('commentinput');
-
-        document.getElementById('commentform').onsubmit = function (e) {
-            e.preventDefault();
-            let comment = commentinput.value.trim();
-            let postid = document.getElementById('commentform').parentElement.parentElement.id;
-            if (comment.length) {
-                socket.emit('handle_comment', {
-                    UID: "{{ UID }}",
-                    comment: comment,
-                    postid: postid
-                })
-            }
-            commentinput.value = '';
-            commentinput.focus();
-        }
-	</script>
-	<script type="text/javascript" charset="utf-8">
-		function get_comments(pid) {
-			socket.emit('get_comments', {
-				postid: pid
-			})
-		}
-
-		socket.on('recieve_comments', function (a) {
-			console.log(a);
-			var comments = JSON.parse(a);
-			console.log(comments);
-            for (var i in comments) {
-            	const newNode = document.createElement('div');
-            	newNode.setAttribute('class','postcomments');
-            	newNode.innerHTML = `<h4 class="">Author Name</h4><p class="postcommentcontent">${comments[i].content}</p><p class="postcommentdate">${comments[i].postdate}</p>`;
-            	document.getElementById(41).appendChild(newNode);
-            }
-	    });
-	</script>
 {% endblock %}

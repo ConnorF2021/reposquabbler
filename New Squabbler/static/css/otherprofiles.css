@@ -140,145 +140,6 @@
     font-size: 16px;
 }
 
-#saveprofedit {
-    color: white; 
-    font-weight: bold;
-    position: absolute;
-    outline: none;
-    border: none;
-    border-radius: 25px;
-    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-    top: 210px;
-    background-color: lawngreen;
-    right: 20px;
-    width: 100px;
-    height: 40px;
-    font-size: 16px;
-}
-
-#saveprofedit:hover {
-    filter: brightness(115%);
-    box-shadow: 0 1.25px 2.5px 0 rgba(0,0,0,0.2);
-}
-
-.profileeditinactive {
-    display: none;
-}
-
-#changebannerback {
-    position: absolute;
-    width: 680px;
-    height: 185px;
-    top: -1px;
-    left: -1px;
-    border-radius: 6px;
-    z-index: 4;
-    background-color: black;
-    opacity: 0.4;
-    border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
-
-#changebannerback:hover {
-    cursor:pointer;
-}
-
-#changebannericon {
-    position: absolute;
-    left: 320px;
-    top: 35px;
-    color: white;
-    z-index: 6;
-    opacity: 0.9;
-}
-
-#changebannericon:hover {
-    cursor: pointer;
-}
-
-#changeprofimgback {
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    border: 0px solid black;
-    border-radius: 50%;
-    background-color: black;
-    left: 270px;
-    top: 112px;
-    opacity: 0.4;
-    z-index: 5;
-}
-
-#changeprofimgback:hover {
-    cursor:pointer;
-}
-
-#changeprofimgicon {
-    position: absolute;
-    color: white;
-    z-index: 6;
-    left: 327px;
-    top: 170px;
-    opacity: 0.9;
-}
-
-.edittxts {
-    position: absolute;
-    font-weight: bold;
-    left: 40px;
-}
-
-#changeprofimgicon:hover {
-    cursor: pointer;
-}
-
-#nametxt {
-    bottom: 480px;
-}
-
-.changeinputs {
-    position: absolute;
-    left: 40px;
-    box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
-    outline: none;
-    height: 60px;
-    width: 590px;
-    border-radius: 6px; 
-    border: 1px solid #777;
-    opacity: 0.5;
-    font-size: 20px;
-}
-
-#changename {
-    bottom: 415px;
-}
-
-#usertxt {
-    bottom: 365px;
-}
-
-#changeuser {
-    bottom: 300px;
-}
-
-#sitetxt {
-    bottom: 250px;
-}
-
-#changesite {
-    bottom: 185px;
-}
-
-#desctxt {
-    bottom: 135px;
-}
-
-#changedesc {
-    bottom: 30px;
-    height: 100px;
-    font-size: 18px;
-    resize: none;
-}
 
 .alertmessage {
     text-align: center;
@@ -343,11 +204,12 @@
     filter: brightness(105%);
 }
 
-.postblock {
-    margin-bottom: 10px;
+/*********** feed div ***************/
+
+.feeddiv {
+    margin-top: 5px;
 }
 
-/* post bubble styling */
 
 /***** stream adjustments **********/
  #streambackground {

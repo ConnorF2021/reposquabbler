@@ -15,17 +15,17 @@ function clearPost(val) {
         
         if (button.classList.contains('editprofbutclose')) {
             button.classList.remove('editprofbutclose');
-            button.className += 'editprofbutopen';
+            button.className += ' editprofbutopen';
             button.innerHTML = 'Cancel';
             editdiv.style.display = "block";
             maindiv.style.display = "none";
-            profblock.style.minHeight = '495px';
+            profblock.style.minHeight = '760px';
         }
         
         else {
             button.classList.remove('editprofbutopen');
-            button.className += 'editprofbutclose';
-            button.innerHTML = 'Adjust Profile';
+            button.className += ' editprofbutclose';
+            button.innerHTML = 'Edit Profile';
             editdiv.style.display = "none";
             maindiv.style.display = "block";
             document.getElementById("changeprofform").reset();
@@ -261,7 +261,7 @@ function otherdescbutton() {
 
 function postmenuopen(pid) {
     let post = document.getElementById(pid);
-    let menu = post.querySelector('.postoptionmenu')
+    let menu = post.querySelector('.postoptionmenu');
     if (menu.classList.contains('a')) {
         menu.classList.remove('a');
         menu.className += " i";
@@ -269,5 +269,59 @@ function postmenuopen(pid) {
     else {
         menu.classList.remove('i');
         menu.className += " a";
+    }
+}
+
+function commentsshow(pid) {
+    let post = document.getElementById(pid);
+    let div = post.querySelector('.postcommentopen');
+    let commentwrite = post.querySelector('.postcommentwrite');
+    if (commentwrite.classList.contains('a')) {
+        commentwrite.classList.remove('a');
+        commentwrite.className += ' i';
+    }
+    else {
+        if (div.classList.contains('a')) {
+            div.classList.remove('a');
+            div.className += " i";
+        }
+        else {
+            div.classList.remove('i');
+            div.className += " a";
+        }
+    }
+}
+
+function commentopen(pid) {
+    let post = document.getElementById(pid);
+    let commentopen = post.querySelector('.postcommentopen');
+    let commentwrite = post.querySelector('.postcommentwrite');
+    commentopen.classList.remove('a');
+    commentopen.className +=" i";
+    commentwrite.classList.remove('i');
+    commentwrite.className += ' a';
+
+}
+
+function commentcancel(pid) {
+    let post = document.getElementById(pid);
+    let commentopen = post.querySelector('.postcommentopen');
+    let commentwrite = post.querySelector('.postcommentwrite');
+    commentopen.classList.remove('i');
+    commentopen.className +=" a";
+    commentwrite.classList.remove('a');
+    commentwrite.className += ' i';
+}
+
+function logout(a) {
+    let logoutmenu = document.getElementById('logoutpopup');
+    if (a == 'activate') {
+        logoutmenu.style.display = 'block';
+    }
+    else if (a == 'cancel') {
+        logoutmenu.style.display = 'none';
+    }
+    else {
+        
     }
 }

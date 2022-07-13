@@ -36,6 +36,7 @@ body {
 	top: 12px;
 	left: 78px;
 	font-size: 16px;
+	outline: none;
 
 }
 
@@ -49,12 +50,12 @@ body {
 }
 
 #headersquab {
-		top: 16px;
-		right: 10px;
-		position: absolute;
-		font-weight: bold;
-		color: #f95288;
-		filter: drop-shadow(0.75px 0.75px 0.75px #f95288) brightness(112%);
+	top: 16px;
+	right: 10px;
+	position: absolute;
+	font-weight: bold;
+	color: #f95288;
+	filter: drop-shadow(0.75px 0.75px 0.75px #f95288) brightness(112%);
 }
 
 #uselessbarlol {
@@ -127,6 +128,10 @@ body {
   top: 70px;
   color: gray;
   border-radius: 6px;
+}
+
+#logoutmenubutton:hover {
+	cursor: pointer;
 }
 
 /* Links inside the dropdown */
@@ -224,6 +229,443 @@ body {
 	opacity: 0.8;
 }
 
+/********************feed stuffs *************/
+
+.bottomfeedbubble {
+	width: 680px;
+	height: 80px;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	background-color: white;
+	margin-top: 6px;
+	margin-bottom: 30px;
+	border-radius: 6px;
+}
+
+.botfeedbuttons {
+	transform: translateY(-50%);
+	position: absolute;
+	top: 50%;
+	width: 140px;
+	height: 32px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	font-weight: bold;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+.botfeedbuttons:hover {
+	filter: brightness(115%);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.feedbacktotop {
+	left: 30px;
+	background-color: black;
+	opacity: 0.7;
+	color: white;
+}
+
+.feedload {
+	right: 30px;
+	background-color: #f95288;
+	color: white;
+	filter: brightness(112%);
+}
+
+.bottomfeedimg {
+	height: 55px;
+	width: 55px;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	filter: drop-shadow(0.75px 0.75px 0.75px #f95288) brightness(112%);
+}
+
+.activefeed {
+	display: inline-block;
+}
+
+.inactivefeed {
+	display: none;
+}
+
+#feedmenu {
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	background-color: whitesmoke;
+	border-radius: 6px;
+	width: 650px;
+	height: 50px;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	z-index: 4;
+}
+
+#feeddiscover {
+	font-weight: bold;
+	color: white;
+	left: 5px;
+}
+
+.openfeed {
+	border-radius: 6px;
+	position: absolute;
+	height: 40.5px;
+	width: 310px;
+	margin-top: 4px;
+	border: none;
+	box-shadow: 0 1.25px 2.5px 0 rgba(0,0,0,0.2);
+	background-color: #f95288;
+	filter: brightness(112%);
+	opacity: 1;
+    font-size: 18px;
+    outline: none;
+}
+
+.openfeed:hover {
+	opacity: 0.9;
+}
+
+.closedfeed {
+	border-radius: 6px;
+	position: absolute;
+	height: 40.5px;
+	width: 310px;
+	margin-top: 4px;
+	border: none;
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	background-color: black;
+	opacity: 0.7;
+    font-size: 18px;
+    outline: none;
+}
+
+.closedfeed:hover {
+	opacity: 0.5;
+}
+
+#feedfollowing {
+	right: 5px;
+	font-weight: bold;
+	color: white;
+}
+.feeddiv {
+	background-color: whitesmoke;
+	border-radius: 6px;
+	position: relative;
+	width: 680px;
+	min-height: 405px;
+	left: 205px;
+}
+
+/* post bubble styling */
+
+.feedbubble {
+	width: 680px;
+	height: auto;
+	position: relative;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	background-color: white;
+	margin-top: 6px;
+	border-radius: 4px;
+	border: 1px solid white;
+
+}
+
+.postimgback {
+	position: absolute;
+	width: 72.5px;
+	height: 72.5px;
+  	background-color: white;
+	border-radius: 50%;
+	top: 10px;
+  	left: 20px;
+  	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2); 
+}
+
+#firstfeedline {
+	position: absolute;
+	width: 100%;
+	height: 1px;
+	background-color: lightgray;
+	top: 76px;
+	opacity: 0.6;
+}
+
+.postimgbackfirst {
+	top: 95px;
+}
+
+.postimg {
+	position: absolute;
+	width: 65px;
+	height: 65px;
+	border-radius: 50%;
+    top: 3.5px;
+    left: 3.5px;
+}
+
+.postoptionbutton {
+	position: absolute;
+	top: 15px;
+	right: 10px;
+	background-color: transparent;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    color: #777;
+}
+
+.postoptionbuttonfirst {
+	top: 100px;
+}
+
+.postoptionbutton:hover {
+	color: #f95288;
+}
+
+.postoptionmenu {
+	position: absolute;
+	width: 160px;
+	height: 140px;
+	right: 10px;
+	top: 35px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	border-radius: 6px;
+	background-color: white;
+	z-index: 5;
+}
+
+.postoptionmenufirst {
+	top: 120px;
+}
+
+.postauthorname {
+	position: absolute;
+	font-weight: bold;
+	left: 100px;
+	top: 10px;
+}
+
+.postauthornamefirst {
+	top: 95px;
+}
+
+.authornamelink {
+	text-decoration: none;
+	color: black;
+}
+
+.authornamelink:hover {
+	color: #f95288;
+}
+
+.authorlink {
+    color: #777;
+    text-decoration: none;
+}
+
+.authorlink:hover {
+	color: #f95288;
+}
+
+
+.postauthor {
+	position: absolute;
+	color: #777;
+	left: 100px;
+	top: 35px;
+}
+
+.postauthorfirst {
+	position: absolute;
+	color: #777;
+	left: 100px;
+	top: 120px;
+}
+
+.postcontent {
+	position: relative;
+	margin-top: 85px;
+	width: 480px;
+	left: 100px;
+	font-size: 16px;
+}
+
+.postcontentfirst {
+	position: relative;
+	margin-top: 170px;
+	width: 480px;
+	left: 100px;
+	font-size: 16px;
+}
+
+.postmenu {
+	position: relative;
+	height: 35px;
+	z-index: 4;
+}
+
+.postcomment {
+	left: 10px;
+}
+
+.postupvote {
+	left: 210px;
+}
+
+.postdownvote {
+	right: 210px;
+}
+
+.postshare {
+	right: 10px;
+}
+
+.postmenubuttons {
+	background-color: transparent;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    color: #777;
+    position: absolute;
+    top: 5px;
+}
+
+.postmenubuttons:hover {
+	color: #f95288;
+}
+
+.postupvote:hover {
+	color: lawngreen;
+}
+
+.postdownvote:hover {
+	color: red;
+}
+
+.postcommentopen {
+	height: 55px;
+	width: 640px;
+	background-color: lightgray;
+	opacity: 0.5;
+	border-radius: 6px;
+	margin-top: 12px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+	position: relative;
+}
+
+.postcommentopen:hover {
+	cursor: pointer;
+}
+
+.copentxt {
+	position: absolute;
+	left: 60px;
+	top: 8px;
+}
+
+.copenimg {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+    top: 10px;
+    left: 15px;
+}
+
+.postcommentwrite {
+	width: 600px;
+	height: auto;
+	position: relative;
+	border: 1px solid lightgray;
+	left: 40px;
+	border-radius: 6px;
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+
+.commentwriteimg {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+    top: 15px;
+    left: 20px;
+}
+
+.commentwritetxt {
+	position: relative;
+	margin-top: 15px;
+	left: 65px;
+	width: 450px;
+	min-height: 70px;
+	margin-bottom: 70px;
+	resize: none;
+	overflow: auto;
+	border: none;
+	outline: none;
+	font-size: 18px;
+}
+
+.commentcancel {
+	position: absolute;
+	height: 35px;
+	width: 70px;
+	bottom: 15px;
+	right: 145px;
+	font-size: 16px;
+	background-color: white;
+	border: none;
+	outline: none;
+	color: #777;
+}
+
+.commentsubmit {
+	position: absolute;
+	height: 40px;
+	width: 110px;
+	right: 20px;
+	bottom: 15px;
+	border-radius: 30px;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	font-size: 16px;
+	background-color: #f95288;
+	color: white;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+}
+
+.commentsubmit:hover {
+	filter: brightness(115%);
+	box-shadow: 0 1.25px 2.5px 0 rgba(0,0,0,0.2);
+}
+
+.commentsubmit:hover {
+	filter: brightness(105%);
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+}
+
+
+.a {
+	display: block;
+}
+
+.i {
+	display: none;
+}
+
+.postcomments {
+	position: relative;
+	margin-top: 20px;
+}
+
+
 /************************************************start scrollbar************************************************************/
 
 ::-webkit-scrollbar {
@@ -269,7 +711,6 @@ body {
 /*********************************start nav styling*********************************************************************************************/
 #sidebar {
     position: absolute;
-    border: 0px solid black;
     width: 220px;
     height: calc(100% - 121px);
     left: -8px;
@@ -314,6 +755,10 @@ body {
 	text-decoration: none;
 }
 
+.navbuttondiv:hover {
+	color: #f95288;
+}
+
 .navbuttondiv {
 	margin-top: 8px;
 }
@@ -334,7 +779,12 @@ body {
 
 }
 
-.stylebuttonwrapper:hover .navbuttondiv .navbuttonicon {
+.navbuttondiv {
+	position: relative;
+	color: gray;
+}
+
+.navbuttondiv:hover .navbuttonicon {
 	opacity: 1;
 }
 
@@ -347,49 +797,13 @@ body {
   background-color: #ccc;
 }
 
-.active .stylebuttonwrapper .navbuttondiv {
+.active .navbuttondiv {
 	color: #f95288;
 	filter: brightness(112%);
 
 }
 
-.active .stylebuttonwrapper .navbuttondiv .navbuttonicon {
-	color: #f95288;
-	opacity: 1;
-}
-
-#squabblebutton {
-	color: gray;
-}
-
-#squabblebutton:hover {
-	color: #f95288;
-	opacity: 1;
-}
-
-#profilebutton {
-	color: gray;
-}
-
-#profilebutton:hover {
-	color: #f95288;
-	opacity: 1;
-}
-
-#otherbutton {
-	color: gray;
-}
-
-#otherbutton:hover {
-	color: #f95288;
-	opacity: 1;
-}
-
-#feedbutton {
-	color: gray;
-}
-
-#feedbutton:hover {
+.active .navbuttondiv .navbuttonicon {
 	color: #f95288;
 	opacity: 1;
 }
@@ -673,7 +1087,6 @@ body {
 	width: 680px;
 	min-height: 180px;
 	margin-top: 10px;
-	margin-bottom: 30px;
 	background-color: white;
 	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
 	left: 205px;
@@ -712,12 +1125,11 @@ body {
 }
 
 .postsubmit {
-	border-radius: 6px;
+	border-radius: 25px;
 	outline: none;
 	border: none;
 	background-color: #f95288;
-	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
-	filter: brightness(112%);
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	color: white;
 	position: absolute;
 	bottom: 15px;
@@ -728,14 +1140,18 @@ body {
 	font-size: 16px;
 }
 
+.postsubmit:hover {
+	filter: brightness(115%);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
 .postclearbutton {
-	border-radius: 6px;
+	border-radius: 25px;
 	outline: none;
 	border: none;
 	background-color: black;
 	opacity: 0.7;
-	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
-	filter: brightness(112%);
+	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	color: white;
 	position: absolute;
 	bottom: 15px;
@@ -744,6 +1160,80 @@ body {
 	width: 100px;
 	height: 30px;
 	font-size: 16px;
+}
+
+.postclearbutton:hover {
+	filter: brightness(115%);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+/*** logout popup **/
+
+.alertpopup {
+    position: fixed;
+    width: 350px;
+    height: 250px;
+    border: 0px solid black;
+    background-color: white;
+    z-index: 7;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 110px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2000px rgba(0,0,0,0.6);
+}
+
+#logouticon {
+    color: red;
+    position: absolute;
+    top: 85px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.logoutbtns {
+	position: absolute;
+    bottom: 10px;
+    height: 50px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+}
+
+#logoutbtn {
+	right: 10px;
+	background-color: red;
+	width: 205px;
+} 
+
+#logoutbtn:hover {
+	color: white;
+}
+
+#cancellogoutbtn {
+	left: 10px;
+	background-color: gray;
+	width: 115px;
+}
+
+#logoutmsg {
+	text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 40px;
+}
+
+#logoutpara {
+    position: absolute;
+    top: 50px;
+    transform: translateX(-50%);
+    left: 50%;
+    width: 200px;
+    text-align:  center;
 }
 
 /*******************small info**/

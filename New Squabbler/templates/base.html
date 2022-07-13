@@ -20,6 +20,7 @@
 </head>
 
 <body>
+	<div class="alertpopup" style="display: none;" id="logoutpopup"><h4 id="logoutmsg">Would you like to log out?</h4><p id="logoutpara">Your session will be terminated.</p><i id="logouticon" class="fa-solid fa-sign-out fa-5x"></i><button class="logoutbtns" id="cancellogoutbtn" onclick="logout('cancel');">Cancel</button><a href="{{url_for('logout')}}" class="logoutbtns" id="logoutbtn" onclick="">Log Out</a></div>
 	{% block content %}
 	{% endblock %}
 </body>

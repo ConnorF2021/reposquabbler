@@ -25,10 +25,10 @@
 		<img src="static/squabblerfavicon.png" id="squabblerimage" alt="squabbler logo"/>
 		<h4 id="headersquab">SQUABBLER</h4>
 		<div id="myDropdown" class="dropdown-content">
-			<a href="{{url_for('account')}}"><i class="fa-solid fa-user fa-lg" id="dropdownaccount"></i><span class="linktext">Account</span></a>
-			<a onclick="infoOpen('smallinfobutton')" id="smallinfobutton"><i class="fa-solid fa-circle-info fa-lg" id="dropdowninfo"></i><span class="linktext">Information</span></a>
-			<a href=""><i class="fa-solid fa-message fa-lg" id="dropdownfeedback"></i><span class="linktext">Feedback</span></a>
-			<a href="{{url_for('logout')}}"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" id="dropdownexit"></i><span class="linktext">Exit</span></a>
+			<a href="{{url_for('account')}}" class="fadein"><i class="fa-solid fa-user fa-lg" id="dropdownaccount"></i><span class="linktext">Account</span></a>
+			<a onclick="infoOpen('smallinfobutton')" id="smallinfobutton" class="fadein"><i class="fa-solid fa-circle-info fa-lg" id="dropdowninfo"></i><span class="linktext">Information</span></a>
+			<a href="" class="fadein"><i class="fa-solid fa-message fa-lg" id="dropdownfeedback"></i><span class="linktext">Feedback</span></a>
+			<a onclick="logout('activate');" id="logoutmenubutton" class="fadein"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" id="dropdownexit"></i><span class="linktext">Exit</span></a>
 		</div>
 	</div>
         
@@ -61,13 +61,13 @@
                             <p id="profiletag">@{{ username }}</p>
                         </div>
                     </div>
-                    <a href="{{url_for('squabble')}}" class="navbuttons"><div class="stylebuttonwrapper ffadein" id="squabblebutton"><div class="navbuttondiv"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Squabble</h3><br><small class="navbuttonsubtext">Join the conversation</small></div></div></a>
+                    <a href="{{url_for('squabble')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-rotate-left fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Menu</h3><br><small class="navbuttonsubtext">Return to menu</small></div></a>
                     <hr style="margin:0;">
-                    <a href="{{url_for('feed')}}" class="navbuttons"><div class="stylebuttonwrapper ffadein" id="feedbutton"><div class="navbuttondiv"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></div></div></a>
+                    <a href="{{url_for('feed')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></div></a>
                     <hr style="margin:0;">
-                    <a href="{{url_for('profile')}}" class="navbuttons"><div class="stylebuttonwrapper ffadein" id="profilebutton"><div class="navbuttondiv"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></div></div></a>	
+                    <a href="{{url_for('profile')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></div></a>	
                     <hr style="margin:0;">
-                    <a href="{{url_for('explore')}}" class="navbuttons"><div class="stylebuttonwrapper ffadein" id="otherbutton"><div class="navbuttondiv"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></div></a>
+                    <a href="{{url_for('explore')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></a>
                 </div>
             </div>
             <div id="menublock" class="blocks">
