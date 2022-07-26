@@ -117,3 +117,15 @@
 	z-index: 3;
 	overflow-y: scroll;
 }
+
+/**/
+
+#explorenavbutton .navbuttondiv {
+	color: #f95288;
+	opacity: 1;
+}
+
+#explorenavbutton .navbuttondiv .navbuttonicon {
+	color: #f95288;
+	opacity: 1;
+}

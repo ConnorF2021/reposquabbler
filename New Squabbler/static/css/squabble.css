@@ -73,12 +73,15 @@
 .menuheaderbackgrounds {
 	position: absolute;
 	background-color: black;
+	border: 1px solid black;
 	height: 50px;
-	width: 100%;
+	width: 175px;
 	border-radius: 6px;
 	opacity: 0.7;
 	transform: translateX(-50%);
-	left: 50%;	
+	left: 50%;
+	top: 10px;
+	z-index: 2;
 }
 
 .menuheaders {
@@ -87,6 +90,8 @@
 	position: absolute;
 	transform: translateX(-50%);
 	left: 50%;
+	z-index: 3;
+	top: -3px;
 }
 
 .menup {
@@ -97,7 +102,8 @@
 	left: 50%;
 	width: 170px;
 	text-align: center;
-	top: 54px;
+	top: 64px;
+	z-index: 3;
 }
 
 .menuicons {
@@ -121,10 +127,6 @@
 	top: 293px;
 }
 
-#soloheader {
-	top: -13px;
-}
-
 #solobutton {
 	background-color: #f95288;
 }
@@ -145,9 +147,6 @@
 #multibuttonborder {
 	left: 240px;
 	top: 293px;
-}
-#multiheader {
-	top: -13px;
 }
 
 #multibutton {
@@ -170,10 +169,6 @@
 #createbuttonborder {
 	right: 20px;
 	top: 293px;
-}
-
-#createheader {
-	top: -13px;
 }
 
 #createbutton {
@@ -212,9 +207,9 @@
 	border-radius: 6px;
 	width: 320px;
 	height: 65px;
-	left: 180px;
+	transform: translateX(-50%);
+	left: 50%;	
 	top: 405px;
-	display: block;
 }
 
 
@@ -253,4 +248,16 @@
 	left: 0px;
 	z-index: 3;
 	overflow-y: scroll;
+}
+
+/**/
+
+#squabblenavbutton .navbuttondiv {
+	color: #f95288;
+	opacity: 1;
+}
+
+#squabblenavbutton .navbuttondiv .navbuttonicon {
+	color: #f95288;
+	opacity: 1;
 }

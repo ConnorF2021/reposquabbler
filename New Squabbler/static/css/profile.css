@@ -374,3 +374,15 @@
     z-index: 3;
     overflow-y: scroll;
 }
+
+/**/
+
+#profilenavbutton .navbuttondiv {
+    color: #f95288;
+    opacity: 1;
+}
+
+#profilenavbutton .navbuttondiv .navbuttonicon {
+    color: #f95288;
+    opacity: 1;
+}

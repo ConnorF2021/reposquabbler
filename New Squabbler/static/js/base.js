@@ -276,18 +276,22 @@ function commentsshow(pid) {
     let post = document.getElementById(pid);
     let div = post.querySelector('.postcommentopen');
     let commentwrite = post.querySelector('.postcommentwrite');
+    let commentdiv = post.querySelector('.commentdiv');
     if (commentwrite.classList.contains('a')) {
         commentwrite.classList.remove('a');
         commentwrite.className += ' i';
+        commentdiv.innerHTML = "";
     }
     else {
         if (div.classList.contains('a')) {
             div.classList.remove('a');
             div.className += " i";
+            commentdiv.innerHTML = "";
         }
         else {
             div.classList.remove('i');
             div.className += " a";
+            get_comments(pid);
         }
     }
 }
@@ -300,7 +304,7 @@ function commentopen(pid) {
     commentopen.className +=" i";
     commentwrite.classList.remove('i');
     commentwrite.className += ' a';
-
+    commentwrite.querySelector('.commentwritetxt').focus();
 }
 
 function commentcancel(pid) {
@@ -324,4 +328,59 @@ function logout(a) {
     else {
         
     }
+}
+
+function repliesshow(cid) {
+    commentid = 'c' + cid;
+    comment = document.getElementById(commentid);
+    let replywrite = comment.querySelector('.replywritediv');
+    let replydiv = comment.querySelector('.commentreplydiv');
+    if (replydiv.classList.contains('a')) {
+        replydiv.classList.remove('a');
+        replydiv.className += " i";
+        replydiv.querySelector('.replydiv').innerHTML = '';
+    }
+    else {
+        replydiv.classList.remove('i');
+        replydiv.className += " a";
+        get_replies(cid);
+    }
+}
+
+function hidereplies(cid) {
+    commentid = 'c' + cid;
+    comment = document.getElementById(commentid);
+    let replydiv = comment.querySelector('.commentreplydiv');
+    replydiv.classList.remove('a');
+    replydiv.className += " i";
+    replydiv.querySelector('.replydiv').innerHTML = '';
+    replycancel(cid);
+}
+
+function replyopen(cid) {
+    commentid = 'c' + cid;
+    comment = document.getElementById(commentid);
+    let replyopen = comment.querySelector('.replyopendiv');
+    let replywrite = comment.querySelector('.replywritediv');
+    replyopen.classList.remove('a');
+    replyopen.className +=" i";
+    replywrite.classList.remove('i');
+    replywrite.className += ' a';
+    replywrite.querySelector('.replywritetxt').focus();
+}
+
+function replycancel(cid) {
+    commentid = 'c' + cid;
+    comment = document.getElementById(commentid);
+    let replyopen = comment.querySelector('.replyopendiv');
+    let replywrite = comment.querySelector('.replywritediv');
+    replyopen.classList.remove('i');
+    replyopen.className +=" a";
+    replywrite.classList.remove('a');
+    replywrite.className += ' i';
+}
+
+function count_chars(countFrom,updateTo) {
+    var length = document.getElementById(countFrom).value.length;
+    document.getElementById(updateTo).innerHTML = length;
 }

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Squabbler | Find Squabble{% endblock %}
+{% from "macros.html" import headertext with context %}
+{% from "macros.html" import headerstuff %}
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" href="{{url_for('static', filename='css/adminsuite.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="header">
+
+	{{ headerstuff() }}
+    {{ headertext('Squabble Monitoring','VENI, VIDI, VICI.') }}
+
+</div>
+
+	<div id="backgroundid" class="container-fluid">
+
+		<div class="container" id="maincontent">
+  
+			<div id="smallinfopopup">
+				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
+			</div>
+            <div id="sidebar">
+            
+                <div class="container mainnav" id="mainblocknav">
+                    <div id="profilesmallwrapper">
+                        <div id="profilesmall">
+                            <img src="{{url_for('static', filename='connormaddieback.jpg')}}" id="profilesmallbanner">
+                            <div id="profileimageback">
+                                <img src="{{url_for('static', filename='ConnorFulbright.png')}}" id="profileimage">
+                            </div>
+                            <h4 id="profilename">{{ fullname }}</h4>
+                            <p id="profiletag">@{{ username }}</p>
+                        </div>
+                    </div>
+                    <a href="" class="navbuttons active"><div class="stylebuttonwrapper" id="squabblebutton"><div class="navbuttondiv"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Squabbles</h3><br><small class="navbuttonsubtext">Manage squabbles</small></div></div></a>
+                    <hr style="margin:0;">
+                    <a href="{{url_for('feed')}}" class="navbuttons"><div class="stylebuttonwrapper" id="feedbutton"><div class="navbuttondiv"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Posts</h3><br><small class="navbuttonsubtext">View and manage posts</small></div></div></a>
+                    <hr style="margin:0;">
+                    <a href="{{url_for('profile')}}" class="navbuttons"><div class="stylebuttonwrapper" id="profilebutton"><div class="navbuttondiv"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Users</h3><br><small class="navbuttonsubtext">View and manage users</small></div></div></a>	
+                    <hr style="margin:0;">
+                    <a href="{{url_for('explore')}}" class="navbuttons"><div class="stylebuttonwrapper" id="otherbutton"><div class="navbuttondiv"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></div></a>
+                </div>
+            
+            </div>
+
+            <div id="adminoverviewblock">
+            	
+            </div>
+
+            <div id="stream">
+				<hr id="streamline">
+				<div id="streambackground"></div>
+				<button id="streambutton" onclick="streamOpen('streambutton')" class=" openstream">Admin Chat</button>
+				<hr id="notifyline">
+				<button id="notificationbutton" onclick="streamOpen('notificationbutton')" class=" closedstream">Bulletin</button>
+			    <div id="streamdiv" class="activeside"><div class="streambubble"><img src="{{url_for('static', filename='squabblerfavicon.png')}}" class="streambubblepictureblock"><h5 class="streambubbleuser">squabbler</h5><div class="streambubbleheaderblock"><h4 class="streambubbleheader">Welcome to Squabbler</h4></div><div class="streambubbletextblock"><p class="streambubbletext streambubbletexthold">Squabbler is a pretty cool platform. This is an example admin post. The stream is used for admin posting only.</p></div><div class="streambuboverflowblock"><button class="streambuboverflow strmoverflowclosed" onclick="expandStream(this);">expand</button></div><hr class="streambubblebottomline"></div><div class="streambubble"><img src="{{url_for('static', filename='johnsquabbler.jpg')}}" class="streambubblepictureblock"><h5 class="streambubbleuser">john</h5><div class="streambubbleheaderblock"><h4 class="streambubbleheader">How to get started</h4></div><div class="streambubbletextblock"><p class="streambubbletext streambubbletexthold">It's your friend John Squabbler, providing you with</p></div><div class="streambuboverflowblock"><button class="streambuboverflow strmoverflowclosed" onclick="expandStream(this);">expand</button></div><hr class="streambubblebottomline"></div></div>
+			    <div id="notificationdiv" class="inactiveside"><div class="notificationbubble"><p>this is a notification bubble</p></div></div>
+			</div>
+            
+		</div>
+	</div>
+{% endblock %}

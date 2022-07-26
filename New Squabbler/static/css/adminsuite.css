@@ -1,0 +1,108 @@
+.threetabdiv {
+	position: relative;
+	margin-top: 93px;
+	margin-bottom: 20px;
+	left: 205px;
+	height: auto;
+	border: 1px solid whitesmoke;
+	width: 680px;
+}
+
+.threetabblock {
+	position: relative;
+	width: 680px;
+	min-height: 450px;
+	background-color: white;
+	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+	margin-top: 63px;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.threetabbuttons {
+	background-color: white;
+	border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	height: 65px;
+	width: 225px;
+	position: absolute;
+	outline: none;
+	border: none;
+}
+
+.threetabactive {
+	color: #f95288;
+	filter: brightness(112%);
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	font-weight: 800;
+	font-size: 20px;
+}
+
+.threetabinactive {
+	font-weight: bold;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+	font-size: 18px;
+	color: #777;
+}
+
+.threetabbutton2 {
+	left: 227.5px;
+}
+
+.threetabbutton3 {
+	left: 455px;
+}
+
+.threetabbuttonlines {
+	position: absolute;
+	width: 225px;
+	z-index: 6;
+}
+
+.threetabbuttonlineactive {
+	top: 59.5px;
+	height: 1.5px;
+	background-color: #f95288;
+	filter: brightness(112%);
+}
+
+.threetabbuttonlineinactive {
+	top: 60.5px;
+	height: 1px;
+	opacity: 0.5;
+	background-color: lightgray;
+}
+
+.threetabbutton2line {
+	left: 227.5px;
+}
+
+.threetabbutton3line {
+	left: 455px;
+}
+
+/***** stream adjustments **********/
+ #streambackground {
+	border: 1px solid white;
+	background-color: white;
+	border-radius: 6px;
+	width: 298px;
+	height: 397px;
+	left: 0px;
+	top: 70px;
+	position: absolute;
+	z-index: 2;
+	box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+}
+
+#streamdiv {
+	background-color: white;
+	border-radius: 0px;
+	position: absolute;
+	width: 298px;
+	height: 395px;
+	top: 67.5px;
+	left: 0px;
+	z-index: 3;
+	overflow-y: scroll;
+}

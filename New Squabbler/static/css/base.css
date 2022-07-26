@@ -492,7 +492,7 @@ body {
 	margin-top: 85px;
 	width: 480px;
 	left: 100px;
-	font-size: 16px;
+	font-size: 17px;
 }
 
 .postcontentfirst {
@@ -500,17 +500,14 @@ body {
 	margin-top: 170px;
 	width: 480px;
 	left: 100px;
-	font-size: 16px;
+	font-size: 17px;
 }
 
 .postmenu {
 	position: relative;
 	height: 35px;
 	z-index: 4;
-}
-
-.postcomment {
-	left: 10px;
+	margin-top: 20px;
 }
 
 .postupvote {
@@ -554,7 +551,7 @@ body {
 	opacity: 0.5;
 	border-radius: 6px;
 	margin-top: 12px;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 	margin-left: 20px;
 	position: relative;
 }
@@ -567,6 +564,7 @@ body {
 	position: absolute;
 	left: 60px;
 	top: 8px;
+	user-select: none;
 }
 
 .copenimg {
@@ -576,6 +574,8 @@ body {
 	border-radius: 50%;
     top: 10px;
     left: 15px;
+    pointer-events: none;
+    user-select: none;
 }
 
 .postcommentwrite {
@@ -586,7 +586,7 @@ body {
 	left: 40px;
 	border-radius: 6px;
 	margin-top: 10px;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 }
 
 .commentwriteimg {
@@ -596,6 +596,8 @@ body {
 	border-radius: 50%;
     top: 15px;
     left: 20px;
+    pointer-events: none;
+    user-select: none;
 }
 
 .commentwritetxt {
@@ -639,11 +641,6 @@ body {
 	background-color: #f95288;
 	color: white;
 	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
-}
-
-.commentsubmit:hover {
-	filter: brightness(115%);
-	box-shadow: 0 1.25px 2.5px 0 rgba(0,0,0,0.2);
 }
 
 .commentsubmit:hover {
@@ -734,8 +731,8 @@ body {
 	border-radius: 6px;
 	width: 210px;
 	height: 270px;
-  top: 93px;
-  left: 0px;
+  	top: 93px;
+  	left: 0px;
 	position: sticky;
 }
 
@@ -806,6 +803,10 @@ body {
 .active .navbuttondiv .navbuttonicon {
 	color: #f95288;
 	opacity: 1;
+}
+
+.postcomment {
+	left: 10px;
 }
 
 /********************************************************************** stream styling **********************/
@@ -1094,18 +1095,48 @@ body {
 }
 
 .posttext {
-	border-radius: 6px;
-	outline: none;
-	border: 1px solid #777;
-	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
-	opacity: 0.5;
-	width: 570px;
-	min-height: 80px;
-	margin-top: 20px;
-	margin-left: 15px;
-	margin-bottom: 0px;
 	position: relative;
+	margin-top: 33px;
+	left: 79px;
+	width: 450px;
+	min-height: 70px;
+	margin-bottom: 75px;
+	resize: none;
+	overflow: auto;
+	border: none;
+	outline: none;
+	font-size: 18px;
+}
+
+#currentlenpost {
+	position: absolute;
+	left: 30px;
+	bottom: 10px;
 	font-size: 16px;
+	color: #777;
+}
+
+.postline {
+	height: 1.5px;
+	width: 96%;
+	position: absolute;
+	transform: translateX(-50%);
+	left: 50%;
+	bottom: 70px;
+	opacity: 0.5;
+	background-color: lightgray;
+	z-index: 7;
+}
+
+.postwriteimg {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+    top: 28px;
+    left: 25px;
+    pointer-events: none;
+    user-select: none;
 }
 
 .postimage {
@@ -1116,7 +1147,7 @@ body {
 	opacity: 0.7;
 	position: absolute;
 	right: 35px;
-	top: 60px;
+	top: 45px;
 }
 
 .postimagelabel:hover {
@@ -1133,11 +1164,11 @@ body {
 	color: white;
 	position: absolute;
 	bottom: 15px;
-	right: 15px;
+	right: 20px;
 	font-weight: bold;
-	width: 100px;
-	height: 30px;
-	font-size: 16px;
+	width: 116px;
+	height: 38px;
+	font-size: 17px;
 }
 
 .postsubmit:hover {
@@ -1146,25 +1177,20 @@ body {
 }
 
 .postclearbutton {
-	border-radius: 25px;
-	outline: none;
-	border: none;
-	background-color: black;
-	opacity: 0.7;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-	color: white;
 	position: absolute;
+	height: 35px;
+	width: 70px;
 	bottom: 15px;
-	left: 15px;
-	font-weight: bold;
-	width: 100px;
-	height: 30px;
-	font-size: 16px;
+	right: 145px;
+	font-size: 17px;
+	background-color: white;
+	border: none;
+	outline: none;
+	color: #777;
 }
 
 .postclearbutton:hover {
 	filter: brightness(115%);
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 /*** logout popup **/

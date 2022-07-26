@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash, redirect, session, url_for, escape, make_response
 from flask_socketio import SocketIO, join_room, leave_room, emit, send
 from flask_mysqldb import MySQL
+from flask_login import LoginManager
 import MySQLdb.cursors
 import re
 import random
@@ -8,6 +9,7 @@ import string
 import datetime
 import json
 
+login_manager = LoginManager()
 app = Flask(__name__)
 socketio = SocketIO(app)
 mysql = MySQL(app)
@@ -15,12 +17,17 @@ mysql = MySQL(app)
 import secrets
 secret_key = secrets.token_hex(16)
 app.config['SECRET_KEY'] = secret_key
+login_manager.init_app(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'squabbler'
 app.config['MYSQL_PASSWORD'] = 'C@nner2002'
 app.config['MYSQL_DB'] = 'squabblerusers'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+@login_manager.user_loader
+def load_user(UID):
+    return User.get(UID)
 
 @app.route("/", methods = ['GET','POST'])
 def landing():
@@ -248,6 +255,20 @@ def account():
 		return render_template('account.html')
 	return redirect(url_for('landing'))
 
+@app.route("/adminsuite")
+def adminsuite():
+	if check_session():
+		account = fetch_client_account()
+		return render_template('admin.html', username = account['username'].lower(), fullname = account['name'])
+	return	redirect('landing')
+
+@app.route("/adminsuite/squabbles")
+def adminsuite_stream():
+	if check_session():
+		account = fetch_client_account()
+		return render_template('adminsquabble.html', username = account['username'].lower(), fullname = account['name'])
+	return
+
 @app.route("/logout")
 def logout():
 	session.clear()
@@ -256,25 +277,46 @@ def logout():
 @socketio.on('handle_comment')
 def handle_comment(data):
 	commentdate = (datetime.datetime.now()).strftime("%x")
-	commenterid = data['UID']
-	content = data['comment']
-	postid = data['postid']
 	cursor = connect_mysql()
-	cursor.execute('INSERT INTO postcomments (postdate,posterid,content,postid) VALUES ( % s, % s, % s, % s )', (commentdate, commenterid,content,postid))
+	cursor.execute('INSERT INTO postcomments (postdate,posterid,content,postid) VALUES ( % s, % s, % s, % s )', (commentdate, session['UID'], data['comment'], data['postid']))
 	mysql.connection.commit()
 
 @socketio.on('get_comments')
 def get_comments(data):
-	app.logger.info("Recieved data {}".format(data['postid']))
 	requesterid = session['UID']
-	print(requesterid)
-	postid = data['postid']
 	cursor = connect_mysql()
-	cursor.execute('SELECT * FROM postcomments WHERE postid = % s', (postid, ))
+	cursor.execute('SELECT * FROM postcomments WHERE postid = % s ORDER BY postdate DESC', (data['postid'], ))
 	c = cursor.fetchall()
-	comments = json.dumps(c)
-	app.logger.info("Sending Data {}, {}".format(comments, postid))
-	socketio.emit('recieve_comments', comments, postid=data['postid'])
+	json_data = []
+	for row in c:
+		rowid = row["posterid"]
+		cursor.execute('SELECT username,name FROM accounts WHERE id = % s', (rowid, ))
+		currentaccount = cursor.fetchone()
+		json_data.append({"content": row["content"], "postdate": row["postdate"], "postid": row["postid"], "author": currentaccount["name"], "tag": currentaccount["username"], "commentid": row['id']})
+	comments = json.dumps(json_data)
+	socketio.emit('recieve_comments', comments)
+
+@socketio.on('handle_reply')
+def handle_reply(data):
+	replydate = (datetime.datetime.now()).strftime("%x")
+	cursor = connect_mysql()
+	cursor.execute('INSERT INTO commentreplies (replydate,replierid,content,commentid) VALUES ( % s, % s, % s, % s )', (replydate, session['UID'], data['reply'], data['commentid']))
+	mysql.connection.commit()
+
+@socketio.on('get_replies')
+def get_replies(data):
+	requesterid = session['UID']
+	cursor = connect_mysql()
+	cursor.execute('SELECT * FROM commentreplies WHERE commentid = % s ORDER BY replydate DESC', (data['commentid'], ))
+	c = cursor.fetchall()
+	json_data = []
+	for row in c:
+		rowid = row["replierid"]
+		cursor.execute('SELECT username,name FROM accounts WHERE id = % s', (rowid, ))
+		currentaccount = cursor.fetchone()
+		json_data.append({"content": row["content"], "replydate": row["replydate"], "commentid": row["commentid"], "author": currentaccount["name"], "tag": currentaccount["username"], "replyid": row['id']})
+	replies = json.dumps(json_data)
+	socketio.emit('recieve_replies', replies)
 
 def check_session():
 	if 'UID' in session and 'username' in session:
@@ -361,7 +403,6 @@ def fetch_feed_discover():
 def fetch_feed_following():
 	uid = session['UID']
 	cursor = connect_mysql()
-	followinglist = cursor.execute('SELECT following FROM followers WHERE follower = % s', (uid, ))
 	loadposts = cursor.execute('SELECT content, postdate, author, authorname, pid FROM posts WHERE id in (SELECT following FROM followers WHERE follower = % s) ORDER BY postdate DESC', (uid, ))
 	posts = cursor.fetchall()
 	return posts

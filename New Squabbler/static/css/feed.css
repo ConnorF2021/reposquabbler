@@ -2,6 +2,276 @@
 	margin-top: 87px;
 }
 
+.commentbubble {
+	position: relative;
+	left: 20px;
+	width: 640px;
+	border: 1px solid white;
+	margin-bottom: 10px;
+}
+
+.commenttag {
+	color: #777;
+	position: absolute;
+	left: 60px;
+	top: 20px;
+}
+
+.commentauthor {
+	position: absolute;
+	font-weight: bold;
+	left: 60px;
+	top: -10px;
+}
+
+.commentcontent {
+	position: relative;
+	margin-top: 55px;
+	left: 60px;
+	font-size: 17px;
+}
+
+.commentprofimg {
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+    left: 5px;
+}
+
+.commentreplybutton {
+	background-color: transparent;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    color: #777;
+    position: absolute;
+    left: 2px;
+}
+
+.commentreplybutton:hover {
+	color: #f95288;
+}
+
+.commentreplyopen {
+	background-color: transparent;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    color: gray;
+    position: absolute;
+    left: 5px;
+}
+
+.commentreplyopen:hover {
+	color: #f95288;
+}
+
+.commentoptionbutton {
+	position: absolute;
+	right: 10px;
+	background-color: transparent;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    color: #777;
+}
+
+.commentoptionbutton:hover {
+	color: #f95288;
+}
+
+
+.commentreplydiv {
+	border: 0px solid black;
+	position: relative;
+	width: 600px;
+	height: auto;
+	left: 20px;
+	margin-bottom: 10px;
+}
+
+.hidereplies {
+	background-color: transparent;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    color: gray;
+    position: relative;
+    margin-top: 10px;
+}
+
+.hidereplies:hover {
+	color: #f95288;
+}
+
+.replyopendiv {
+	position: relative;
+	width: 350px;
+	height: 45px;
+	border-radius: 6px;
+	background-color: lightgray;
+	opacity: 0.5;
+	margin-bottom: 10px;
+}
+
+.replyopendiv:hover {
+	cursor: pointer;
+}
+
+.ropentxt {
+	position: absolute;
+	left: 53px;
+	top: 4px;
+	user-select: none;
+	font-size: 17px;
+}
+
+.ropenimg {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+    top: 8px;
+    left: 12px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.replywritediv {
+	position: relative;
+	width: 350px;
+	height: 150px;
+	border-radius: 6px;
+	border: 1px solid lightgray;
+	margin-bottom: 10px;
+} 
+
+.replysubmit {
+	position: absolute;
+	height: 30px;
+	width: 80px;
+	right: 12px;
+	bottom: 10px;
+	border-radius: 30px;
+	border: none;
+	outline: none;
+	font-weight: bold;
+	font-size: 14px;
+	background-color: #f95288;
+	color: white;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+}
+
+.replysubmit:hover {
+	filter: brightness(105%);
+	box-shadow: 0 0.75px 1.5px 0 rgba(0,0,0,0.2);
+}
+
+.replycancel {
+	position: absolute;
+	height: 30px;
+	width: 70px;
+	bottom: 10px;
+	right: 95px;
+	font-size: 14px;
+	background-color: white;
+	border: none;
+	outline: none;
+	color: #777;
+}
+
+.replywriteimg {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+    top: 15px;
+    left: 15px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.replywritetxt {
+	position: relative;
+	margin-top: 15px;
+	left: 55px;
+	width: 240px;
+	min-height: 70px;
+	margin-bottom: 50px;
+	resize: none;
+	overflow: auto;
+	border: none;
+	outline: none;
+	font-size: 16px;
+}
+
+.replydiv {
+	position: relative;
+	width: 600px;
+	height: auto;
+	border: 1px solid white;
+}
+
+.replybubble {
+	position: relative;
+	width: 600px;
+	border: 1px solid white;
+	margin-bottom: 30px;
+}
+
+.replyauthor {
+	position: absolute;
+	font-weight: bold;
+	left: 50px;
+	font-size: 17px;
+}
+
+.replycontent {
+	position: relative;
+	margin-top: 65px;
+	left: 50px;
+	font-size: 14px;
+}
+
+.replytag {
+	color: #777;
+	position: absolute;
+	left: 50px;
+	top: 30px;
+	font-size: 14px;
+}
+
+.replyprofimg {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	top: 10px;
+}
+
+.replyreplyopen {
+	background-color: transparent;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    color: gray;
+    position: absolute;
+    left: 3px;
+    margin-bottom: 5px;
+}
+
+.replyoptionbutton {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background-color: transparent;
+    background-repeat: no-repeat;
+    outline: none;
+    border: none;
+    color: #777;
+}
+
 /**** stream adjustments *********/
  #streambackground {
 	border: 1px solid white;
@@ -26,4 +296,16 @@
 	left: 0px;
 	z-index: 3;
 	overflow-y: scroll;
+}
+
+/**/
+
+#feednavbutton .navbuttondiv {
+	color: #f95288;
+	opacity: 1;
+}
+
+#feednavbutton .navbuttondiv .navbuttonicon {
+	color: #f95288;
+	opacity: 1;
 }
