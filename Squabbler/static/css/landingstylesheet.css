@@ -38,8 +38,7 @@ footer {
 	filter: drop-shadow(1px 1px 1px #f95288) brightness(112%);
 }
 
-#subtext {
-	display: inline-block;
+#subtext {;
 	font-family: 'Lato', sans-serif;
 	position: relative; 
 	top:37px; 
@@ -51,14 +50,13 @@ footer {
 }
 
 #anonformbox {
-	display: inline-block;
 	border: 1px solid white;
 	background-color: white;
 	border-radius: 8px;
 	width: 380px;
 	height: 220px;
 	position: relative; 
-	top:230px; 
+	margin-top:210px; 
 	left:235px;
 	transform: translate(-50%, -50%);
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
@@ -103,19 +101,17 @@ textarea:focus, input:focus {
 }
 
 #joinbutton {
-	display: inline-block;
-	border: 0px solid white;
 	background-color: white;
 	text-align: center;
 	border-radius: 8px;
 	width: 380px;
 	height: 130px;
 	position: relative; 
-	top:200px; 
+	margin-top:0px; 
 	left:235px;
 	transform: translate(-50%, -50%);
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
-    filter: brightness(112%);
+  filter: brightness(112%);
 }
 
 
@@ -175,7 +171,6 @@ a:hover {
 }
 
 #forms {
-	border: 1px solid #f95288;
 	background-color: #f95288;
 	height: 720px;
 	width: 500px;
@@ -185,6 +180,12 @@ a:hover {
 	list-style: none;
 	font-size: 13px;
 	display: inline;
+}
+
+.box {
+	margin-top: 250px;
+	width: 500px;
+	height: 500px;
 }
 
 .box h1 {
@@ -241,4 +242,10 @@ li {
 	display: inline;
 }
 
-/********** gradient button  *******************/
+@media (max-width: 480px) {
+
+	#forms {
+		background-color: transparent;
+	}
+
+}

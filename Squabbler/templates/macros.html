@@ -11,17 +11,16 @@
 {% endmacro %}
 
 {% macro headertext(title, quote) %}
-<div id="uselessbarlol"></div>
+<div id="uselessbarlol" class="noselect"></div>
 <div id="currentheadersdiv">
 	<div id="currentheadersquab" class="topheaders currentheader">
-		<h4 class="currenttabhead">{{title}}</h4>
-		<p class="quote">{{quote}}</p>
+		<h4 class="currenttabhead noselect">{{title}}</h4>
+		<p class="quote noselect">{{quote}}</p>
 	</div>
 </div>
 {% endmacro %}
 
 {% macro headerstuff() %}
-<div class="container-fluid" id="headertop"></div>
 <div class="container-fluid" id="subheader">
 	<div id="popupmenu">
 		<i class="fa-solid fa-bars fa-2x popupbutton" id="popupbuttondiv"></i>
@@ -36,8 +35,8 @@
 		</form>
 	</div>
             
-	<img src="{{url_for('static', filename='squabblerfavicon.png')}}" id="squabblerimage" alt="squabbler logo"/>
-	<h4 id="headersquab">SQUABBLER</h4>
+	<img src="{{url_for('static', filename='squabblerfavicon.png')}}" id="squabblerimage" class="noselect" alt="squabbler logo"/>
+	<h4 id="headersquab" class="noselect">SQUABBLER</h4>
 	<div id="myDropdown" class="dropdown-content">
 		<a href="{{url_for('account')}}" class="fadein"><i class="fa-solid fa-user fa-lg" id="dropdownaccount"></i><span class="linktext">Account</span></a>
 		<a onclick="infoOpen('smallinfobutton')" id="smallinfobutton" class="fadein"><i class="fa-solid fa-circle-info fa-lg" id="dropdowninfo"></i><span class="linktext">Information</span></a>
@@ -60,13 +59,13 @@
 				<p id="profiletag">@{{ username }}</p>
 			</div>
 		</div>
-		<a href="{{url_for('squabble')}}" class="navbuttons" id="squabblenavbutton"><div class="navbuttondiv ffadein"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Squabble</h3><br><small class="navbuttonsubtext">Join the conversation</small></div></a>
+		<a href="{{url_for('feed')}}" class="navbuttons" id="feednavbutton"><div class="navbuttondiv ffadein hoverpink"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></div></a>
 		<hr style="margin:0;">
-		<a href="{{url_for('feed')}}" class="navbuttons" id="feednavbutton"><div class="navbuttondiv ffadein"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></div></a>
+		<a href="{{url_for('squabble')}}" class="navbuttons" id="squabblenavbutton"><div class="navbuttondiv ffadein hoverpink"><i class="fa-solid fa-scale-unbalanced-flip fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Squabble</h3><br><small class="navbuttonsubtext">Engage in conversation</small></div></a>
 		<hr style="margin:0;">
-		<a href="{{url_for('profile')}}" class="navbuttons" id="profilenavbutton"><div class="navbuttondiv ffadein"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></div></a>	
+		<a href="{{url_for('profile')}}" class="navbuttons" id="profilenavbutton"><div class="navbuttondiv ffadein hoverpink"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></div></a>	
 		<hr style="margin:0;">
-		<a href="{{url_for('explore')}}" class="navbuttons" id="explorenavbutton"><div class="navbuttondiv ffadein"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></a>
+		<a href="{{url_for('explore')}}" class="navbuttons" id="explorenavbutton"><div class="navbuttondiv ffadein hoverpink"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></a>
 	</div>
 </div>
 {% endmacro %}
@@ -84,70 +83,63 @@
 				<p id="profiletag">@{{ username }}</p>
 			</div>
 		</div>
-		<a href="{{url_for('squabble')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-rotate-left fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Menu</h3><br><small class="navbuttonsubtext">Return to menu</small></div></a>
+		<a href="{{url_for('squabble')}}" class="navbuttons"><div class="navbuttondiv ffadein hoverpink"><i class="fa-solid fa-rotate-left fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Menu</h3><br><small class="navbuttonsubtext">Return to menu</small></div></a>
 		<hr style="margin:0;">
-		<a href="{{url_for('feed')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></div></a>
+		<a href="{{url_for('feed')}}" class="navbuttons"><div class="navbuttondiv ffadein hoverpink"><i class="fa-solid fa-bell fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Feed</h3><br><small class="navbuttonsubtext">See what's happening</small></div></a>
 		<hr style="margin:0;">
-		<a href="{{url_for('profile')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></div></a>	
+		<a href="{{url_for('profile')}}" class="navbuttons"><div class="navbuttondiv ffadein hoverpink"><i class="fa-solid fa-user fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Profile</h3><br><small class="navbuttonsubtext">View your profile</small></div></a>	
 		<hr style="margin:0;">
-		<a href="{{url_for('explore')}}" class="navbuttons"><div class="navbuttondiv ffadein"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></a>
+		<a href="{{url_for('explore')}}" class="navbuttons"><div class="navbuttondiv ffadein hoverpink"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></a>
 	</div>
 </div>
 {% endmacro %}
 
-{% macro feedbubble(authorname, author, postdate, pid) %}
-<div class="feedbubble" id="{{ row.pid }}">
-	<div class="postimgback"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
-	<button class="postoptionbutton" onclick="postmenuopen({{ pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
-	<div class="postoptionmenu i"></div>
-	<h4 class="postauthorname"><a href="/{{ row.author }}" class="authornamelink fadein">{{ authorname }}</a></h4>
-	<h5 class="postauthor"><a href="/{{ row.author }}" class="authorlink fadein">@{{ author }}</a> &nbsp; {{ postdate }}</h5>
-	<div class="postcontentdiv"><p class="postcontent">{{ row.content }}</p></div>
+{% macro firstfeedbubble(authorname, author, postdate, pid, content) %}
+<div class="feedbubble" id="{{ pid }}">
+	<div id="feedmenu">
+		<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
+		<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
+	</div>
+<div id="firstfeedline"></div>
+	<div class="postimgback postimgbackfirst"><a href="/{{ author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
+	<button class="postoptionbutton postoptionbuttonfirst" onclick="postmenuopen({{ pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
+	<div class="postoptionmenu postoptionmenufirst i"></div>
+	<h4 class="postauthorname postauthornamefirst"><a href="/{{ author }}" class="authornamelink">{{ authorname }}</a></h4>
+	<h5 class="postauthor postauthorfirst"><a href="/{{ author }}" class="authorlink">@{{ author }}</a> &nbsp; {{ postdate }}</h5>
+	<div class="postcontentdiv"><p class="postcontent postcontentfirst">{{ content }}</p></div>
 	<div class="postmenu">
 		<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
 		<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
-		<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ pid }}); get_comments({{ pid }});"><i class="fa-solid fa-comment fa-lg"></i></button>
+		<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ pid }});"><i class="fa-solid fa-comment fa-lg"></i></button>
 		<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
 	</div>
-	<div class="postcommentopen i" onclick="commentopen({{ pid }});">
-		<img class="copenimg" src="static/ConnorFulbright.png">
-		<h4 class="copentxt">Engage with post...</h4>
-	</div>
-	<div class="postcommentwrite i">
-		<img class="commentwriteimg" src="static/ConnorFulbright.png">
-		<form id="commentform" name="commentform">
-			<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
-			<input class="commentsubmit fadein" type="submit" value="Post">
-		</form>
-		<button class="commentcancel" onclick="commentcancel({{ pid }});">Cancel</button>
-	</div>
+		<div class="postcommentopen i" onclick="commentopen({{ pid }});">
+			<img class="copenimg" src="static/ConnorFulbright.png">
+			<h4 class="copentxt">Engage with post...</h4>
+		</div>
+		<div class="postcommentwrite i">
+			<img class="commentwriteimg" src="static/ConnorFulbright.png">
+			<form id="commentform" name="commentform">
+				<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
+				<input class="commentsubmit fadein" type="submit" value="Post">
+			</form>
+			<button class="commentcancel" onclick="commentcancel({{ pid }});">Cancel</button>
+		</div>
 </div>
-{% endmacro %}
-
-{% macro commentbubble(commentid, tag, author, content, postdate) %}
-	<a href="/{{ tag }}"><img src="static/ConnorFulbright.png" class="commentprofimg"></a>
-	<h4 class="commentauthor"><a href="/{{ tag }}" class="authornamelink fadein">{{ author }}</a></h4>
-	<p class="commenttag"><a href="/{{ tag }}" class="authorlink fadein">{{ tag }}</a> &nbsp; {{ postdate }}</p>
-	<button class="commentoptionbutton fadein"><i class="fa-solid fa-ellipsis fa-lg"></i></button><p class="commentcontent">{{ content }}</p>
-	<div class="postmenu">
-		<button class="postcomment commentreplybutton fadein" onclick=""><i class="fa-solid fa-reply-all fa-lg"></i></button>
-		<button class="postcomment commentreplyopen fadein" onclick="repliesshow({{ commentid }});">View Replies</button>
-	</div>
-	<div class="commentreplydiv"></div>
 {% endmacro %}
 
 {% macro postblock() %}
 <div class="postblock">
 	<img class="postwriteimg" src="static/ConnorFulbright.png">
-	<form method="post">
+	<form>
 		<textarea class="posttext" name="posttext" id="posttextsquab" placeholder="Say something controversial..." maxlength="1000" onkeyup="count_chars('posttextsquab','lenupdatepost');" onkeydown="count_chars('posttextsquab','lenupdatepost');"></textarea>
 	    <label for="squabpostimage">
 	    	<i class="fa-solid fa-camera fa-2x postimagelabel"></i>
 		</label>
-		<input type="submit" class="postsubmit" name="postsubmit" value="Post">
+		<input type="submit" class="postsubmit fadein" name="postsubmit" value="Post" onclick="return post_submit();">
 	</form>
 	<div class="postline"></div>
-	<p id="currentlenpost"><span id="lenupdatepost">0</span>/1000</p>
+	<p id="currentlenpost" class="noselect"><span id="lenupdatepost">0</span>/1000</p>
 	<button class="postclearbutton" onclick="clearPost('squab'); count_chars('posttextsquab','lenupdatepost');">Clear</button>
 </div>
 {% endmacro %}
@@ -161,7 +153,6 @@
             	<button class="threetabbutton3 threetabbuttons threetabinactive fadein" onclick="threetabmenu('{{ n }}','3')">{{ c }}</button>
             	<div class="threetabbutton3line threetabbuttonlines threetabbuttonlineinactive fadein"></div>
 	            <div class="threetabblock">
-	            	
 	            </div>
         	</div>
 {% endmacro %}

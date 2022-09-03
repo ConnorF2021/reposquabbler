@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}Squabbler | Find Squabble{% endblock %}
+{% from "macros.html" import stream %}
+{% from "macros.html" import headertext with context %}
+{% from "macros.html" import headerstuff %}
+{% from "macros.html" import mainnav with context %}
+{% from "macros.html" import postblock %}
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" href="{{url_for('static', filename='css/squabble.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="header">
+	{{ headerstuff() }}
+    {{ headertext('Squabble', 'VERITAS VOS LIBERABIT')}}
+</div>
+
+	<div id="backgroundid" class="container-fluid">
+
+		<div class="container" id="maincontent">
+  
+			<div id="smallinfopopup">
+				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
+			</div>
+
+            	{{ mainnav(userdata.fullname, userdata.username) }}
+            	
+				<div id="squabble">  <!--squabble tab menu content-->
+					<div class="blocks" id="squabbleblock">
+
+					<div id="solowrapper">
+						<div id="soloinfo" class="infoboxes">
+							<div id="soloheaderbackground" class="menuheaderbackgrounds noselect"></div>
+							<h2 id="soloheader" class="menuheaders noselect">Solo</h2>
+							<p id="solop" class="menup noselect">1v1 Squabble</p>
+							<div id="solodisplay" class="displayboxes noselect">
+								<i class="fa-solid fa-user fa-9x menuicons noselect" id="soloicon"></i>
+							</div>
+						</div>
+						<div id="solobuttonborder" class="menubuttonborders">
+							<a href="{{url_for('solo')}}" id="solobutton" class="menubuttons fadein">Find Solo Squabble</a>
+						</div>
+					</div>
+
+					<div id="multiwrapper">
+						<div id="multiinfo" class="infoboxes">
+							<div id="multiheaderbackground" class="menuheaderbackgrounds noselect"></div>
+							<h2 id="multiheader" class="menuheaders noselect">Multi</h2>
+							<p id="multip" class="menup noselect">Group Squabble</p>
+							<div id="multidisplay" class="displayboxes noselect">
+								<i class="fa-solid fa-users fa-9x menuicons noselect" id="multiicon"></i>
+							</div>
+						</div>
+						<div id="multibuttonborder" class="menubuttonborders">
+							<a href="{{url_for('multi')}}" id="multibutton" class="menubuttons fadein">Find Multi Squabble</a>
+						</div>
+					</div>
+
+					<div id="createwrapper">
+						<div id="createinfo" class="infoboxes">
+							<div id="createheaderbackground" class="menuheaderbackgrounds noselect"></div>
+							<h2 id="createheader" class="menuheaders noselect">Create</h2>
+							<p id="createp" class="menup noselect">Choose your own topic</p>
+							<div id="createdisplay" class="displayboxes noselect">
+								<i class="fa-solid fa-plus fa-9x menuicons noselect" id="createicon"></i>
+							</div>
+						</div>
+						<div id="createbuttonborder" class="menubuttonborders">
+							<a href="{{url_for('create')}}" id="createbutton" class="menubuttons fadein">Create Squabble</a>
+						</div>
+					</div>
+					<div id="spectatelinebackground">
+					</div>
+
+					<div id="spectatewrapper">
+						<div id="spectatebuttonborder">
+							<a href="" id="spectatebutton" class="menubuttons">Enter Public Forum</a> 
+						</div>
+					</div>
+				</div>
+
+				{{ postblock() }}
+
+  			</div> <!--squabble tab menu content end-->
+
+  			{{ stream() }}
+
+		</div>
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+	<script type="text/javascript" charset="utf-8">
+	    var socket = io('http://127.0.0.1:5000');
+	    socket.on('connect', function() {
+	    });
+
+	    function post_submit() {
+			let posttext = document.getElementById('posttextsquab');
+			let content = posttext.value;
+			socket.emit('handle_post', {
+				content: content
+			});
+			posttext.value = '';
+			return false;
+		}
+
+	</script>
+{% endblock %}

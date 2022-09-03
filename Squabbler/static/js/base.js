@@ -347,6 +347,21 @@ function repliesshow(cid) {
     }
 }
 
+function secondreply(rid) {
+    replyid = 'r' + rid;
+    reply = document.getElementById(replyid);
+    let replywrite = reply.querySelector('.secondreplywritediv');
+    let replydiv = reply.querySelector('.secondreplydiv');
+    if (replydiv.classList.contains('a')) {
+        replydiv.classList.remove('a');
+        replydiv.className += " i";
+    }
+    else {
+        replydiv.classList.remove('i');
+        replydiv.className += " a";
+    }
+}
+
 function hidereplies(cid) {
     commentid = 'c' + cid;
     comment = document.getElementById(commentid);
@@ -369,6 +384,23 @@ function replyopen(cid) {
     replywrite.querySelector('.replywritetxt').focus();
 }
 
+function secondreplyopen(rid,tag) {
+    replyid = 'r' + rid;
+    reply = document.getElementById(replyid);
+    let replyopen = reply.querySelector('.secondreplyopendiv');
+    let replywrite = reply.querySelector('.secondreplywritediv');
+    let replywritetxt = replywrite.querySelector('.replywritetxt');
+    replyopen.classList.remove('a');
+    replyopen.className +=" i";
+    replywrite.classList.remove('i');
+    replywrite.className += ' a';
+    let tag_span = '@' + tag;
+    end = tag_span.length;
+    replywritetxt.value = tag_span;
+    replywritetxt.setSelectionRange(end, end);
+    replywritetxt.focus();
+}
+
 function replycancel(cid) {
     commentid = 'c' + cid;
     comment = document.getElementById(commentid);
@@ -380,7 +412,26 @@ function replycancel(cid) {
     replywrite.className += ' i';
 }
 
+function secondreplycancel(rid) {
+    replyid = 'r' + rid;
+    reply = document.getElementById(replyid);
+    let replyopen = reply.querySelector('.secondreplydiv').querySelector('.secondreplyopendiv');
+    let replywrite = reply.querySelector('.secondreplydiv').querySelector('.secondreplywritediv');
+    replyopen.classList.remove('i');
+    replyopen.className +=" a";
+    replywrite.classList.remove('a');
+    replywrite.className += ' i';
+}
+
+
 function count_chars(countFrom,updateTo) {
     var length = document.getElementById(countFrom).value.length;
     document.getElementById(updateTo).innerHTML = length;
+}
+
+function count_chars_comment_write(a) {
+    let post = document.getElementById(a);
+    let commentwritediv = post.querySelector('.postcommentwrite');
+    let length = commentwritediv.querySelector('.commentform').querySelector('.commentwritetxt').value.length;
+    commentwritediv.querySelector('.currentlencomment').querySelector('.lenupdatepost').innerHTML = length;
 }

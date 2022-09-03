@@ -5,6 +5,7 @@
 {% from "macros.html" import headerstuff %}
 {% from "macros.html" import mainnav with context %}
 {% from "macros.html" import postblock %}
+{% from "macros.html" import firstfeedbubble with context %}
 {% block head %}
 	{{ super() }}
 	<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
@@ -110,37 +111,7 @@
 							{% else %}
 								{% for row in posts %}
 									{% if loop.first %}
-									<div class="feedbubble" id="{{ row.pid }}">
-										<div id="feedmenu">
-											<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
-											<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
-										</div>
-									<div id="firstfeedline"></div>
-										<div class="postimgback postimgbackfirst"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
-										<button class="postoptionbutton postoptionbuttonfirst" onclick="postmenuopen({{ row.pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
-										<div class="postoptionmenu postoptionmenufirst i"></div>
-										<h4 class="postauthorname postauthornamefirst"><a href="/{{ row.author }}" class="authornamelink">{{ row.authorname }}</a></h4>
-										<h5 class="postauthor postauthorfirst"><a href="/{{ row.author }}" class="authorlink">@{{ row.author }}</a> &nbsp; {{ row.postdate }}</h5>
-										<div class="postcontentdiv"><p class="postcontent postcontentfirst">{{ row.content }}</p></div>
-										<div class="postmenu">
-											<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
-											<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
-											<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ row.pid }});"><i class="fa-solid fa-comment fa-lg"></i></button>
-											<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-										</div>
-											<div class="postcommentopen i" onclick="commentopen({{ row.pid }});">
-												<img class="copenimg" src="static/ConnorFulbright.png">
-												<h4 class="copentxt">Engage with post...</h4>
-											</div>
-											<div class="postcommentwrite i">
-												<img class="commentwriteimg" src="static/ConnorFulbright.png">
-												<form id="commentform" name="commentform">
-													<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
-													<input class="commentsubmit fadein" type="submit" value="Post">
-												</form>
-												<button class="commentcancel" onclick="commentcancel({{ row.pid }});">Cancel</button>
-											</div>
-									</div>
+										{{ firstfeedbubble(row.authorname, row.author, row.postdate, row.pid, row.content) }}
 									{% else %}
 									<div class="feedbubble" id="{{ row.pid }}">
 										<div class="postimgback"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
@@ -273,4 +244,22 @@
 				{{ stream() }}
 		</div>
 	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+	<script type="text/javascript" charset="utf-8">
+	    var socket = io('http://127.0.0.1:5000');
+	    socket.on('connect', function() {
+	    });
+
+	    function post_submit() {
+			let posttext = document.getElementById('posttextsquab');
+			let content = posttext.value;
+			socket.emit('handle_post', {
+				content: content
+			});
+			posttext.value = '';
+			return false;
+		}
+
+	</script>
 {% endblock %}

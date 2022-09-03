@@ -1,0 +1,322 @@
+{% extends "base.html" %}
+{% block title %}Squabbler | Feed{% endblock %}
+{% from "macros.html" import stream %}
+{% from "macros.html" import headertext with context %}
+{% from "macros.html" import headerstuff %}
+{% from "macros.html" import mainnav with context %}
+{% from "macros.html" import postblock %}
+{% block head %}
+	{{ super() }}
+	<link rel="stylesheet" href="{{url_for('static', filename='css/feed.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" id="header">
+
+	{{ headerstuff() }}
+	{{ headertext('Feed', 'DICTUM FACTUM') }}
+
+</div>
+
+	<div id="backgroundid" class="container-fluid">
+
+		<div class="container" id="maincontent">
+  
+			<div id="smallinfopopup">
+				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
+			</div>
+            	{{ mainnav(userdata.fullname, userdata.username) }} 
+            	<div id="feedpostblockdiv">
+            		{{ postblock() }}
+            	</div>
+            	<div id="feed">
+					<div id="wrapperfeeddiv" class="feeddiv">
+						<div id="discoverfeeddiv" class="activefeed">
+							<div class="first-feed-bubble" id="first-feed-bubble">
+								<div id="feedmenu">
+									<button id="feeddiscover" onclick="feedOpen('feeddiscover');" class="feedmenubuttons openfeed fadein">
+										<i class="fa-solid fa-earth-asia"></i> Discover
+									</button>
+									<button id="feedfollowing" onclick="feedOpen('feedfollowing'); get_posts_on_open_feed_type('following');" class="feedmenubuttons closedfeed fadein">
+										<i class="fa-solid fa-user-group"></i> Following
+									</button>
+								</div>
+								<div class="firstfeedline"></div>
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>
+							<div class="feedbubble feedbubbleloading">
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>
+							<div class="feedbubble feedbubbleloading">
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>
+							<div class="feedbubble feedbubbleloading">
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>
+							<div class="feedbubble feedbubbleloading">
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>
+						</div>
+						<div id="followingfeeddiv" class="inactivefeed">
+							<div class="first-feed-bubble" id="first-feed-bubble">
+								<div id="feedmenu">
+									<button id="feeddiscover" onclick="feedOpen('feeddiscover'); get_posts_on_open_feed_type('discover');" class="feedmenubuttons closedfeed fadein">
+										<i class="fa-solid fa-earth-asia"></i> Discover
+									</button>
+									<button id="feedfollowing" onclick="feedOpen('feedfollowing');" class="feedmenubuttons openfeed fadein">
+										<i class="fa-solid fa-user-group"></i> Following
+									</button>
+								</div>
+								<div class="firstfeedline"></div>
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>
+							<div class="feedbubble feedbubbleloading">
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>
+							<div class="feedbubble feedbubbleloading">
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>
+							<div class="feedbubble feedbubbleloading">
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>
+							<div class="feedbubble feedbubbleloading">
+								<div class="loading-post-div">
+									<div class="loading-post-img"></div>
+									<div class="loading-post-top-bar"></div>
+									<div class="loading-post-second-bar"></div>
+									<div class="loading-post-third-bar"></div>
+									<div class="loading-post-fourth-bar"></div>
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+				{{ stream() }}
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+			var socket = io('http://127.0.0.1:5000');
+				socket.on('connect', function() {
+			});
+
+			const postIdList = []
+
+			function post_get_onload() {
+				socket.emit('get_initial_posts');
+			}
+
+			function get_posts_on_open_feed_type(a) {
+				if (a == 'following') {
+					activeFeed = document.getElementById('discoverfeeddiv');
+					activeFeed.querySelector('.first-feed-bubble').querySelector('.postbubblediv').remove();
+					activeFeed.querySelector('.bottomfeedbubble').remove();
+					let oldPosts = activeFeed.querySelectorAll('.feedbubble');
+					oldPosts.forEach(post => {
+					  post.remove();
+					});
+					returnedFeed = 'following';
+					append_loading_bubbles('discover');
+				}
+
+				else {
+					activeFeed = document.getElementById('followingfeeddiv');
+					activeFeed.querySelector('.first-feed-bubble').querySelector('.postbubblediv').remove();
+					activeFeed.querySelector('.bottomfeedbubble').remove();
+					let oldPosts = activeFeed.querySelectorAll('.feedbubble');
+					oldPosts.forEach(post => {
+					  post.remove();
+					});
+					returnedFeed = 'discover';
+					append_loading_bubbles('following');
+				} 
+				socket.emit('get_more_posts', {
+					returnedFeed: returnedFeed,
+					postIdList: postIdList
+				});
+			}
+
+			function append_loading_bubbles(a) {
+				discoverFeedDiv = document.getElementById('discoverfeeddiv');
+				followingFeedDiv = document.getElementById('followingfeeddiv');
+				if (a == 'discover') {
+					for (var i = 0; i < 4; i++) {
+						console.log(i);
+						if (i < 1) {
+							newNode = create_loading_post_div();
+							discoverFeedDiv.querySelector('.first-feed-bubble').append(newNode);
+						}
+						else {
+							let newNode = document.createElement('div');
+							newNode.setAttribute('class', 'feedbubble');
+							newNode.className += " feedbubbleloading";
+							newNode.append(create_loading_post_div());
+							discoverFeedDiv.append(newNode);
+						}
+					}
+				}
+				else {
+					for (var i = 0; i < 4; i++) {
+						if (i < 1) {
+							newNode = create_loading_post_div();
+							discoverFeedDiv.querySelector('.first-feed-bubble').append(newNode);
+						}
+						else {
+							let newNode = document.createElement('div');
+							newNode.setAttribute('class', 'feedbubble');
+							newNode.className += " feedbubbleloading";
+							newNode.append(create_loading_post_div());
+							followingFeedDiv.append(newNode);
+						}
+					}
+				}
+			}
+
+			function create_loading_post_div() {
+				let newNode = document.createElement('div');
+		    	newNode.setAttribute('class','loading-post-div');
+		    	newNode.innerHTML = `
+					<div class="loading-post-img"></div>
+					<div class="loading-post-top-bar"></div>
+					<div class="loading-post-second-bar"></div>
+					<div class="loading-post-third-bar"></div>
+					<div class="loading-post-fourth-bar"></div>
+		    	`;
+		    	return newNode;
+			}
+
+			function get_more_posts() {
+				var activeFeed = document.getElementById('wrapperfeeddiv').querySelector('.activefeed');
+				if (activeFeed.getAttribute('id') == 'discoverfeeddiv') {
+					returnedFeed = 'discover';
+				}
+
+				else {
+					returnedFeed = 'following';
+				}
+
+				socket.emit('get_more_posts', {
+					returnedFeed: returnedFeed,
+					postIdList: postIdList
+				});
+			}
+
+            const username = "{{ userdata.username }}";
+            const fullname = "{{ userdata.fullname }}";
+            document.onload = post_get_onload();
+
+            socket.on('recieve_posts', function (a) {
+				let posts = a;
+				let activeFeed = determine_active_feed();
+				let bottomFeedBubble = activeFeed.querySelector('.bottomfeedbubble');
+				let firstFeedBubble = activeFeed.querySelector('.first-feed-bubble');
+				let loadingBubbles = activeFeed.querySelectorAll('.feedbubbleloading');
+				if (bottomFeedBubble !== null) {
+					bottomFeedBubble.remove();
+				}
+				for (var i in posts) {
+					if (firstFeedBubble.querySelector('.postbubblediv') == null) {
+						let newPost = document.createElement('div');
+			        	newPost.setAttribute('class','postbubbleouterdiv');
+						newPost.innerHTML = create_post_div(posts[i].pid, posts[i].author, posts[i].authorname, posts[i].postdate, posts[i].content, posts[i].upvotesnumber, posts[i].downvotesnumber, posts[i].commentnumber, posts[i].hasvoted);
+						firstFeedBubble.append(newPost);
+						postIdList.push(posts[i].pid);
+						console.log(postIdList);
+						if (firstFeedBubble.querySelector('.loading-post-div') !== null) {
+							firstFeedBubble.querySelector('.loading-post-div').remove();
+						}
+					}
+					else {
+						let newPostDiv = document.createElement('div');
+			        	newPostDiv.setAttribute('class','postbubbleouterdiv');
+						newPostDiv.innerHTML = create_post_div(posts[i].pid, posts[i].author, posts[i].authorname, posts[i].postdate, posts[i].content, posts[i].upvotesnumber, posts[i].downvotesnumber, posts[i].commentnumber, posts[i].hasvoted);	
+						let newPostBubble = create_post_bubble();
+						newPostBubble.append(newPostDiv);
+						activeFeed.append(newPostBubble);
+						postIdList.push(posts[i].pid);
+						console.log(postIdList);
+					}
+				}
+				loadingBubbles.forEach(bubble => {
+				  bubble.remove();
+				});
+				if (firstFeedBubble.querySelector('.loading-post-div') !== null) {
+					firstFeedBubble.querySelector('.loading-post-div').remove();
+				}
+				activeFeed.append(create_bottom_feed_bubble());
+			});
+
+			function create_bottom_feed_bubble() {
+				let bottomFeedBubble = document.createElement('div');
+				bottomFeedBubble.setAttribute('class', 'bottomfeedbubble');
+				bottomFeedBubble.innerHTML = `<button class="feedbacktotop botfeedbuttons fadein" onclick="window.scrollTo(0, 0);">Back to top</button><img src="static/squabblerfavicon.png" class="bottomfeedimg"><button class="feedload botfeedbuttons fadein" onclick="get_more_posts();">Load more</button>`;
+				return bottomFeedBubble;
+			}
+
+			function determine_active_feed() {
+				return document.getElementById('wrapperfeeddiv').querySelector('.activefeed');
+			}
+
+			function create_post_bubble() {
+				let newPostBubble = document.createElement('div');
+				newPostBubble.setAttribute('class','feedbubble');
+				return newPostBubble;
+			}
+        </script>
+	<script src="{{url_for('static', filename='js/feed.js')}}"></script>
+{% endblock %}
