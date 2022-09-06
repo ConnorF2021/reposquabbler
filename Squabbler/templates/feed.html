@@ -34,10 +34,10 @@
 						<div id="discoverfeeddiv" class="activefeed">
 							<div class="first-feed-bubble" id="first-feed-bubble">
 								<div id="feedmenu">
-									<button id="feeddiscover" onclick="feedOpen('feeddiscover');" class="feedmenubuttons openfeed fadein">
+									<button id="feed-discover-button" class="feedmenubuttons openfeed fadein">
 										<i class="fa-solid fa-earth-asia"></i> Discover
 									</button>
-									<button id="feedfollowing" onclick="feedOpen('feedfollowing'); get_posts_on_open_feed_type('following');" class="feedmenubuttons closedfeed fadein">
+									<button id="feed-following-button" onclick="feedOpen('feed-following-button'); get_posts_on_open_feed_type('following');" class="feedmenubuttons closedfeed fadein">
 										<i class="fa-solid fa-user-group"></i> Following
 									</button>
 								</div>
@@ -90,13 +90,13 @@
 						<div id="followingfeeddiv" class="inactivefeed">
 							<div class="first-feed-bubble" id="first-feed-bubble">
 								<div id="feedmenu">
-									<button id="feeddiscover" onclick="feedOpen('feeddiscover'); get_posts_on_open_feed_type('discover');" class="feedmenubuttons closedfeed fadein">
+									<button id="feed-discover-button" onclick="feedOpen('feed-discover-button'); get_posts_on_open_feed_type('discover');" class="feedmenubuttons closedfeed fadein">
 										<i class="fa-solid fa-earth-asia"></i> Discover
 									</button>
-									<button id="feedfollowing" onclick="feedOpen('feedfollowing');" class="feedmenubuttons openfeed fadein">
+									<button id="feed-following-button" class="feedmenubuttons openfeed fadein">
 										<i class="fa-solid fa-user-group"></i> Following
 									</button>
-								</div>
+								</div>	
 								<div class="firstfeedline"></div>
 								<div class="loading-post-div">
 									<div class="loading-post-img"></div>

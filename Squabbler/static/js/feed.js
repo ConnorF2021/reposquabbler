@@ -70,10 +70,10 @@ else {
 			</div>
 		</div>
 		<button class="postupvote ${postupvotestatus} postmenubuttons fadein hovergreen" onclick="postupvote(${pid});">
-			<i class="fa-solid fa-arrow-trend-up fa-lg"></i> ${upvotesnumber}
+			<i class="fa-solid fa-arrow-trend-up fa-lg"></i> <span class="upvotes-number-span">${upvotesnumber}</span>
 		</button>
 		<button class="postdownvote ${postdownvotestatus} postmenubuttons fadein hoverred" onclick="postdownvote(${pid});">
-			<i class="fa-solid fa-arrow-trend-down fa-lg"></i> ${downvotesnumber}
+			<i class="fa-solid fa-arrow-trend-down fa-lg"></i> <span class="downvotes-number-span">${downvotesnumber}</span>
 		</button>
 		<button class="postcomment postmenubuttons fadein hoverpink" onclick="commentsshow(${pid})">
 			<i class="fa-solid fa-comment fa-lg"></i> ${commentnumber}
@@ -296,6 +296,18 @@ function local_post_upvote_update(postid) {
 		if (postdownvote.classList.contains('postdownvoteactive')) {
 			postdownvote.classList.remove('postdownvoteactive');
 			postdownvote.className += ' postdownvoteinactive';
+			let newDownVotesNumber = parseInt(postdownvote.querySelector('.downvotes-number-span').innerHTML) - 1;
+			let newUpVotesNumber = parseInt(postupvote.querySelector('.upvotes-number-span').innerHTML) + 1;
+			postdownvote.querySelector('.downvotes-number-span').innerHTML = newDownVotesNumber;
+			postupvote.querySelector('.upvotes-number-span').innerHTML = newUpVotesNumber;
+
+		}
+		else if (postupvote.classList.contains('postupvoteactive')) {
+
+		}
+		else {
+			let newUpVotesNumber = parseInt(postupvote.querySelector('.upvotes-number-span').innerHTML) + 1;
+			postupvote.querySelector('.upvotes-number-span').innerHTML = newUpVotesNumber;
 		}
 	}
 }
@@ -316,6 +328,17 @@ function local_post_downvote_update(postid) {
 		if (postupvote.classList.contains('postupvoteactive')) {
 			postupvote.classList.remove('postupvoteactive');
 			postupvote.className += ' postupvoteinactive';
+			let newUpVotesNumber = parseInt(postupvote.querySelector('.upvotes-number-span').innerHTML) - 1;
+			let newDownVotesNumber = parseInt(postdownvote.querySelector('.downvotes-number-span').innerHTML) + 1;
+			postupvote.querySelector('.upvotes-number-span').innerHTML = newUpVotesNumber;
+			postdownvote.querySelector('.downvotes-number-span').innerHTML = newDownVotesNumber;
+		}
+		else if (postdownvote.classList.contains('postdownvoteactive')) {
+			
+		}
+		else {
+			let newDownVotesNumber = parseInt(postdownvote.querySelector('.downvotes-number-span').innerHTML) + 1;
+			postdownvote.querySelector('.downvotes-number-span').innerHTML = newDownVotesNumber;
 		}
 	}
 }
