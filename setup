@@ -1,0 +1,15 @@
+sudo apt update
+sudo apt upgrade
+sudo apt install python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
+sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+pip install wheel
+pip install uwsgi flask
+pip install flask
+pip install flask-socketio
+pip install mysqlclient
+sudo apt install mysql-server
+pip install flask-mysqldb
+pip install flask-cors
+pip install flask-login
+pip install flask-wtf
+sudo apt install python3-venv
