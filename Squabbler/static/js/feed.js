@@ -22,84 +22,84 @@ function comment_submit(pid) {
 }
 
 function create_post_div(pid,author,authorname,postdate,content,upvotesnumber,downvotesnumber,commentnumber,hasvoted) {
-var voteNumber = upvotesnumber + downvotesnumber;
-if (voteNumber == 0) {
-	votePercent = 0;
-}
-else {
-	var votePercent = 100 * (upvotesnumber / voteNumber);
-}
-if (hasvoted == 3) {
-	var postupvotestatus = 'postupvoteinactive';
-	var postdownvotestatus = 'postdownvoteinactive';
-}
-else if (hasvoted == 1) {
-	var postupvotestatus = 'postupvoteactive';
-	var postdownvotestatus = 'postdownvoteinactive';
-}
-else {
-	var postupvotestatus = 'postupvoteinactive';
-	var postdownvotestatus = 'postdownvoteactive';
-} return `
-<div class="postbubblediv" id="${pid}">
-	<div class="postimgback">
-		<a href="/${author}"><img src="static/ConnorFulbright.png" class="postimg"></a>
-	</div>
-	<button class="postoptionbutton fadein hoverpink" onclick="postmenuopen(${pid});">
-		<i class="fa-solid fa-ellipsis fa-lg"></i>
-	</button>
-	<div class="postoptionmenu i">
-		<button class="postoptionmenubutton pomtop fadein"> &nbsp; <i class="fa-solid fa-user-check fa-lg pom-icon-follow"></i> &nbsp; Follow @${author}</button>
-		<button class="postoptionmenubutton pommid fadein"> &nbsp; <i class="fa-solid fa-ban fa-lg pom-icon-block"></i> &nbsp; Block @${author}</button>
-		<button class="postoptionmenubutton pombot fadein"> &nbsp; <i class="fa-solid fa-flag fa-lg pom-icon-report"></i> &nbsp; Report @${author}</button>
-	</div>
-	<h4 class="postauthorname">
-		<a href="/${author}" class="authornamelink fadein hoverpink">${authorname}</a>
-	</h4>
-	<h5 class="postauthor">
-		<a href="/${author}" class="authorlink fadein hoverpink">@${author}</a> &nbsp; ${postdate}
-	</h5>
-	<div class="postcontentdiv">
-		<p class="postcontent">${content}</p>
-	</div>
-	<div class="postmenu">
-		<div class="postvotediv">
-			<p class="postvotebarstatus">${votePercent}% Approval / ${voteNumber} Votes</p>
-			<div class="postvotebarback">
-				<div class="postvotebar" style="width: ${votePercent}%"></div>
-			</div>
+	var voteNumber = upvotesnumber + downvotesnumber;
+	if (voteNumber == 0) {
+		votePercent = 0;
+	}
+	else {
+		var votePercent = 100 * (upvotesnumber / voteNumber);
+	}
+	if (hasvoted == 3) {
+		var postupvotestatus = 'postupvoteinactive';
+		var postdownvotestatus = 'postdownvoteinactive';
+	}
+	else if (hasvoted == 1) {
+		var postupvotestatus = 'postupvoteactive';
+		var postdownvotestatus = 'postdownvoteinactive';
+	}
+	else {
+		var postupvotestatus = 'postupvoteinactive';
+		var postdownvotestatus = 'postdownvoteactive';
+	} return `
+	<div class="postbubblediv" id="${pid}">
+		<div class="postimgback">
+			<a href="/${author}"><img src="static/ConnorFulbright.png" class="postimg"></a>
 		</div>
-		<button class="postupvote ${postupvotestatus} postmenubuttons fadein hovergreen" onclick="postupvote(${pid});">
-			<i class="fa-solid fa-arrow-trend-up fa-lg"></i> <span class="upvotes-number-span">${upvotesnumber}</span>
+		<button class="postoptionbutton fadein hoverpink" onclick="postmenuopen(${pid});">
+			<i class="fa-solid fa-ellipsis fa-lg"></i>
 		</button>
-		<button class="postdownvote ${postdownvotestatus} postmenubuttons fadein hoverred" onclick="postdownvote(${pid});">
-			<i class="fa-solid fa-arrow-trend-down fa-lg"></i> <span class="downvotes-number-span">${downvotesnumber}</span>
-		</button>
-		<button class="postcomment postmenubuttons fadein hoverpink" onclick="commentsshow(${pid})">
-			<i class="fa-solid fa-comment fa-lg"></i> ${commentnumber}
-		</button>
-		<button class="postshare postmenubuttons fadein hoverpink">
-			<i class="fa-solid fa-share fa-lg"></i>
-		</button>
+		<div class="postoptionmenu i">
+			<button class="postoptionmenubutton pomtop fadein"> &nbsp; <i class="fa-solid fa-user-check fa-lg pom-icon-follow"></i> &nbsp; Follow @${author}</button>
+			<button class="postoptionmenubutton pommid fadein"> &nbsp; <i class="fa-solid fa-ban fa-lg pom-icon-block"></i> &nbsp; Block @${author}</button>
+			<button class="postoptionmenubutton pombot fadein"> &nbsp; <i class="fa-solid fa-flag fa-lg pom-icon-report"></i> &nbsp; Report @${author}</button>
+		</div>
+		<h4 class="postauthorname">
+			<a href="/${author}" class="authornamelink fadein hoverpink">${authorname}</a>
+		</h4>
+		<h5 class="postauthor">
+			<a href="/${author}" class="authorlink fadein hoverpink">@${author}</a> &nbsp; ${postdate}
+		</h5>
+		<div class="postcontentdiv">
+			<p class="postcontent">${content}</p>
+		</div>
+		<div class="postmenu">
+			<div class="postvotediv">
+				<p class="postvotebarstatus">${votePercent}% Approval / ${voteNumber} Votes</p>
+				<div class="postvotebarback">
+					<div class="postvotebar" style="width: ${votePercent}%"></div>
+				</div>
+			</div>
+			<button class="postupvote ${postupvotestatus} postmenubuttons fadein hovergreen" onclick="postupvote(${pid});">
+				<i class="fa-solid fa-arrow-trend-up fa-lg"></i> <span class="upvotes-number-span">${upvotesnumber}</span>
+			</button>
+			<button class="postdownvote ${postdownvotestatus} postmenubuttons fadein hoverred" onclick="postdownvote(${pid});">
+				<i class="fa-solid fa-arrow-trend-down fa-lg"></i> <span class="downvotes-number-span">${downvotesnumber}</span>
+			</button>
+			<button class="postcomment postmenubuttons fadein hoverpink" onclick="commentsshow(${pid})">
+				<i class="fa-solid fa-comment fa-lg"></i> ${commentnumber}
+			</button>
+			<button class="postshare postmenubuttons fadein hoverpink">
+				<i class="fa-solid fa-share fa-lg"></i>
+			</button>
+		</div>
+		<div class="postcommentopen i" onclick="commentopen(${pid});">
+			<img class="copenimg" src="static/ConnorFulbright.png">
+			<h4 class="copentxt">Engage with post...</h4>
+		</div>
+		<div class="postcommentwrite i">
+			<img class="commentwriteimg" src="static/ConnorFulbright.png">
+			<form class="commentform" name="commentform">
+				<textarea name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000" onkeyup="count_chars_comment_write(${pid});" onkeydown="count_chars_comment_write(${pid});"></textarea>
+					<input class="commentsubmit fadein" type="submit" value="Post" onclick="return comment_submit(${pid});">
+			</form>
+			<p class="noselect currentlencomment"><span class="lenupdatepost">0</span>/1000</p>
+			<button class="commentcancel" onclick="commentcancel(${pid});">Cancel</button>
+		</div>
+		<div class="commentdiv">
+		</div>
 	</div>
-	<div class="postcommentopen i" onclick="commentopen(${pid});">
-		<img class="copenimg" src="static/ConnorFulbright.png">
-		<h4 class="copentxt">Engage with post...</h4>
-	</div>
-	<div class="postcommentwrite i">
-		<img class="commentwriteimg" src="static/ConnorFulbright.png">
-		<form class="commentform" name="commentform">
-			<textarea name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000" onkeyup="count_chars_comment_write(${pid});" onkeydown="count_chars_comment_write(${pid});"></textarea>
-				<input class="commentsubmit fadein" type="submit" value="Post" onclick="return comment_submit(${pid});">
-		</form>
-		<p class="noselect currentlencomment"><span class="lenupdatepost">0</span>/1000</p>
-		<button class="commentcancel" onclick="commentcancel(${pid});">Cancel</button>
-	</div>
-	<div class="commentdiv">
-	</div>
-</div>
-<div class="placeholder-div-insert"></div>
-`
+	<div class="placeholder-div-insert"></div>
+	`
 }
 
 function get_comments(pid) {
@@ -280,69 +280,6 @@ function second_reply_submit(commentid) {
 
 }
 
-function postupvote(postid) {
-	socket.emit('post_upvote', {
-		postid: postid
-	});
-	local_post_upvote_update(postid);
-}
-
-function local_post_upvote_update(postid) {
-	let postupvote = document.getElementById(postid).querySelector('.postmenu').querySelector('.postupvote');
-	let postdownvote = document.getElementById(postid).querySelector('.postmenu').querySelector('.postdownvote');
-	if (postupvote.classList.contains('postupvoteinactive')) {
-		postupvote.classList.remove('postupvoteinactive');
-		postupvote.className += ' postupvoteactive';
-		if (postdownvote.classList.contains('postdownvoteactive')) {
-			postdownvote.classList.remove('postdownvoteactive');
-			postdownvote.className += ' postdownvoteinactive';
-			let newDownVotesNumber = parseInt(postdownvote.querySelector('.downvotes-number-span').innerHTML) - 1;
-			let newUpVotesNumber = parseInt(postupvote.querySelector('.upvotes-number-span').innerHTML) + 1;
-			postdownvote.querySelector('.downvotes-number-span').innerHTML = newDownVotesNumber;
-			postupvote.querySelector('.upvotes-number-span').innerHTML = newUpVotesNumber;
-
-		}
-		else if (postupvote.classList.contains('postupvoteactive')) {
-
-		}
-		else {
-			let newUpVotesNumber = parseInt(postupvote.querySelector('.upvotes-number-span').innerHTML) + 1;
-			postupvote.querySelector('.upvotes-number-span').innerHTML = newUpVotesNumber;
-		}
-	}
-}
-
-function postdownvote(postid) {
-	socket.emit('post_downvote', {
-		postid: postid
-	});
-	local_post_downvote_update(postid);
-}
-
-function local_post_downvote_update(postid) {
-	let postupvote = document.getElementById(postid).querySelector('.postmenu').querySelector('.postupvote');
-	let postdownvote = document.getElementById(postid).querySelector('.postmenu').querySelector('.postdownvote');
-	if (postdownvote.classList.contains('postdownvoteinactive')) {
-		postdownvote.classList.remove('postdownvoteinactive');
-		postdownvote.className += ' postdownvoteactive';
-		if (postupvote.classList.contains('postupvoteactive')) {
-			postupvote.classList.remove('postupvoteactive');
-			postupvote.className += ' postupvoteinactive';
-			let newUpVotesNumber = parseInt(postupvote.querySelector('.upvotes-number-span').innerHTML) - 1;
-			let newDownVotesNumber = parseInt(postdownvote.querySelector('.downvotes-number-span').innerHTML) + 1;
-			postupvote.querySelector('.upvotes-number-span').innerHTML = newUpVotesNumber;
-			postdownvote.querySelector('.downvotes-number-span').innerHTML = newDownVotesNumber;
-		}
-		else if (postdownvote.classList.contains('postdownvoteactive')) {
-			
-		}
-		else {
-			let newDownVotesNumber = parseInt(postdownvote.querySelector('.downvotes-number-span').innerHTML) + 1;
-			postdownvote.querySelector('.downvotes-number-span').innerHTML = newDownVotesNumber;
-		}
-	}
-}
-
 function post_submit() {
 	let posttext = document.getElementById('posttextsquab');
 	let content = posttext.value;
@@ -369,3 +306,25 @@ function post_submit() {
     posttext.value = '';
 	return false;
 }
+
+// Post Voting System
+
+function postupvote(postid) {
+	if (!post_upvote_is_active(postid)) {
+		socket.emit('post_upvote', {
+			postid: postid
+		});
+		local_post_upvote_update(postid);
+	}
+}
+
+function postdownvote(postid) {
+	if (!post_downvote_is_active(postid)) {
+		socket.emit('post_downvote', {
+			postid: postid
+		});
+		local_post_downvote_update(postid);
+	}
+}
+
+// End Post Voting System
