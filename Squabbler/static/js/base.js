@@ -7,32 +7,32 @@ function clearPost(val) {
 	}
 }
 
-    function profileedit() {
-        const button = document.getElementById('editprofbutton');
-        const editDiv = document.getElementById('profileedit');
-        const mainDiv = document.getElementById('profiledisplay');
-        const profBlock = document.getElementById('profileblock');
-        const changeProfileForm = document.getElementById('changeprofform');
-        
-        if (button.classList.contains('editprofbutclose')) {
-            button.classList.remove('editprofbutclose');
-            button.className += ' editprofbutopen';
-            button.innerHTML = 'Cancel';
-            editDiv.style.display = "block";
-            mainDiv.style.display = "none";
-            profBlock.style.minHeight = '760px';
-        }
-        
-        else {
-            button.classList.remove('editprofbutopen');
-            button.className += ' editprofbutclose';
-            button.innerHTML = 'Edit Profile';
-            editDiv.style.display = "none";
-            mainDiv.style.display = "block";
-            changeProfileForm.reset();
-            profBlock.style.minHeight = '370px';
-        }
+function profileedit() {
+    const button = document.getElementById('editprofbutton');
+    const editDiv = document.getElementById('profileedit');
+    const mainDiv = document.getElementById('profiledisplay');
+    const profBlock = document.getElementById('profileblock');
+    const changeProfileForm = document.getElementById('changeprofform');
+    
+    if (button.classList.contains('editprofbutclose')) {
+        button.classList.remove('editprofbutclose');
+        button.className += ' editprofbutopen';
+        button.innerHTML = 'Cancel';
+        editDiv.style.display = "block";
+        mainDiv.style.display = "none";
+        profBlock.style.minHeight = '760px';
     }
+    
+    else {
+        button.classList.remove('editprofbutopen');
+        button.className += ' editprofbutclose';
+        button.innerHTML = 'Edit Profile';
+        editDiv.style.display = "none";
+        mainDiv.style.display = "block";
+        changeProfileForm.reset();
+        profBlock.style.minHeight = '370px';
+    }
+}
 
 function myFunction() {
   const profilediv = document.getElementById("myDropdown");
@@ -59,54 +59,31 @@ function infoOpen(objName) {
 	window.scrollTo(0, 0);
 }
 
-function feedOpen(objValue) {
-	let objItem = document.getElementById(objValue);
-	if (objValue === 'feed-discover-button') {
-		let otherItem = 'feed-following-button';
-		if (!objItem.classList.contains('openfeed')) {
-            handle_feed_display_change(objValue, otherItem);
+function feedOpen(feedToBeOpenedID) {
+	let feedToBeOpened = document.getElementById(feedToBeOpenedID);
+	if (feedToBeOpenedID == 'feed-discover-button') {
+		let feedToBeClosedID = 'feed-following-button';
+		if (!feedToBeOpened.classList.contains('openfeed')) {
+            change_feed_display(feedToBeOpenedID, feedToBeClosedID);
 		}
 	}
 
 	else {
-		let otherItem = 'feed-discover-button';
-		if (!objItem.classList.contains('openfeed')) {
-			handle_feed_display_change(objValue, otherItem);
+		let feedToBeClosedID = 'feed-discover-button';
+		if (!feedToBeOpened.classList.contains('openfeed')) {
+			change_feed_display(feedToBeOpenedID, feedToBeClosedID);
 		}
 	}
 }
 
-function handle_feed_display_change(a,b) {
-    const discoverDiv = document.getElementById('discoverfeeddiv');
-    const followingDiv = document.getElementById('followingfeeddiv');
-    objItem = document.getElementById(a);
-    otherItem = document.getElementById(b)
-    objItem.className += " openfeed";
-    objItem.classList.remove('closedfeed');
-    otherItem.className += " closedfeed"
-    otherItem.classList.remove('openfeed');
-    if (a === 'feed-following-button') {
-        followingDiv.classList.remove('inactivefeed');
-        followingDiv.className += " activefeed";
-        discoverDiv.classList.remove('activefeed');
-        discoverDiv.className += " inactivefeed";
-    }
-    else {
-        discoverDiv.classList.remove('inactivefeed');
-        discoverDiv.className += " activefeed";
-        followingDiv.classList.remove('activefeed');
-        followingDiv.className += " inactivefeed";
-    }
-}
-
-function streamOpen(objValue) {
-	const objItem = document.getElementById(objValue);
+function streamOpen(streamTabToBeOpened) {
+	const objItem = document.getElementById(streamTabToBeOpened);
 	const streamLine = document.getElementById('streamline');
 	const notifyLine = document.getElementById('notifyline')
     const streamDiv = document.getElementById('streamdiv');
     const notifyDiv = document.getElementById('notificationdiv');
 
-	if (objValue === 'streambutton') {
+	if (streamTabToBeOpened == 'streambutton') {
 		let otherItem = document.getElementById('notificationbutton');
 		if (objItem.classList.contains('openstream')) {
 		}

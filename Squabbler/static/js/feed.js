@@ -1,12 +1,12 @@
-function comment_submit(pid) {
-	commentInputDiv = document.getElementById(pid).querySelector('.postcommentwrite');
+function comment_submit(postid) {
+	commentInputDiv = document.getElementById(postid).querySelector('.postcommentwrite');
 	commentInput = commentInputDiv.querySelector('.commentform').querySelector('.commentwritetxt');
-	commentInputOpen = document.getElementById(pid).querySelector('.postcommentopen');
+	commentInputOpen = document.getElementById(postid).querySelector('.postcommentopen');
     let comment = commentInput.value.trim();
     if (comment.length) {
         socket.emit('handle_comment', {
             comment: comment,
-            postid: pid,
+            postid: postid,
         })
         commentInputDiv.classList.remove('a');
         commentInputDiv.className += " i";
@@ -16,7 +16,7 @@ function comment_submit(pid) {
         let tempBubble = document.createElement('div');
         tempBubble.setAttribute('class','commentbubble');
         tempBubble.innerHTML = `<a href='/${username}'><img src='static/ConnorFulbright.png' class='commentprofimg'></a><h4 class='commentauthor'><a href='/${username}' class='authornamelink fadein hoverpink'>${fullname}</a></h4><p class='commenttag'><a href='/${username}' class='authorlink fadein hoverpink'>@${username}</a> &nbsp; Just Now</p><button class='commentoptionbutton fadein hoverpink'><i class='fa-solid fa-ellipsis fa-lg'></i></button><p class='commentcontent'>${comment}</p><button class='commentreplyopen fadein hoverpink'><i class='fa-solid fa-reply-all fa-lg'></i></button><div class='commentreplydiv i'><div class='replyopendiv' onclick=''><img class='ropenimg' src='static/ConnorFulbright.png'><h5 class='ropentxt'>Reply...</h5></div><button class='hidereplies fadein hoverpink' onclick='hidereplies();''>Hide Replies</button></div>`;
-        document.getElementById(pid).querySelector('.commentdiv').prepend(tempBubble);
+        document.getElementById(postid).querySelector('.commentdiv').prepend(tempBubble);
     }
     return false;
 }
@@ -111,28 +111,13 @@ function get_comments(pid) {
 	})
 }
 
-function create_empty_post_bubble(content,pid,author,tag,postdate) {
-	return `
-		<a href="/${tag}">
-			<img src="static/ConnorFulbright.png" class="commentprofimg">
-		</a>
-		<h4 class="commentauthor">
-			<a href="/${tag}" class="authornamelink fadein hoverpink">${author}</a>
-		</h4>
-		<p class="commenttag">
-			<a href="/${tag}" class="authorlink fadein hoverpink">@${tag}</a> &nbsp; ${postdate}
-		</p>
-		<p class="commentcontent">${content}</p>
-		`;
-}
-
 socket.on('recieve_comments', function (a) {
 	var comments = JSON.parse(a);
     for (var i in comments) {
     	if (comments[i].commentid == 0) {
     		let tempBubble = document.createElement('div');
     		tempBubble.setAttribute('class','commentbubble');
-    		tempBubble.innerHTML = create_empty_post_bubble(comments[i].content, comments[i].pid, comments[i].author, comments[i].tag, comments[i].postdate);
+    		tempBubble.innerHTML = create_empty_comment_bubble(comments[i].content, comments[i].pid, comments[i].author, comments[i].tag, comments[i].postdate);
 	    	document.getElementById(comments[i].postid).querySelector('.commentdiv').appendChild(tempBubble);
 	    	if (document.getElementById(comments[i].postid).querySelector('.commentdiv').querySelector('.loader') !== null) {
 	    		document.getElementById(comments[i].postid).querySelector('.commentdiv').querySelector('.loader').remove();
