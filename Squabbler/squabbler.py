@@ -15,6 +15,8 @@ import datetime
 import json
 import math
 
+#check classList.toggle("show")
+
 login_manager = LoginManager()
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")

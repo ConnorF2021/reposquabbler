@@ -102,17 +102,17 @@ function create_post_div(pid,author,authorname,postdate,content,upvotesnumber,do
 	`
 }
 
-function get_comments(pid) {
+function get_comments(postID) {
 	let spinner = document.createElement('div');
 	spinner.setAttribute('class', 'loader');
-	document.getElementById(pid).querySelector('.commentdiv').appendChild(spinner);
+	document.getElementById(postID).querySelector('.commentdiv').appendChild(spinner);
 	socket.emit('get_comments', {
-		postid: pid
+		postid: postID
 	})
 }
 
-socket.on('recieve_comments', function (a) {
-	var comments = JSON.parse(a);
+socket.on('recieve_comments', function (jsonCommentData) {
+	var comments = JSON.parse(jsonCommentData);
     for (var i in comments) {
     	if (comments[i].commentid == 0) {
     		let tempBubble = document.createElement('div');
@@ -187,37 +187,37 @@ socket.on('recieve_comments', function (a) {
     }
 });
 
-function reply_submit(cid) {
-	commentid = 'c' + cid;
-	comment = document.getElementById(commentid)
-	replyinputdiv = comment.querySelector('.replywritediv');
-	replyinput = replyinputdiv.querySelector('.replyform').querySelector('.replywritetxt');
-	replyinputopen = comment.querySelector('.replyopendiv');
-    let reply = replyinput.value.trim();
+function reply_submit(commentIDRaw) {
+	commentID = 'c' + commentIDRaw;
+	comment = document.getElementById(commentID)
+	replyInputDiv = comment.querySelector('.replywritediv');
+	replyInput = replyInputDiv.querySelector('.replyform').querySelector('.replywritetxt');
+	replyInputOpen = comment.querySelector('.replyopendiv');
+    let reply = replyInput.value.trim();
     if (reply.length) {
         socket.emit('handle_reply', {
             reply: reply,
-            commentid: cid,
+            commentid: commentIDRaw,
         })
-        replyinputdiv.classList.remove('a');
-        replyinputdiv.className += " i";
-        replyinputopen.classList.remove('i');
-        replyinputopen.className += " a";
-        replyinput.value = '';
-        let tempbubble = document.createElement('div');
-        tempbubble.setAttribute('class','replybubble');
-        tempbubble.innerHTML = `<a href='/profile'><img src='static/ConnorFulbright.png' class='replyprofimg'></a><h4 class='replyauthor fadein hoverpink'>${fullname}</h4><p class='replytag'><a href='/profile' class='authorlink fadein hoverpink'>@${username}</a> &nbsp; Just Now</p><button class='replyoptionbutton fadein hoverpink'><i class='fa-solid fa-ellipsis fa-lg'></i></button><p class='replycontent'>${reply}</p><button class='postcomment commentreplyopen fadein hoverpink' onclick=''><i class='fa-solid fa-reply-all fa-lg'></i></button>`;
-        	document.getElementById(commentid).querySelector('.commentreplydiv').querySelector('.replydiv').prepend(tempbubble);
+        replyInputDiv.classList.remove('a');
+        replyInputDiv.className += " i";
+        replyInputOpen.classList.remove('i');
+        replyInputOpen.className += " a";
+        replyInput.value = '';
+        let tempBubble = document.createElement('div');
+        tempBubble.setAttribute('class','replybubble');
+        tempBubble.innerHTML = `<a href='/profile'><img src='static/ConnorFulbright.png' class='replyprofimg'></a><h4 class='replyauthor fadein hoverpink'>${fullname}</h4><p class='replytag'><a href='/profile' class='authorlink fadein hoverpink'>@${username}</a> &nbsp; Just Now</p><button class='replyoptionbutton fadein hoverpink'><i class='fa-solid fa-ellipsis fa-lg'></i></button><p class='replycontent'>${reply}</p><button class='postcomment commentreplyopen fadein hoverpink' onclick=''><i class='fa-solid fa-reply-all fa-lg'></i></button>`;
+        document.getElementById(commentID).querySelector('.commentreplydiv').querySelector('.replydiv').prepend(tempBubble);
     }
     return false;
 }
-function get_replies(cid) {
+function get_replies(commentID) {
 	socket.emit('get_replies', {
-		commentid: cid
+		commentid: commentID
 	})
 }
-socket.on('recieve_replies', function (a) {
-	var replies = JSON.parse(a);
+socket.on('recieve_replies', function (jsonReplyData) {
+	let replies = JSON.parse(jsonReplyData);
 	for (var i in replies) {
 		let replyid = replies[i].replyid;
     	var replyidactual = 'r' + replies[i].replyid;

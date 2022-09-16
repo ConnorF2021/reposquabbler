@@ -34,9 +34,9 @@ function profileedit() {
     }
 }
 
-function myFunction() {
-  const profilediv = document.getElementById("myDropdown");
-    profilediv.classList.toggle("show");
+function open_header_dropdown_menu() {
+  const dropdownMenu = document.getElementById("myDropdown");
+  dropdownMenu.classList.toggle("show");
     
 }
 
@@ -54,24 +54,24 @@ window.onclick = function(event) {
   }
 }
 
-function infoOpen(objName) {
+function infoOpen() {
 	document.getElementById('smallinfopopup').style.display = "block";
 	window.scrollTo(0, 0);
 }
 
-function feedOpen(feedToBeOpenedID) {
-	let feedToBeOpened = document.getElementById(feedToBeOpenedID);
-	if (feedToBeOpenedID == 'feed-discover-button') {
-		let feedToBeClosedID = 'feed-following-button';
-		if (!feedToBeOpened.classList.contains('openfeed')) {
-            change_feed_display(feedToBeOpenedID, feedToBeClosedID);
+function feedOpen(feedToBeOpenedButtonID) {
+	let feedToBeOpenedButton = document.getElementById(feedToBeOpenedButtonID);
+	if (feedToBeOpenedButtonID == 'feed-discover-button') {
+		let feedToBeClosedButtonID = 'feed-following-button';
+		if (!feedToBeOpenedButton.classList.contains('openfeed')) {
+            change_feed_display(feedToBeOpenedButtonID, feedToBeClosedButtonID);
 		}
 	}
 
 	else {
-		let feedToBeClosedID = 'feed-discover-button';
-		if (!feedToBeOpened.classList.contains('openfeed')) {
-			change_feed_display(feedToBeOpenedID, feedToBeClosedID);
+		let feedToBeClosedButtonID = 'feed-discover-button';
+		if (!feedToBeOpenedButton.classList.contains('openfeed')) {
+			change_feed_display(feedToBeOpenedButtonID, feedToBeClosedButtonID);
 		}
 	}
 }

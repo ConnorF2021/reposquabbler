@@ -25,7 +25,7 @@
 	<div id="popupmenu">
 		<i class="fa-solid fa-bars fa-2x popupbutton" id="popupbuttondiv"></i>
 		<div class="dropdown">
-			<button id="popupbutton" onclick="myFunction()" class="dropbtn"></button>
+			<button id="popupbutton" onclick="open_header_dropdown_menu()" class="dropbtn"></button>
 		</div>
 	</div>
  
@@ -39,7 +39,7 @@
 	<h4 id="headersquab" class="noselect">SQUABBLER</h4>
 	<div id="myDropdown" class="dropdown-content">
 		<a href="{{url_for('account')}}" class="fadein"><i class="fa-solid fa-user fa-lg" id="dropdownaccount"></i><span class="linktext">Account</span></a>
-		<a onclick="infoOpen('smallinfobutton')" id="smallinfobutton" class="fadein"><i class="fa-solid fa-circle-info fa-lg" id="dropdowninfo"></i><span class="linktext">Information</span></a>
+		<a onclick="infoOpen()" id="smallinfobutton" class="fadein"><i class="fa-solid fa-circle-info fa-lg" id="dropdowninfo"></i><span class="linktext">Information</span></a>
 		<a href="" class="fadein"><i class="fa-solid fa-message fa-lg" id="dropdownfeedback"></i><span class="linktext">Feedback</span></a>
 		<a onclick="logout('activate');" id="logoutmenubutton" class="fadein"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" id="dropdownexit"></i><span class="linktext">Exit</span></a>
 	</div>

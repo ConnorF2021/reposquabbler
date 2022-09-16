@@ -260,8 +260,8 @@
             const fullname = "{{ userdata.fullname }}";
             document.onload = post_get_onload();
 
-            socket.on('recieve_posts', function (a) {
-				let posts = a;
+            socket.on('recieve_posts', function (postData) {
+				let posts = postData;
 				let activeFeed = determine_active_feed();
 				let bottomFeedBubble = activeFeed.querySelector('.bottomfeedbubble');
 				let firstFeedBubble = activeFeed.querySelector('.first-feed-bubble');
