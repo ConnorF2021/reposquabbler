@@ -78,57 +78,65 @@ function feedOpen(feedToBeOpenedButtonID) {
 
 function streamOpen(streamTabToBeOpened) {
 	const objItem = document.getElementById(streamTabToBeOpened);
-	const streamLine = document.getElementById('streamline');
-	const notifyLine = document.getElementById('notifyline')
     const streamDiv = document.getElementById('streamdiv');
     const notifyDiv = document.getElementById('notificationdiv');
 
 	if (streamTabToBeOpened == 'streambutton') {
 		let otherItem = document.getElementById('notificationbutton');
-		if (objItem.classList.contains('openstream')) {
-		}
-		else {
+		if (!objItem.classList.contains('openstream')) {
 			objItem.className += " openstream";
 			objItem.classList.remove('closedstream');
 			otherItem.className += " closedstream"
 			otherItem.classList.remove('openstream');
-			streamLine.style.backgroundColor = "palevioletred";
-			streamLine.style.height = "1.5px";
-			streamLine.style.top = "44.5px";
             streamDiv.classList.remove('inactiveside');
             streamDiv.className += " activeside";
-			notifyLine.style.backgroundColor = "lightgray";
-			notifyLine.style.height = "0.5px";
-			notifyLine.style.top = "46px";
             notifyDiv.classList.remove('activeside');
             notifyDiv.className += " inactiveside";
-
+            change_stream_line("stream-line");
 		}
 	}
 
 	else {
 		let otherItem = document.getElementById('streambutton');
-		if (objItem.classList.contains('openstream')) {
-
-		}
-		else {
+		if (!objItem.classList.contains('openstream')) {
 			objItem.className += " openstream";
 			objItem.classList.remove('closedstream');
 			otherItem.className += " closedstream"
 			otherItem.classList.remove('openstream');
-			streamLine.style.backgroundColor = "lightgray";
-			streamLine.style.height = "0.5px";
-			streamLine.style.top = "46px";
             streamDiv.classList.remove('activeside');
             streamDiv.className += " inactiveside";
-			notifyLine.style.backgroundColor = "palevioletred";
-			notifyLine.style.height = "1.5px";
-			notifyLine.style.top = "44.5px";
             notifyDiv.classList.remove('inactiveside');
             notifyDiv.className += " activeside";
-
+            change_stream_line("notify-line");
 		}
 	}
+}
+
+function change_stream_display() { //encapsulation function
+
+}
+
+function change_stream_line(lineBecomingActive) { //encapsulation function
+    const streamLine = document.getElementById('streamline');
+	const notifyLine = document.getElementById('notifyline');
+
+    if (lineBecomingActive == "stream-line") {
+        streamLine.style.backgroundColor = "palevioletred";
+		streamLine.style.height = "1.5px";
+		streamLine.style.top = "44.5px";
+        notifyLine.style.backgroundColor = "lightgray";
+		notifyLine.style.height = "0.5px";
+		notifyLine.style.top = "46px";
+    }
+
+    else {
+        notifyLine.style.backgroundColor = "palevioletred";
+		notifyLine.style.height = "1.5px";
+		notifyLine.style.top = "44.5px";
+        streamLine.style.backgroundColor = "lightgray";
+		streamLine.style.height = "0.5px";
+		streamLine.style.top = "46px";
+    }
 }
 
 function infoinexit() {

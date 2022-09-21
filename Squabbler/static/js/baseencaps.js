@@ -1,5 +1,11 @@
 // All functions created for the purpose of encapsulation reside here.
 
+// Client Side Stream Display
+
+
+
+// End Client Side Stream Display
+
 // Client Side Feed Display
 
 function change_feed_display(FeedButtonToBeActivatedID,FeedButtonToBeDeactivatedID) { //encapsulation function
