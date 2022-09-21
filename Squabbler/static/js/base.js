@@ -78,8 +78,7 @@ function feedOpen(feedToBeOpenedButtonID) {
 
 function streamOpen(streamTabToBeOpened) {
 	const objItem = document.getElementById(streamTabToBeOpened);
-    const streamDiv = document.getElementById('streamdiv');
-    const notifyDiv = document.getElementById('notificationdiv');
+    
 
 	if (streamTabToBeOpened == 'streambutton') {
 		let otherItem = document.getElementById('notificationbutton');
@@ -88,11 +87,8 @@ function streamOpen(streamTabToBeOpened) {
 			objItem.classList.remove('closedstream');
 			otherItem.className += " closedstream"
 			otherItem.classList.remove('openstream');
-            streamDiv.classList.remove('inactiveside');
-            streamDiv.className += " activeside";
-            notifyDiv.classList.remove('activeside');
-            notifyDiv.className += " inactiveside";
-            change_stream_line("stream-line");
+            change_stream_div_to("stream-div");
+            change_stream_line_to("stream-line");
 		}
 	}
 
@@ -103,11 +99,8 @@ function streamOpen(streamTabToBeOpened) {
 			objItem.classList.remove('closedstream');
 			otherItem.className += " closedstream"
 			otherItem.classList.remove('openstream');
-            streamDiv.classList.remove('activeside');
-            streamDiv.className += " inactiveside";
-            notifyDiv.classList.remove('inactiveside');
-            notifyDiv.className += " activeside";
-            change_stream_line("notify-line");
+            change_stream_div_to("notify-div");
+            change_stream_line_to("notify-line");
 		}
 	}
 }
@@ -116,7 +109,26 @@ function change_stream_display() { //encapsulation function
 
 }
 
-function change_stream_line(lineBecomingActive) { //encapsulation function
+function change_stream_div_to(divBecomingActive) { //encapsulation function
+    const streamDiv = document.getElementById('streamdiv');
+    const notifyDiv = document.getElementById('notificationdiv');
+
+    if (divBecomingActive == 'stream-div') {
+        streamDiv.classList.remove('inactiveside');
+        streamDiv.className += " activeside";
+        notifyDiv.classList.remove('activeside');
+        notifyDiv.className += " inactiveside";
+    }
+
+    else {
+        notifyDiv.classList.remove('inactiveside');
+        notifyDiv.className += " activeside";
+        streamDiv.classList.remove('activeside');
+        streamDiv.className += " inactiveside";
+    }
+}
+
+function change_stream_line_to(lineBecomingActive) { //encapsulation function
     const streamLine = document.getElementById('streamline');
 	const notifyLine = document.getElementById('notifyline');
 
