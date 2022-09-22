@@ -1,12 +1,12 @@
-function comment_submit(postid) {
-	commentInputDiv = document.getElementById(postid).querySelector('.postcommentwrite');
+function comment_submit(postID) {
+	commentInputDiv = document.getElementById(postID).querySelector('.postcommentwrite');
 	commentInput = commentInputDiv.querySelector('.commentform').querySelector('.commentwritetxt');
-	commentInputOpen = document.getElementById(postid).querySelector('.postcommentopen');
+	commentInputOpen = document.getElementById(postID).querySelector('.postcommentopen');
     let comment = commentInput.value.trim();
     if (comment.length) {
         socket.emit('handle_comment', {
             comment: comment,
-            postid: postid,
+            postid: postID,
         })
         commentInputDiv.classList.remove('a');
         commentInputDiv.className += " i";
@@ -16,12 +16,12 @@ function comment_submit(postid) {
         let tempBubble = document.createElement('div');
         tempBubble.setAttribute('class','commentbubble');
         tempBubble.innerHTML = `<a href='/${username}'><img src='static/ConnorFulbright.png' class='commentprofimg'></a><h4 class='commentauthor'><a href='/${username}' class='authornamelink fadein hoverpink'>${fullname}</a></h4><p class='commenttag'><a href='/${username}' class='authorlink fadein hoverpink'>@${username}</a> &nbsp; Just Now</p><button class='commentoptionbutton fadein hoverpink'><i class='fa-solid fa-ellipsis fa-lg'></i></button><p class='commentcontent'>${comment}</p><button class='commentreplyopen fadein hoverpink'><i class='fa-solid fa-reply-all fa-lg'></i></button><div class='commentreplydiv i'><div class='replyopendiv' onclick=''><img class='ropenimg' src='static/ConnorFulbright.png'><h5 class='ropentxt'>Reply...</h5></div><button class='hidereplies fadein hoverpink' onclick='hidereplies();''>Hide Replies</button></div>`;
-        document.getElementById(postid).querySelector('.commentdiv').prepend(tempBubble);
+        document.getElementById(postID).querySelector('.commentdiv').prepend(tempBubble);
     }
     return false;
 }
 
-function create_post_div(pid,author,authorname,postdate,content,upvotesnumber,downvotesnumber,commentnumber,hasvoted) {
+function create_post_div(postID,author,authorname,postdate,content,upvotesnumber,downvotesnumber,commentnumber,hasvoted) {
 	var voteNumber = upvotesnumber + downvotesnumber;
 	if (voteNumber == 0) {
 		votePercent = 0;
@@ -41,11 +41,11 @@ function create_post_div(pid,author,authorname,postdate,content,upvotesnumber,do
 		var postupvotestatus = 'postupvoteinactive';
 		var postdownvotestatus = 'postdownvoteactive';
 	} return `
-	<div class="postbubblediv" id="${pid}">
+	<div class="postbubblediv" id="${postID}">
 		<div class="postimgback">
 			<a href="/${author}"><img src="static/ConnorFulbright.png" class="postimg"></a>
 		</div>
-		<button class="postoptionbutton fadein hoverpink" onclick="postmenuopen(${pid});">
+		<button class="postoptionbutton fadein hoverpink" onclick="postmenuopen(${postID});">
 			<i class="fa-solid fa-ellipsis fa-lg"></i>
 		</button>
 		<div class="postoptionmenu i">
@@ -69,46 +69,37 @@ function create_post_div(pid,author,authorname,postdate,content,upvotesnumber,do
 					<div class="postvotebar" style="width: ${votePercent}%"></div>
 				</div>
 			</div>
-			<button class="postupvote ${postupvotestatus} postmenubuttons fadein hovergreen" onclick="post_upvote(${pid});">
+			<button class="postupvote ${postupvotestatus} postmenubuttons fadein hovergreen" onclick="post_upvote(${postID});">
 				<i class="fa-solid fa-arrow-trend-up fa-lg"></i> <span class="upvotes-number-span">${upvotesnumber}</span>
 			</button>
-			<button class="postdownvote ${postdownvotestatus} postmenubuttons fadein hoverred" onclick="post_downvote(${pid});">
+			<button class="postdownvote ${postdownvotestatus} postmenubuttons fadein hoverred" onclick="post_downvote(${postID});">
 				<i class="fa-solid fa-arrow-trend-down fa-lg"></i> <span class="downvotes-number-span">${downvotesnumber}</span>
 			</button>
-			<button class="postcomment postmenubuttons fadein hoverpink" onclick="commentsshow(${pid})">
+			<button class="postcomment postmenubuttons fadein hoverpink" onclick="show_comments(${postID})">
 				<i class="fa-solid fa-comment fa-lg"></i> ${commentnumber}
 			</button>
 			<button class="postshare postmenubuttons fadein hoverpink">
 				<i class="fa-solid fa-share fa-lg"></i>
 			</button>
 		</div>
-		<div class="postcommentopen i" onclick="commentopen(${pid});">
+		<div class="postcommentopen i" onclick="open_comment_write_div(${postID});">
 			<img class="copenimg" src="static/ConnorFulbright.png">
 			<h4 class="copentxt">Engage with post...</h4>
 		</div>
 		<div class="postcommentwrite i">
 			<img class="commentwriteimg" src="static/ConnorFulbright.png">
 			<form class="commentform" name="commentform">
-				<textarea name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000" onkeyup="count_chars_comment_write(${pid});" onkeydown="count_chars_comment_write(${pid});"></textarea>
-					<input class="commentsubmit fadein" type="submit" value="Post" onclick="return comment_submit(${pid});">
+				<textarea name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000" onkeyup="count_chars_comment_write(${postID});" onkeydown="count_chars_comment_write(${postID});"></textarea>
+					<input class="commentsubmit fadein" type="submit" value="Post" onclick="return comment_submit(${postID});">
 			</form>
 			<p class="noselect currentlencomment"><span class="lenupdatepost">0</span>/1000</p>
-			<button class="commentcancel" onclick="commentcancel(${pid});">Cancel</button>
+			<button class="commentcancel" onclick="close_comment_write_div(${postID});">Cancel</button>
 		</div>
 		<div class="commentdiv">
 		</div>
 	</div>
 	<div class="placeholder-div-insert"></div>
 	`
-}
-
-function get_comments(postID) {
-	let spinner = document.createElement('div');
-	spinner.setAttribute('class', 'loader');
-	document.getElementById(postID).querySelector('.commentdiv').appendChild(spinner);
-	socket.emit('get_comments', {
-		postid: postID
-	})
 }
 
 socket.on('recieve_comments', function (jsonCommentData) {
@@ -158,12 +149,12 @@ socket.on('recieve_comments', function (jsonCommentData) {
 	            							<i class="fa-solid fa-arrow-trend-down fa-lg"></i>
 	            						</button>
 	        						</div>
-	        						<button class="commentreplyopen fadein hoverpink" onclick="repliesshow(${commentId});">
+	        						<button class="commentreplyopen fadein hoverpink" onclick="show_replies(${commentId});">
 	        							Reply / Replies (${comments[i].replynumber})
 	        						</button>
 	        					</div>
 	    						<div class="commentreplydiv i">
-	    							<div class="replyopendiv a" onclick="replyopen(${commentId});">
+	    							<div class="replyopendiv a" onclick="reply_div_open(${commentId});">
 	    								<img class="ropenimg" src="static/ConnorFulbright.png">
 										<h5 class="ropentxt">Reply to ${comments[i].author}...</h5>
 									</div>
@@ -187,9 +178,9 @@ socket.on('recieve_comments', function (jsonCommentData) {
     }
 });
 
-function reply_submit(commentIDRaw) {
-	commentID = 'c' + commentIDRaw;
-	comment = document.getElementById(commentID)
+function reply_submit(commentID) {
+	commentIDActual = 'c' + commentID;
+	comment = document.getElementById(commentIDActual)
 	replyInputDiv = comment.querySelector('.replywritediv');
 	replyInput = replyInputDiv.querySelector('.replyform').querySelector('.replywritetxt');
 	replyInputOpen = comment.querySelector('.replyopendiv');
@@ -197,7 +188,7 @@ function reply_submit(commentIDRaw) {
     if (reply.length) {
         socket.emit('handle_reply', {
             reply: reply,
-            commentid: commentIDRaw,
+            commentid: commentID,
         })
         replyInputDiv.classList.remove('a');
         replyInputDiv.className += " i";
@@ -207,7 +198,7 @@ function reply_submit(commentIDRaw) {
         let tempBubble = document.createElement('div');
         tempBubble.setAttribute('class','replybubble');
         tempBubble.innerHTML = `<a href='/profile'><img src='static/ConnorFulbright.png' class='replyprofimg'></a><h4 class='replyauthor fadein hoverpink'>${fullname}</h4><p class='replytag'><a href='/profile' class='authorlink fadein hoverpink'>@${username}</a> &nbsp; Just Now</p><button class='replyoptionbutton fadein hoverpink'><i class='fa-solid fa-ellipsis fa-lg'></i></button><p class='replycontent'>${reply}</p><button class='postcomment commentreplyopen fadein hoverpink' onclick=''><i class='fa-solid fa-reply-all fa-lg'></i></button>`;
-        document.getElementById(commentID).querySelector('.commentreplydiv').querySelector('.replydiv').prepend(tempBubble);
+        document.getElementById(commentIDActual).querySelector('.commentreplydiv').querySelector('.replydiv').prepend(tempBubble);
     }
     return false;
 }
@@ -225,43 +216,12 @@ socket.on('recieve_replies', function (jsonReplyData) {
     	let newReply = document.createElement('div');
     	newReply.setAttribute('class','replybubble');
     	newReply.setAttribute('id', replyidactual);
-    	newReply.innerHTML = `
-    						<a href="/${replies[i].tag}">
-    							<img src="static/ConnorFulbright.png" class="replyprofimg">
-    						</a>
-    						<a href="/${replies[i].tag}">
-    							<h4 class="replyauthor fadein hoverpink">${replies[i].author}</h4>
-    						</a>
-    						<p class="replytag">
-    							<a href="/${replies[i].tag}" class="authorlink fadein hoverpink">@${replies[i].tag}</a> &nbsp; ${replies[i].replydate}
-    						</p>
-    						<button class="replyoptionbutton fadein hoverpink">
-    							<i class="fa-solid fa-ellipsis fa-lg"></i>
-    						</button>
-    						<p class="replycontent">${replies[i].content}</p>
-    						<button class="postcomment secondcommentreplyopen fadein hoverpink" onclick="secondreply(${replyid});">
-    							Reply
-    						</button>
-    						<div class="secondreplydiv i">
-    							<div class="secondreplyopendiv a" onclick="secondreplyopen(${replyid},'${replies[i].tag}');">
-    								<img class="sropenimg" src="static/ConnorFulbright.png">
-									<h5 class="sropentxt">Reply...</h5>
-								</div>
-								<div class="secondreplywritediv i">
-									<img class="replywriteimg" src="static/ConnorFulbright.png">
-									<form class="replyform" name="replyform">
-										<textarea name="replyinput" class="replywritetxt" maxlength="1000"></textarea>
-										<input class="replysubmit" type="submit" value="Post" onclick="return reply_submit(${commentidactual});">
-									</form>
-									<button class="replycancel" onclick="secondreplycancel(${replyid});">Cancel</button>
-								</div>
-							</div>
-							`;
+    	newReply.innerHTML = create_reply_div(replies[i].tag, replies[i].author, replies[i].content, replyid, replies[i].replydate, commentidactual);
     	document.getElementById(commentidactual).querySelector('.commentreplydiv').querySelector('.replydiv').appendChild(newReply);
 	}
 })
 
-function second_reply_submit(commentid) {
+function second_reply_submit(commentID) {
 
 }
 
@@ -294,21 +254,21 @@ function post_submit() {
 
 // Post Voting System
 
-function post_upvote(postid) {
-	if (!post_upvote_is_active(postid)) {
+function post_upvote(postID) {
+	if (!post_upvote_is_active(postID)) {
 		socket.emit('post_upvote', {
-			postid: postid
+			postid: postID
 		});
-		local_post_upvote_update(postid);
+		local_post_upvote_update(postID);
 	}
 }
 
-function post_downvote(postid) {
-	if (!post_downvote_is_active(postid)) {
+function post_downvote(postID) {
+	if (!post_downvote_is_active(postID)) {
 		socket.emit('post_downvote', {
-			postid: postid
+			postid: postID
 		});
-		local_post_downvote_update(postid);
+		local_post_downvote_update(postID);
 	}
 }
 

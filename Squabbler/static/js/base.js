@@ -112,7 +112,7 @@ function expandStream(curbtn) {
     
 }
 
-function menuOpen(objValue) {
+function menu_open(objValue) {
     let objItem = document.getElementById(objValue);
     const discoverDiv = document.getElementById('solomenudiv');
     const followingDiv = document.getElementById('multimenudiv')
@@ -166,7 +166,7 @@ function showCheckboxes() {
   }
 }
 
-function successclose() {
+function success_close() {
     document.getElementById('successpopup').style.display = 'none';
 }
 
@@ -198,8 +198,8 @@ function otherdescbutton() {
     }
 }
 
-function postmenuopen(pid) {
-    let post = document.getElementById(pid);
+function postmenuopen(postID) {
+    let post = document.getElementById(postID);
     let menu = post.querySelector('.postoptionmenu');
     if (menu.classList.contains('a')) {
         menu.classList.remove('a');
@@ -211,8 +211,8 @@ function postmenuopen(pid) {
     }
 }
 
-function commentsshow(pid) {
-    let post = document.getElementById(pid);
+function show_comments(postID) {
+    let post = document.getElementById(postID);
     let div = post.querySelector('.postcommentopen');
     let commentwrite = post.querySelector('.postcommentwrite');
     let commentdiv = post.querySelector('.commentdiv');
@@ -230,13 +230,22 @@ function commentsshow(pid) {
         else {
             div.classList.remove('i');
             div.className += " a";
-            get_comments(pid);
+            get_comments(postID);
         }
     }
 }
 
-function commentopen(pid) {
-    let post = document.getElementById(pid);
+function get_comments(postID) {
+	let spinner = document.createElement('div');
+	spinner.setAttribute('class', 'loader');
+	document.getElementById(postID).querySelector('.commentdiv').appendChild(spinner);
+	socket.emit('get_comments', {
+		postid: postID
+	})
+}
+
+function open_comment_write_div(postID) {
+    let post = document.getElementById(postID);
     let commentOpen = post.querySelector('.postcommentopen');
     let commentWrite = post.querySelector('.postcommentwrite');
     commentOpen.classList.remove('a');
@@ -246,8 +255,8 @@ function commentopen(pid) {
     commentWrite.querySelector('.commentwritetxt').focus();
 }
 
-function commentcancel(pid) {
-    let post = document.getElementById(pid);
+function close_comment_write_div(postID) {
+    let post = document.getElementById(postID);
     let commentOpen = post.querySelector('.postcommentopen');
     let commentWrite = post.querySelector('.postcommentwrite');
     commentOpen.classList.remove('i');
@@ -256,12 +265,12 @@ function commentcancel(pid) {
     commentWrite.className += ' i';
 }
 
-function logout(a) {
+function logout(buttonSelected) {
     let logoutmenu = document.getElementById('logoutpopup');
-    if (a == 'activate') {
+    if (buttonSelected == 'activate') {
         logoutmenu.style.display = 'block';
     }
-    else if (a == 'cancel') {
+    else if (buttonSelected == 'cancel') {
         logoutmenu.style.display = 'none';
     }
     else {
@@ -269,9 +278,9 @@ function logout(a) {
     }
 }
 
-function repliesshow(cid) {
-    commentid = 'c' + cid;
-    comment = document.getElementById(commentid);
+function show_replies(commentID) {
+    commentIDActual = 'c' + commentID;
+    comment = document.getElementById(commentIDActual);
     let replywrite = comment.querySelector('.replywritediv');
     let replydiv = comment.querySelector('.commentreplydiv');
     if (replydiv.classList.contains('a')) {
@@ -282,13 +291,25 @@ function repliesshow(cid) {
     else {
         replydiv.classList.remove('i');
         replydiv.className += " a";
-        get_replies(cid);
+        get_replies(commentID);
     }
 }
 
-function secondreply(rid) {
-    replyid = 'r' + rid;
-    reply = document.getElementById(replyid);
+function reply_div_open(commentID) {
+    commentIDActual = 'c' + commentID;
+    comment = document.getElementById(commentIDActual);
+    let replyopen = comment.querySelector('.replyopendiv');
+    let replywrite = comment.querySelector('.replywritediv');
+    replyopen.classList.remove('a');
+    replyopen.className +=" i";
+    replywrite.classList.remove('i');
+    replywrite.className += ' a';
+    replywrite.querySelector('.replywritetxt').focus();
+}
+
+function second_reply_div_open(replyID) {
+    replyIDActual = 'r' + replyID;
+    reply = document.getElementById(replyIDActual);
     let replywrite = reply.querySelector('.secondreplywritediv');
     let replydiv = reply.querySelector('.secondreplydiv');
     if (replydiv.classList.contains('a')) {
@@ -301,31 +322,31 @@ function secondreply(rid) {
     }
 }
 
-function hidereplies(cid) {
-    commentid = 'c' + cid;
-    comment = document.getElementById(commentid);
+function hidereplies(commentID) {
+    commentIDActual = 'c' + commentID;
+    comment = document.getElementById(commentIDActual);
     let replydiv = comment.querySelector('.commentreplydiv');
     replydiv.classList.remove('a');
     replydiv.className += " i";
     replydiv.querySelector('.replydiv').innerHTML = '';
-    replycancel(cid);
+    replycancel(commentID);
 }
 
-function replyopen(cid) {
-    commentid = 'c' + cid;
-    comment = document.getElementById(commentid);
+
+function replycancel(commentID) {
+    commentIDActual = 'c' + commentID;
+    comment = document.getElementById(commentIDActual);
     let replyopen = comment.querySelector('.replyopendiv');
     let replywrite = comment.querySelector('.replywritediv');
-    replyopen.classList.remove('a');
-    replyopen.className +=" i";
-    replywrite.classList.remove('i');
-    replywrite.className += ' a';
-    replywrite.querySelector('.replywritetxt').focus();
+    replyopen.classList.remove('i');
+    replyopen.className +=" a";
+    replywrite.classList.remove('a');
+    replywrite.className += ' i';
 }
 
-function secondreplyopen(rid,tag) {
-    replyid = 'r' + rid;
-    reply = document.getElementById(replyid);
+function second_reply_write_open(replyID,tag) {
+    replyIDActual = 'r' + replyID;
+    reply = document.getElementById(replyIDActual);
     let replyopen = reply.querySelector('.secondreplyopendiv');
     let replywrite = reply.querySelector('.secondreplywritediv');
     let replywritetxt = replywrite.querySelector('.replywritetxt');
@@ -340,20 +361,9 @@ function secondreplyopen(rid,tag) {
     replywritetxt.focus();
 }
 
-function replycancel(cid) {
-    commentid = 'c' + cid;
-    comment = document.getElementById(commentid);
-    let replyopen = comment.querySelector('.replyopendiv');
-    let replywrite = comment.querySelector('.replywritediv');
-    replyopen.classList.remove('i');
-    replyopen.className +=" a";
-    replywrite.classList.remove('a');
-    replywrite.className += ' i';
-}
-
-function secondreplycancel(rid) {
-    replyid = 'r' + rid;
-    reply = document.getElementById(replyid);
+function secondreplycancel(replyID) {
+    replyIDActual = 'r' + replyID;
+    reply = document.getElementById(replyIDActual);
     let replyopen = reply.querySelector('.secondreplydiv').querySelector('.secondreplyopendiv');
     let replywrite = reply.querySelector('.secondreplydiv').querySelector('.secondreplywritediv');
     replyopen.classList.remove('i');
@@ -361,7 +371,6 @@ function secondreplycancel(rid) {
     replywrite.classList.remove('a');
     replywrite.className += ' i';
 }
-
 
 function count_chars(countFrom,updateTo) {
     var length = document.getElementById(countFrom).value.length;

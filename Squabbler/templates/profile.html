@@ -37,7 +37,7 @@
             {% with successmsgs = get_flashed_messages(category_filter=["successmsg"]) %}
             	{% if successmsgs %}
             		{% for message in successmsgs %}
-            			<div class="alertpopup" id="successpopup"><h4 class="alertmessage successmsg">{{ message }}</h4><p class="msgpara">All changes have been saved.</p><i id="successicon" class="fa-solid fa-user-check fa-5x"></i><button class="alertpopupclose" id="successbtn" onclick="successclose()">Close</button></div>
+            			<div class="alertpopup" id="successpopup"><h4 class="alertmessage successmsg">{{ message }}</h4><p class="msgpara">All changes have been saved.</p><i id="successicon" class="fa-solid fa-user-check fa-5x"></i><button class="alertpopupclose" id="successbtn" onclick="success_close()">Close</button></div>
             		{% endfor %}
             	{% endif %}
             {% endwith %}
