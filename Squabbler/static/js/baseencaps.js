@@ -2,7 +2,56 @@
 
 // Client Side Stream Display
 
+function change_active_stream_button(buttonBecomingActive, buttonBecomingInactive) { //encapsulation function
+    const objItem = document.getElementById(buttonBecomingActive);
+    const otherItem = document.getElementById(buttonBecomingInactive);
+    objItem.className += " openstream";
+	objItem.classList.remove('closedstream');
+	otherItem.className += " closedstream"
+	otherItem.classList.remove('openstream');
+}
 
+function change_stream_div_to(divBecomingActive) { //encapsulation function
+    const streamDiv = document.getElementById('streamdiv');
+    const notifyDiv = document.getElementById('notificationdiv');
+
+    if (divBecomingActive == 'stream-div') {
+        streamDiv.classList.remove('inactiveside');
+        streamDiv.className += " activeside";
+        notifyDiv.classList.remove('activeside');
+        notifyDiv.className += " inactiveside";
+    }
+
+    else {
+        notifyDiv.classList.remove('inactiveside');
+        notifyDiv.className += " activeside";
+        streamDiv.classList.remove('activeside');
+        streamDiv.className += " inactiveside";
+    }
+}
+
+function change_stream_line_to(lineBecomingActive) { //encapsulation function
+    const streamLine = document.getElementById('streamline');
+	const notifyLine = document.getElementById('notifyline');
+
+    if (lineBecomingActive == "stream-line") {
+        streamLine.style.backgroundColor = "palevioletred";
+		streamLine.style.height = "1.5px";
+		streamLine.style.top = "44.5px";
+        notifyLine.style.backgroundColor = "lightgray";
+		notifyLine.style.height = "0.5px";
+		notifyLine.style.top = "46px";
+    }
+
+    else {
+        notifyLine.style.backgroundColor = "palevioletred";
+		notifyLine.style.height = "1.5px";
+		notifyLine.style.top = "44.5px";
+        streamLine.style.backgroundColor = "lightgray";
+		streamLine.style.height = "0.5px";
+		streamLine.style.top = "46px";
+    }
+}
 
 // End Client Side Stream Display
 

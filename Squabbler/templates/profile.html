@@ -5,7 +5,6 @@
 {% from "macros.html" import headerstuff %}
 {% from "macros.html" import mainnav with context %}
 {% from "macros.html" import postblock %}
-{% from "macros.html" import firstfeedbubble with context %}
 {% block head %}
 	{{ super() }}
 	<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
@@ -24,7 +23,7 @@
 		<div class="container" id="maincontent">
   
 			<div id="smallinfopopup">
-				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
+				<button id="smallinfopopupclose" onclick="close_small_info()">Close</button>
 			</div>
 
 			{% with errormsgs = get_flashed_messages(category_filter=["errormsg"]) %}
@@ -111,7 +110,7 @@
 							{% else %}
 								{% for row in posts %}
 									{% if loop.first %}
-										{{ firstfeedbubble(row.authorname, row.author, row.postdate, row.pid, row.content) }}
+										
 									{% else %}
 									<div class="feedbubble" id="{{ row.pid }}">
 										<div class="postimgback"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>

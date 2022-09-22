@@ -256,6 +256,10 @@ def logout():
 	session.clear()
 	return redirect(url_for('landing'))
 
+@socketio.on('connection_initiate')
+def connection_initiate():
+	join_room(session['UID'])
+
 @socketio.on('handle_post')
 def handle_post(data):
 	content = data['content']
@@ -279,10 +283,10 @@ def get_comments(data):
 	rawComments = load_comments(postId)
 	if not rawComments:
 		comments = create_empty_comment(postId)
-		socketio.emit('recieve_comments', comments)
+		socketio.emit('recieve_comments', comments, room=session['UID'])
 	else:
 		comments = json_comments(rawComments,requesterId)
-		socketio.emit('recieve_comments', comments)
+		socketio.emit('recieve_comments', comments, room=session['UID'])
 
 @socketio.on('handle_reply')
 def handle_reply(data):
@@ -296,7 +300,7 @@ def get_replies(data):
 	commentId = data['commentid']
 	rawReplies = load_replies(commentId)
 	replies = json_replies(rawReplies,requesterId)
-	socketio.emit('recieve_replies', replies)
+	socketio.emit('recieve_replies', replies, room=session['UID'])
 
 @socketio.on('post_upvote')
 def post_upvote(data):
@@ -336,7 +340,7 @@ def post_downvote(data):
 def get_initial_posts():
 	requesterId = session['UID']
 	posts = fetch_feed_discover([0])
-	socketio.emit('recieve_posts', posts)
+	socketio.emit('recieve_posts', posts, room=session['UID'])
 
 @socketio.on('get_more_posts')
 def get_more_posts(data):
@@ -347,12 +351,12 @@ def get_more_posts(data):
 		posts = fetch_feed_discover(postsAlreadyLoaded)
 		if not posts:
 			posts = create_empty_post_bubble('standard')
-		socketio.emit('recieve_posts', posts)
+		socketio.emit('recieve_posts', posts, room=session['UID'])
 	else:
 		posts = fetch_feed_following(postsAlreadyLoaded)
 		if not posts:
 			posts = create_empty_post_bubble('following')
-		socketio.emit('recieve_posts', posts)
+		socketio.emit('recieve_posts', posts, room=session['UID'])
 
 def create_empty_comment(postId):
 	return json.dumps([{"content": "No comments yet! Comment your thoughts on this post!", "postdate": "Just Now", "postid": postId, "author": "Squabbler", "tag": "squabbler", "commentid": "0", "replynumber": "0", "ownership": "1"}])

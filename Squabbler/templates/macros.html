@@ -2,9 +2,9 @@
 <div id="stream">
 	<hr id="streamline">
 	<div id="streambackground"></div>
-	<button id="streambutton" onclick="streamOpen('streambutton')" class=" openstream">Stream</button>
+	<button id="streambutton" onclick="stream_open('streambutton')" class=" openstream">Stream</button>
 	<hr id="notifyline">
-	<button id="notificationbutton" onclick="streamOpen('notificationbutton')" class=" closedstream">Notifications</button>
+	<button id="notificationbutton" onclick="stream_open('notificationbutton')" class=" closedstream">Notifications</button>
     <div id="streamdiv" class="activeside"><div class="streambubble"><img src="static/squabblerfavicon.png" class="streambubblepictureblock"><h5 class="streambubbleuser">squabbler</h5><div class="streambubbleheaderblock"><h4 class="streambubbleheader">Welcome to Squabbler</h4></div><div class="streambubbletextblock"><p class="streambubbletext streambubbletexthold">Squabbler is a pretty cool platform. This is an example admin post. The stream is used for admin posting only.</p></div><div class="streambuboverflowblock"><button class="streambuboverflow strmoverflowclosed" onclick="expandStream(this);">expand</button></div><hr class="streambubblebottomline"></div><div class="streambubble"><img src="static/johnsquabbler.jpg" class="streambubblepictureblock"><h5 class="streambubbleuser">john</h5><div class="streambubbleheaderblock"><h4 class="streambubbleheader">How to get started</h4></div><div class="streambubbletextblock"><p class="streambubbletext streambubbletexthold">It's your friend John Squabbler, providing you with</p></div><div class="streambuboverflowblock"><button class="streambuboverflow strmoverflowclosed" onclick="expandStream(this);">expand</button></div><hr class="streambubblebottomline"></div></div>
     <div id="notificationdiv" class="inactiveside"><div class="notificationbubble"><p>this is a notification bubble</p></div></div>
 </div>
@@ -91,40 +91,6 @@
 		<hr style="margin:0;">
 		<a href="{{url_for('explore')}}" class="navbuttons"><div class="navbuttondiv ffadein hoverpink"><i class="fa-solid fa-earth-americas fa-2x navbuttonicon"></i><h3 class="navbuttonh3">Explore</h3><br><small class="navbuttonsubtext">Find other squabblers</small></div></a>
 	</div>
-</div>
-{% endmacro %}
-
-{% macro firstfeedbubble(authorname, author, postdate, pid, content) %}
-<div class="feedbubble" id="{{ pid }}">
-	<div id="feedmenu">
-		<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
-		<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
-	</div>
-<div id="firstfeedline"></div>
-	<div class="postimgback postimgbackfirst"><a href="/{{ author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
-	<button class="postoptionbutton postoptionbuttonfirst" onclick="postmenuopen({{ pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
-	<div class="postoptionmenu postoptionmenufirst i"></div>
-	<h4 class="postauthorname postauthornamefirst"><a href="/{{ author }}" class="authornamelink">{{ authorname }}</a></h4>
-	<h5 class="postauthor postauthorfirst"><a href="/{{ author }}" class="authorlink">@{{ author }}</a> &nbsp; {{ postdate }}</h5>
-	<div class="postcontentdiv"><p class="postcontent postcontentfirst">{{ content }}</p></div>
-	<div class="postmenu">
-		<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
-		<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
-		<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ pid }});"><i class="fa-solid fa-comment fa-lg"></i></button>
-		<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-	</div>
-		<div class="postcommentopen i" onclick="commentopen({{ pid }});">
-			<img class="copenimg" src="static/ConnorFulbright.png">
-			<h4 class="copentxt">Engage with post...</h4>
-		</div>
-		<div class="postcommentwrite i">
-			<img class="commentwriteimg" src="static/ConnorFulbright.png">
-			<form id="commentform" name="commentform">
-				<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
-				<input class="commentsubmit fadein" type="submit" value="Post">
-			</form>
-			<button class="commentcancel" onclick="commentcancel({{ pid }});">Cancel</button>
-		</div>
 </div>
 {% endmacro %}
 

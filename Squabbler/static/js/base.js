@@ -59,49 +59,29 @@ function infoOpen() {
 	window.scrollTo(0, 0);
 }
 
-function feedOpen(feedToBeOpenedButtonID) {
-	let feedToBeOpenedButton = document.getElementById(feedToBeOpenedButtonID);
+function feed_open(feedToBeOpenedButtonID) {
 	if (feedToBeOpenedButtonID == 'feed-discover-button') {
 		let feedToBeClosedButtonID = 'feed-following-button';
-		if (!feedToBeOpenedButton.classList.contains('openfeed')) {
-            change_feed_display(feedToBeOpenedButtonID, feedToBeClosedButtonID);
-		}
+        change_feed_display(feedToBeOpenedButtonID, feedToBeClosedButtonID);
 	}
-
 	else {
 		let feedToBeClosedButtonID = 'feed-discover-button';
-		if (!feedToBeOpenedButton.classList.contains('openfeed')) {
-			change_feed_display(feedToBeOpenedButtonID, feedToBeClosedButtonID);
-		}
+		change_feed_display(feedToBeOpenedButtonID, feedToBeClosedButtonID);
 	}
 }
 
-function streamOpen(streamTabToBeOpened) {
-	const objItem = document.getElementById(streamTabToBeOpened);
-    
-
-	if (streamTabToBeOpened == 'streambutton') {
-		let otherItem = document.getElementById('notificationbutton');
-		if (!objItem.classList.contains('openstream')) {
-			objItem.className += " openstream";
-			objItem.classList.remove('closedstream');
-			otherItem.className += " closedstream"
-			otherItem.classList.remove('openstream');
-            change_stream_div_to("stream-div");
-            change_stream_line_to("stream-line");
-		}
+function stream_open(streamTabToBeOpenedID) {
+	if (streamTabToBeOpenedID == 'streambutton') {
+		let otherItem = 'notificationbutton';
+		change_active_stream_button(streamTabToBeOpenedID, otherItem);
+        change_stream_div_to("stream-div");
+        change_stream_line_to("stream-line");
 	}
-
 	else {
-		let otherItem = document.getElementById('streambutton');
-		if (!objItem.classList.contains('openstream')) {
-			objItem.className += " openstream";
-			objItem.classList.remove('closedstream');
-			otherItem.className += " closedstream"
-			otherItem.classList.remove('openstream');
-            change_stream_div_to("notify-div");
-            change_stream_line_to("notify-line");
-		}
+		let otherItem = 'streambutton';
+        change_active_stream_button(streamTabToBeOpenedID, otherItem);
+        change_stream_div_to("notify-div");
+        change_stream_line_to("notify-line");
 	}
 }
 
@@ -109,49 +89,7 @@ function change_stream_display() { //encapsulation function
 
 }
 
-function change_stream_div_to(divBecomingActive) { //encapsulation function
-    const streamDiv = document.getElementById('streamdiv');
-    const notifyDiv = document.getElementById('notificationdiv');
-
-    if (divBecomingActive == 'stream-div') {
-        streamDiv.classList.remove('inactiveside');
-        streamDiv.className += " activeside";
-        notifyDiv.classList.remove('activeside');
-        notifyDiv.className += " inactiveside";
-    }
-
-    else {
-        notifyDiv.classList.remove('inactiveside');
-        notifyDiv.className += " activeside";
-        streamDiv.classList.remove('activeside');
-        streamDiv.className += " inactiveside";
-    }
-}
-
-function change_stream_line_to(lineBecomingActive) { //encapsulation function
-    const streamLine = document.getElementById('streamline');
-	const notifyLine = document.getElementById('notifyline');
-
-    if (lineBecomingActive == "stream-line") {
-        streamLine.style.backgroundColor = "palevioletred";
-		streamLine.style.height = "1.5px";
-		streamLine.style.top = "44.5px";
-        notifyLine.style.backgroundColor = "lightgray";
-		notifyLine.style.height = "0.5px";
-		notifyLine.style.top = "46px";
-    }
-
-    else {
-        notifyLine.style.backgroundColor = "palevioletred";
-		notifyLine.style.height = "1.5px";
-		notifyLine.style.top = "44.5px";
-        streamLine.style.backgroundColor = "lightgray";
-		streamLine.style.height = "0.5px";
-		streamLine.style.top = "46px";
-    }
-}
-
-function infoinexit() {
+function close_small_info() {
 	document.getElementById('smallinfopopup').style.display = 'none';
 }
 

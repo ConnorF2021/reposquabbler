@@ -69,10 +69,10 @@ function create_post_div(pid,author,authorname,postdate,content,upvotesnumber,do
 					<div class="postvotebar" style="width: ${votePercent}%"></div>
 				</div>
 			</div>
-			<button class="postupvote ${postupvotestatus} postmenubuttons fadein hovergreen" onclick="postupvote(${pid});">
+			<button class="postupvote ${postupvotestatus} postmenubuttons fadein hovergreen" onclick="post_upvote(${pid});">
 				<i class="fa-solid fa-arrow-trend-up fa-lg"></i> <span class="upvotes-number-span">${upvotesnumber}</span>
 			</button>
-			<button class="postdownvote ${postdownvotestatus} postmenubuttons fadein hoverred" onclick="postdownvote(${pid});">
+			<button class="postdownvote ${postdownvotestatus} postmenubuttons fadein hoverred" onclick="post_downvote(${pid});">
 				<i class="fa-solid fa-arrow-trend-down fa-lg"></i> <span class="downvotes-number-span">${downvotesnumber}</span>
 			</button>
 			<button class="postcomment postmenubuttons fadein hoverpink" onclick="commentsshow(${pid})">
@@ -294,7 +294,7 @@ function post_submit() {
 
 // Post Voting System
 
-function postupvote(postid) {
+function post_upvote(postid) {
 	if (!post_upvote_is_active(postid)) {
 		socket.emit('post_upvote', {
 			postid: postid
@@ -303,7 +303,7 @@ function postupvote(postid) {
 	}
 }
 
-function postdownvote(postid) {
+function post_downvote(postid) {
 	if (!post_downvote_is_active(postid)) {
 		socket.emit('post_downvote', {
 			postid: postid

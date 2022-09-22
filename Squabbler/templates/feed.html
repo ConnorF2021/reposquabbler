@@ -23,7 +23,7 @@
 		<div class="container" id="maincontent">
   
 			<div id="smallinfopopup">
-				<button id="smallinfopopupclose" onclick="infoinexit()">Close</button>
+				<button id="smallinfopopupclose" onclick="close_small_info()">Close</button>
 			</div>
             	{{ mainnav(userdata.fullname, userdata.username) }} 
             	<div id="feedpostblockdiv">
@@ -37,7 +37,7 @@
 									<button id="feed-discover-button" class="feedmenubuttons openfeed fadein">
 										<i class="fa-solid fa-earth-asia"></i> Discover
 									</button>
-									<button id="feed-following-button" onclick="feedOpen('feed-following-button'); get_posts_on_open_feed_type('following');" class="feedmenubuttons closedfeed fadein">
+									<button id="feed-following-button" onclick="feed_open('feed-following-button'); get_posts_on_open_feed_type('following');" class="feedmenubuttons closedfeed fadein">
 										<i class="fa-solid fa-user-group"></i> Following
 									</button>
 								</div>
@@ -90,7 +90,7 @@
 						<div id="followingfeeddiv" class="inactivefeed">
 							<div class="first-feed-bubble" id="first-feed-bubble">
 								<div id="feedmenu">
-									<button id="feed-discover-button" onclick="feedOpen('feed-discover-button'); get_posts_on_open_feed_type('discover');" class="feedmenubuttons closedfeed fadein">
+									<button id="feed-discover-button" onclick="feed_open('feed-discover-button'); get_posts_on_open_feed_type('discover');" class="feedmenubuttons closedfeed fadein">
 										<i class="fa-solid fa-earth-asia"></i> Discover
 									</button>
 									<button id="feed-following-button" class="feedmenubuttons openfeed fadein">
@@ -157,7 +157,8 @@
 
 			const postIdList = []
 
-			function post_get_onload() {
+			function initial_connection() {
+				socket.emit('connection_initiate');
 				socket.emit('get_initial_posts');
 			}
 
@@ -258,7 +259,7 @@
 
             const username = "{{ userdata.username }}";
             const fullname = "{{ userdata.fullname }}";
-            document.onload = post_get_onload();
+            document.onload = initial_connection();
 
             socket.on('recieve_posts', function (postData) {
 				let posts = postData;
