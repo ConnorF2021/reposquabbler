@@ -54,7 +54,7 @@ window.onclick = function(event) {
   }
 }
 
-function infoOpen() {
+function info_open() {
 	document.getElementById('smallinfopopup').style.display = "block";
 	window.scrollTo(0, 0);
 }
@@ -93,7 +93,7 @@ function close_small_info() {
 	document.getElementById('smallinfopopup').style.display = 'none';
 }
 
-function expandStream(curbtn) {
+function expand_stream(curbtn) {
     let curtxt = curbtn.parentNode.parentNode.querySelector('.streambubbletexthold');
     if (curbtn.classList.contains('strmoverflowclosed')) {
         curbtn.classList.remove('strmoverflowclosed');

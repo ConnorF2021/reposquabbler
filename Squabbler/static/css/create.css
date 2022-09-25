@@ -5,27 +5,9 @@
 	background-color: white;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	border-radius: 6px;   
-  	margin-top: 10px;
+  	margin-top: 93px;
  	position: relative;
   	left: 205px;
-}
-
-#menublock {
-	width: 680px;
-	height: 80px;
-}
-
-#menu {
-	position: absolute;
-	top: 10px;
-	left: 131px;
-	border: 0px solid black;
-	background-color: whitesmoke;
-	border-radius: 6px;
-	width: 413px;
-	height: 57px;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
-	z-index: 4;
 }
 
 #solomenubutton {
@@ -37,12 +19,11 @@
 .openfeed {
 	border-radius: 6px;
 	position: absolute;
-	height: 48px;
-	width: 195px;
+	height: 40.5px;
+	width: 310px;
 	margin-top: 4px;
-	left: 10px;
 	border: none;
-	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+	box-shadow: 0 1.25px 2.5px 0 rgba(0,0,0,0.2);
 	background-color: #f95288;
 	filter: brightness(112%);
 	opacity: 1;
@@ -57,10 +38,9 @@
 .closedfeed {
 	border-radius: 6px;
 	position: absolute;
-	height: 48px;
-	width: 195px;
+	height: 40.5px;
+	width: 310px;
 	margin-top: 4px;
-	left: 10px;
 	border: none;
 	box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
 	background-color: black;
@@ -73,11 +53,6 @@
 	opacity: 0.5;
 }
 
-#multimenubutton {
-	left: 213px;
-	font-weight: bold;
-	color: white;
-}
 .feeddiv {
 	background-color: whitesmoke;
 	border-radius: 6px;
@@ -126,26 +101,23 @@
 }
 
 .inputbars {
-	width: 560px;
+	width: 640px;
 	position: relative;
-	left: 60px;
+	left: 20px;
 	border-radius: 6px;
 	border: none;
-	margin-top: 12px;
+	margin-top: 10px;
+	outline: none;
 }
 
 #solotitleinput {
 	height: 65px;
-	border: 1px solid #777;
-	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
 	opacity: 0.5;
 	font-size: 20px;
 }
 
 #solodescinput {
 	height: 140px;
-	border: 1px solid #777;
-	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
 	opacity: 0.5;
 	font-size: 17px;
 }
@@ -153,8 +125,6 @@
 #soloallowed {
 	height: 55px;
 	color: gray;
-	border: 1px solid #777;
-	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
 	opacity: 0.5;
 	font-size: 17px;
 }
@@ -180,18 +150,6 @@
 #solocaptchadiv {
 	height: 80px;
 	background-color: white;
-}
-
-#solomenuhead {
-	font-weight: bold;
-	color: #f95288;
-	filter: brightness(112%) drop-shadow(0.25px 0.25px 0.25px #f95288);
-	text-align: center;
-}
-
-#paratext {
-	color: #777;
-	text-align: center;
 }
 
 #multititleinput {
@@ -259,6 +217,67 @@
 	border: 1px solid #777;
 	box-shadow: inset 0 0.5px 1px 0 rgba(0, 0, 0, 0.2), inset 0 0.5px 2.5px 0 rgba(0, 0, 0, 0.19);
 	opacity: 0.5;
+}
+
+/** menu stuff **/
+
+#typemenu {
+	position: relative;
+	margin-bottom: 10px;
+	left: 15px;
+	background-color: whitesmoke;
+	border-radius: 6px;
+	width: 650px;
+	height: 50px;
+	box-shadow: 0 0.5px 1px 0 rgba(0,0,0,0.2);
+	z-index: 4;
+}
+
+#solomenubutton {
+	font-weight: bold;
+	color: white;
+	left: 5px;
+}
+
+#multimenubutton {
+	right: 5px;
+	font-weight: bold;
+	color: white;
+}
+
+.firstfeedline {
+	position: relative;
+	margin-top: 15px;
+	width: 100%;
+	height: 1px;
+	background-color: lightgray;
+	opacity: 0.6;
+}
+
+/***** stream adjustments **********/
+ #streambackground {
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 6px;
+    width: 298px;
+    height: 507px;
+    left: 0px;
+    top: 70px;
+    position: absolute;
+    z-index: 2;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+}
+
+#streamdiv {
+    background-color: white;
+    border-radius: 0px;
+    position: absolute;
+    width: 298px;
+    height: 505px;
+    top: 67.5px;
+    left: 0px;
+    z-index: 3;
+    overflow-y: scroll;
 }
 
 /***** stream adjustments **********/

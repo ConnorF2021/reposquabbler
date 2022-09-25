@@ -347,34 +347,6 @@
     margin-bottom: 10px;
 }
 
-/* post bubble styling */
-
-/***** stream adjustments **********/
- #streambackground {
-    border: 1px solid white;
-    background-color: white;
-    border-radius: 6px;
-    width: 298px;
-    height: 507px;
-    left: 0px;
-    top: 70px;
-    position: absolute;
-    z-index: 2;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
-}
-
-#streamdiv {
-    background-color: white;
-    border-radius: 0px;
-    position: absolute;
-    width: 298px;
-    height: 505px;
-    top: 67.5px;
-    left: 0px;
-    z-index: 3;
-    overflow-y: scroll;
-}
-
 /**/
 
 #profilenavbutton .navbuttondiv {

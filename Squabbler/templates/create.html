@@ -7,6 +7,7 @@
 {% block head %}
 	{{ super() }}
 	<link rel="stylesheet" href="{{url_for('static', filename='css/create.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/feedstyling.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -25,16 +26,13 @@
 
             {{ altnav(userdata.fullname,userdata.username) }}
             
-            <div id="menublock" class="blocks">
-	            <div id="menu">
-					<button id="solomenubutton" onclick="menu_open('solomenubutton')" class="openfeed">Solo</button>
-					<button id="multimenubutton" onclick="menu_open('multimenubutton')" class="closedfeed">Multi</button>
-				</div>
-			</div>
 			<div id="createblock" class="blocks">
 				<div id="solomenudiv" class="activefeed">
-					<h3 id="solomenuhead">Create Solo Squabble</h3>
-					<p id="paratext">Not reccomended for the weak of mind.</p>
+					<div id="typemenu">
+						<button id="solomenubutton" onclick="menu_open('solomenubutton')" class="feedmenubuttons openfeed fadein">Solo</button>
+						<button id="multimenubutton" onclick="menu_open('multimenubutton')" class="feedmenubuttons closedfeed fadein">Multi</button>
+					</div>
+					<div class="firstfeedline"></div>
 					<p style="color:red; text-align: center;">{{ msg }}</p>
 					<form method="post">
 						<input type="text" name="solotitleinput" id="solotitleinput" class="inputbars" placeholder=" Squabble Title">
@@ -62,8 +60,11 @@
 					</form>
 				</div>
 				<div id="multimenudiv" class="inactivefeed">
-					<h3 id="multimenuhead">Create Multi Squabble</h3>
-					<p id="paratext">A good argument can change the mind of a spectator.</p>
+					<div id="typemenu">
+						<button id="solomenubutton" onclick="menu_open('solomenubutton')" class="closedfeed fadein">Solo</button>
+						<button id="multimenubutton" onclick="menu_open('multimenubutton')" class="openfeed fadein">Multi</button>
+					</div>
+					<div class="firstfeedline"></div>
 					<form action="post">
 						<input type="text" name="multititleinput" id="multititleinput" class="inputbars" placeholder=" Squabble Title">
 						<input type="text" name="multidescinput" id="multidescinput" class="inputbars" placeholder=" Description">

@@ -5,9 +5,11 @@
 {% from "macros.html" import headerstuff %}
 {% from "macros.html" import mainnav with context %}
 {% from "macros.html" import postblock %}
+{% from "macros.html" import support_for_feed %}
 {% block head %}
 	{{ super() }}
 	<link rel="stylesheet" href="{{url_for('static', filename='css/feed.css')}}">
+	{{ support_for_feed() }}
 {% endblock %}
 
 {% block content %}
