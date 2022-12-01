@@ -310,7 +310,6 @@ function reply_div_open(commentID) {
 function second_reply_div_open(replyID) {
     replyIDActual = 'r' + replyID;
     reply = document.getElementById(replyIDActual);
-    let replywrite = reply.querySelector('.secondreplywritediv');
     let replydiv = reply.querySelector('.secondreplydiv');
     if (replydiv.classList.contains('a')) {
         replydiv.classList.remove('a');
@@ -347,27 +346,28 @@ function replycancel(commentID) {
 function second_reply_write_open(replyID,tag) {
     replyIDActual = 'r' + replyID;
     reply = document.getElementById(replyIDActual);
-    let replyopen = reply.querySelector('.secondreplyopendiv');
-    let replywrite = reply.querySelector('.secondreplywritediv');
-    let replywritetxt = replywrite.querySelector('.replywritetxt');
-    replyopen.classList.remove('a');
-    replyopen.className +=" i";
-    replywrite.classList.remove('i');
-    replywrite.className += ' a';
-    let tag_span = '@' + tag;
-    end = tag_span.length;
-    replywritetxt.value = tag_span;
-    replywritetxt.setSelectionRange(end, end);
-    replywritetxt.focus();
+    let replyWrite = reply.querySelector('.secondreplywritediv');
+    let replyWritetxt = replyWrite.querySelector('.replywritetxt');
+    if (replyWrite.classList.contains('i')) {
+        replyWrite.classList.remove('i');
+        replyWrite.className += ' a';
+    }
+    else {
+        replyWrite.classList.remove('a');
+        replyWrite.className += ' i';
+        replyWritetxt.value = '';
+    }
+    let tagSpan = '@' + tag + ' ';
+    end = tagSpan.length;
+    replyWritetxt.value = tagSpan;
+    replyWritetxt.setSelectionRange(end, end);
+    replyWritetxt.focus();
 }
 
 function secondreplycancel(replyID) {
     replyIDActual = 'r' + replyID;
     reply = document.getElementById(replyIDActual);
-    let replyopen = reply.querySelector('.secondreplydiv').querySelector('.secondreplyopendiv');
-    let replywrite = reply.querySelector('.secondreplydiv').querySelector('.secondreplywritediv');
-    replyopen.classList.remove('i');
-    replyopen.className +=" a";
+    let replywrite = reply.querySelector('.secondreplywritediv');
     replywrite.classList.remove('a');
     replywrite.className += ' i';
 }

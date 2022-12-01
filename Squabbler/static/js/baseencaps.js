@@ -142,22 +142,16 @@ function create_reply_div(tag, author, content, replyid, replydate, commentidact
 		<i class="fa-solid fa-ellipsis fa-lg"></i>
 	</button>
 	<p class="replycontent">${content}</p>
-	<button class="postcomment secondcommentreplyopen fadein hoverpink" onclick="second_reply_div_open(${replyid});">
+	<button class="postcomment secondcommentreplyopen fadein hoverpink" onclick="second_reply_write_open(${replyid},'${tag}');">
 		Reply
 	</button>
-	<div class="secondreplydiv i">
-		<div class="secondreplyopendiv a" onclick="second_reply_write_open(${replyid},'${tag}');">
-			<img class="sropenimg" src="static/ConnorFulbright.png">
-			<h5 class="sropentxt">Reply...</h5>
-		</div>
-		<div class="secondreplywritediv i">
+	<div class="secondreplywritediv i">
 			<img class="replywriteimg" src="static/ConnorFulbright.png">
 			<form class="replyform" name="replyform">
 				<textarea name="replyinput" class="replywritetxt" maxlength="1000"></textarea>
 				<input class="replysubmit" type="submit" value="Post" onclick="return reply_submit(${commentidactual});">
 			</form>
 			<button class="replycancel" onclick="secondreplycancel(${replyid});">Cancel</button>
-		</div>
 	</div>
 	`;
 }
