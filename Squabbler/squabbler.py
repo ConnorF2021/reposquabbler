@@ -154,7 +154,8 @@ def profile():
 		followers = fetch_followers(uid)
 		following = fetch_following(uid)
 		posts = fetch_posts_by_id(uid)
-		return render_template('profile.html', username = account['username'].lower(), fullname = account['name'], desc = account['description'], site = account['site'], posts=posts, followers=followers, following=following)
+		userData = format_basic_user_data(session['UID'])
+		return render_template('profile.html', userdata = userData, site = account['site'], followers=followers, following=following)
 	return redirect(url_for('landing'))
 
 @app.route("/explore", methods = ['GET','POST'])

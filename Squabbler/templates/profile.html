@@ -9,7 +9,6 @@
 {% block head %}
 	{{ super() }}
 	<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
-	{{ support_for_feed() }}
 {% endblock %}
 
 {% block content %}
@@ -22,7 +21,7 @@
 
 	<div id="backgroundid" class="container-fluid">
 
-		< class="container" id="maincontent">
+		<div class="container" id="maincontent">
   
 			<div id="smallinfopopup">
 				<button id="smallinfopopupclose" onclick="close_small_info()">Close</button>
@@ -44,19 +43,19 @@
             	{% endif %}
             {% endwith %}
 
-            {{ mainnav(fullname,username) }}
+            {{ mainnav(userdata.fullname, userdata.username) }} 
           
   			<div id="profile" class="tabcontent"> <!--profile tab menu content-->
                 <div class="blocks" id="profileblock">
                     <img src="static/connormaddieback.jpg" id="profilebackgroundimg">
                     <div id="profilebackgroundimgspace"><img src="static/ConnorFulbright.png" id="profbackimg"></div>
                     <div id="profiledisplay" class="profileeditactive">
-                        <h4 id="profname">{{ fullname }}</h4>
-                        <p id="proftag">@{{ username }}</p>
+                        <h4 id="profname">{{ userdata.fullname }}</h4>
+                        <p id="proftag">@{{ userdata.username }}</p>
                         <p id="proffollowers"><span id="followernumber" style="color: black; font-weight: bold;">{{ followers }}</span><span style="color: gray;"> Followers</span></p>
                         <p id="proffollowing"><span id="followingnumber" style="color: black; font-weight: bold;">{{ following }}</span><span style="color: gray;"> Following</span></p>
                         <a href="https://{{ site }}" id="profsite">{{ site }}</a>
-                        <p id="profdesc">{{ desc }}</p>
+                        <p id="profdesc">{{ userdata.desc }}</p>
                     </div>
                     <button id="editprofbutton" class="editprofbutclose fadein" onclick="profileedit();">Edit Profile</button>
                 
@@ -88,180 +87,296 @@
                 {{ postblock() }}
 
             </div> <!--profile tab menu content end-->
-            <div id="wrapperfeeddiv" class="feeddiv">
-						<div id="discoverfeeddiv" class="activefeed">
-							{% if not posts %}
-							<div class="feedbubble" id="nopostsdiscover">
-								<div id="feedmenu">
-									<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
-									<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
-								</div>
-								<div id="firstfeedline"></div>
-									<div class="postimgback postimgbackfirst"><img src="static/squabblerfavicon.png" class="postimg"></div>
-									<div class="postoptionmenu postoptionmenufirst i"></div>
-									<h4 class="postauthorname postauthornamefirst">Squabbler</h4>
-									<h5 class="postauthor postauthorfirst">@squabbler</h5>
-									<div class="postcontentdiv"><p class="postcontent postcontentfirst">No posts yet! Post something and it will appear here!</p></div>
-									<div class="postmenu">
-										<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 69</button>
-										<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 420</button>
-										<button class="postcomment postmenubuttons fadein"><i class="fa-solid fa-comment fa-lg"></i></button>
-										<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-									</div>
-								</div>
-							{% else %}
-								{% for row in posts %}
-									{% if loop.first %}
-										
-									{% else %}
-									<div class="feedbubble" id="{{ row.pid }}">
-										<div class="postimgback"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
-										<button class="postoptionbutton" onclick="postmenuopen({{ row.pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
-										<div class="postoptionmenu i"></div>
-										<h4 class="postauthorname"><a href="/{{ row.author }}" class="authornamelink">{{ row.authorname }}</a></h4>
-										<h5 class="postauthor"><a href="/{{ row.author }}" class="authorlink">@{{ row.author }}</a> &nbsp; {{ row.postdate }}</h5>
-										<div class="postcontentdiv"><p class="postcontent">{{ row.content }}</p></div>
-										<div class="postmenu">
-											<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
-											<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
-											<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ row.pid }});"><i class="fa-solid fa-comment fa-lg"></i></button>
-											<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-										</div>
-											<div class="postcommentopen i" onclick="commentopen({{ row.pid }});">
-												<img class="copenimg" src="static/ConnorFulbright.png">
-												<h4 class="copentxt">Engage with post...</h4>
-											</div>
-											<div class="postcommentwrite i">
-												<img class="commentwriteimg" src="static/ConnorFulbright.png">
-												<form id="commentform" name="commentform">
-													<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
-													<input class="commentsubmit fadein" type="submit" value="Post">
-												</form>
-												<button class="commentcancel" onclick="commentcancel({{ row.pid }});">Cancel</button>
-											</div>
-									</div>
-									{% endif %}
-								{% endfor %}
-							<div class="bottomfeedbubble">
-								<button class="feedbacktotop botfeedbuttons fadein" onclick="window.scrollTo(0, 0);">Back to top</button>
-								<img src="static/squabblerfavicon.png" class="bottomfeedimg">
-								<button class="feedload botfeedbuttons fadein">Load more</button>
+			<div id="feed">
+				<div id="wrapperfeeddiv" class="feeddiv">
+					<div id="discoverfeeddiv" class="activefeed">
+						<div class="first-feed-bubble" id="first-feed-bubble">
+							<div id="feedmenu">
+								<button id="feed-discover-button" class="feedmenubuttons openfeed fadein">
+									<i class="fa-solid fa-earth-asia"></i> Discover
+								</button>
+								<button id="feed-following-button" onclick="feed_open('feed-following-button'); get_posts_on_open_feed_type('following');" class="feedmenubuttons closedfeed fadein">
+									<i class="fa-solid fa-user-group"></i> Following
+								</button>
 							</div>
-							{% endif %}
-
-						</div>
-						<div id="followingfeeddiv" class="inactivefeed">
-							{% if not posts %}
-							<div class="feedbubble" id="nopostsdiscover">
-								<div id="feedmenu">
-									<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
-									<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
-								</div>
-								<div id="firstfeedline"></div>
-									<div class="postimgback postimgbackfirst"><img src="static/squabblerfavicon.png" class="postimg"></div>
-									<div class="postoptionmenu postoptionmenufirst i"></div>
-									<h4 class="postauthorname postauthornamefirst">Squabbler</h4>
-									<h5 class="postauthor postauthorfirst">@squabbler</h5>
-									<div class="postcontentdiv"><p class="postcontent postcontentfirst">No mentions yet! Engage with the community to be mentioned!</p></div>
-									<div class="postmenu">
-										<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 69</button>
-										<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 420</button>
-										<button class="postcomment postmenubuttons fadein"><i class="fa-solid fa-comment fa-lg"></i></button>
-										<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-									</div>
-								</div>
-							{% else %}
-								{% for row in posts %}
-									{% if loop.first %}
-									<div class="feedbubble" id="{{ row.pid }}">
-										<div id="feedmenu">
-											<button id="feeddiscover" onclick="feedOpen('feeddiscover')" class="feedmenubuttons closedfeed fadein"><i class="fa-solid fa-comments"></i> Posts</button>
-											<button id="feedfollowing" onclick="feedOpen('feedfollowing')" class="feedmenubuttons openfeed fadein"><i class="fa-solid fa-at"></i> Mentions</button>
-										</div>
-									<div id="firstfeedline"></div>
-										<div class="postimgback postimgbackfirst"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
-										<button class="postoptionbutton postoptionbuttonfirst" onclick="postmenuopen({{ row.pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
-										<div class="postoptionmenu postoptionmenufirst i"></div>
-										<h4 class="postauthorname postauthornamefirst"><a href="/{{ row.author }}" class="authornamelink">{{ row.authorname }}</a></h4>
-										<h5 class="postauthor postauthorfirst"><a href="/{{ row.author }}" class="authorlink">@{{ row.author }}</a> &nbsp; {{ row.postdate }}</h5>
-										<div class="postcontentdiv"><p class="postcontent postcontentfirst">{{ row.content }}</p></div>
-										<div class="postmenu">
-											<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
-											<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
-											<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ row.pid }});"><i class="fa-solid fa-comment fa-lg"></i></button>
-											<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-										</div>
-											<div class="postcommentopen i" onclick="commentopen({{ row.pid }});">
-												<img class="copenimg" src="static/ConnorFulbright.png">
-												<h4 class="copentxt">Engage with post...</h4>
-											</div>
-											<div class="postcommentwrite i">
-												<img class="commentwriteimg" src="static/ConnorFulbright.png">
-												<form id="commentform" name="commentform">
-													<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
-													<input class="commentsubmit fadein" type="submit" value="Post">
-												</form>
-												<button class="commentcancel" onclick="commentcancel({{ row.pid }});">Cancel</button>
-											</div>
-									</div>
-									{% else %}
-									<div class="feedbubble" id="{{ row.pid }}">
-										<div class="postimgback"><a href="/{{ row.author }}"><img src="static/ConnorFulbright.png" class="postimg"></a></div>
-										<button class="postoptionbutton" onclick="postmenuopen({{ row.pid }});"><i class="fa-solid fa-ellipsis fa-lg"></i></button>
-										<div class="postoptionmenu i"></div>
-										<h4 class="postauthorname"><a href="/{{ row.author }}" class="authornamelink">{{ row.authorname }}</a></h4>
-										<h5 class="postauthor"><a href="/{{ row.author }}" class="authorlink">@{{ row.author }}</a> &nbsp; {{ row.postdate }}</h5>
-										<div class="postcontentdiv"><p class="postcontent">{{ row.content }}</p></div>
-										<div class="postmenu">
-											<button class="postupvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-up fa-lg"></i> 1</button>
-											<button class="postdownvote postmenubuttons fadein"><i class="fa-solid fa-thumbs-down fa-lg"></i> 0</button>
-											<button class="postcomment postmenubuttons fadein" onclick="commentsshow({{ row.pid }});"><i class="fa-solid fa-comment fa-lg"></i> 22</button>
-											<button class="postshare postmenubuttons fadein"><i class="fa-solid fa-share fa-lg"></i></button>
-										</div>
-											<div class="postcommentopen i" onclick="commentopen({{ row.pid }});">
-												<img class="copenimg" src="static/ConnorFulbright.png">
-												<h4 class="copentxt">Engage with post...</h4>
-											</div>
-											<div class="postcommentwrite i">
-												<img class="commentwriteimg" src="static/ConnorFulbright.png">
-												<form id="commentform" name="commentform">
-													<textarea id="commentinput" name="commentinput" class="commentwritetxt" type="text" placeholder="Type here..." maxlength="1000"></textarea>
-													<input class="commentsubmit fadein" type="submit" value="Post">
-												</form>
-												<button class="commentcancel" onclick="commentcancel({{ row.pid }});">Cancel</button>
-											</div>
-									</div>
-									{% endif %}
-								{% endfor %}
-							<div class="bottomfeedbubble">
-								<button class="feedbacktotop botfeedbuttons fadein" onclick="window.scrollTo(0, 0);">Back to top</button>
-								<img src="static/squabblerfavicon.png" class="bottomfeedimg">
-								<button class="feedload botfeedbuttons fadein">Load more</button>
+							<div class="firstfeedline"></div>
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
 							</div>
-							{% endif %}
 						</div>
-
+						<div class="feedbubble feedbubbleloading">
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
+							</div>
+						</div>
+						<div class="feedbubble feedbubbleloading">
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
+							</div>
+						</div>
+						<div class="feedbubble feedbubbleloading">
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
+							</div>
+						</div>
+						<div class="feedbubble feedbubbleloading">
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
+							</div>
+						</div>
+					</div>
+					<div id="followingfeeddiv" class="inactivefeed">
+						<div class="first-feed-bubble" id="first-feed-bubble">
+							<div id="feedmenu">
+								<button id="feed-discover-button" onclick="feed_open('feed-discover-button'); get_posts_on_open_feed_type('discover');" class="feedmenubuttons closedfeed fadein">
+									<i class="fa-solid fa-earth-asia"></i> Discover
+								</button>
+								<button id="feed-following-button" class="feedmenubuttons openfeed fadein">
+									<i class="fa-solid fa-user-group"></i> Following
+								</button>
+							</div>	
+							<div class="firstfeedline"></div>
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
+							</div>
+						</div>
+						<div class="feedbubble feedbubbleloading">
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
+							</div>
+						</div>
+						<div class="feedbubble feedbubbleloading">
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
+							</div>
+						</div>
+						<div class="feedbubble feedbubbleloading">
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
+							</div>
+						</div>
+						<div class="feedbubble feedbubbleloading">
+							<div class="loading-post-div">
+								<div class="loading-post-img"></div>
+								<div class="loading-post-top-bar"></div>
+								<div class="loading-post-second-bar"></div>
+								<div class="loading-post-third-bar"></div>
+								<div class="loading-post-fourth-bar"></div>
+							</div>
+						</div>	
+					</div>
 				</div>
-				{{ stream() }}
-				
-		</div>
+			</div>
+			{{ stream() }}
 	</div>
+</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
-	<script type="text/javascript" charset="utf-8">
-	    var socket = io('http://127.0.0.1:5000');
-	    socket.on('connect', function() {
-	    });
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+<script type="text/javascript">
+		var socket = io('http://127.0.0.1:5000');
+			socket.on('connect', function() {
+		});
 
-	    function post_submit() {
-			let posttext = document.getElementById('posttextsquab');
-			let content = posttext.value;
-			socket.emit('handle_post', {
-				content: content
-			});
-			posttext.value = '';
-			return false;
+		const postIdList = []
+
+		function initial_connection() {
+			socket.emit('connection_initiate');
+			socket.emit('get_initial_posts');
 		}
 
+		function get_posts_on_open_feed_type(a) {
+			if (a == 'following') {
+				activeFeed = document.getElementById('discoverfeeddiv');
+				activeFeed.querySelector('.first-feed-bubble').querySelector('.postbubblediv').remove();
+				activeFeed.querySelector('.bottomfeedbubble').remove();
+				let oldPosts = activeFeed.querySelectorAll('.feedbubble');
+				oldPosts.forEach(post => {
+				  post.remove();
+				});
+				returnedFeed = 'following';
+				append_loading_bubbles('discover');
+			}
+
+			else {
+				activeFeed = document.getElementById('followingfeeddiv');
+				activeFeed.querySelector('.first-feed-bubble').querySelector('.postbubblediv').remove();
+				activeFeed.querySelector('.bottomfeedbubble').remove();
+				let oldPosts = activeFeed.querySelectorAll('.feedbubble');
+				oldPosts.forEach(post => {
+				  post.remove();
+				});
+				returnedFeed = 'discover';
+				append_loading_bubbles('following');
+			} 
+			socket.emit('get_more_posts', {
+				returnedFeed: returnedFeed,
+				postIdList: postIdList
+			});
+		}
+
+		function append_loading_bubbles(a) {
+			discoverFeedDiv = document.getElementById('discoverfeeddiv');
+			followingFeedDiv = document.getElementById('followingfeeddiv');
+			if (a == 'discover') {
+				for (var i = 0; i < 4; i++) {
+					console.log(i);
+					if (i < 1) {
+						newNode = create_loading_post_div();
+						discoverFeedDiv.querySelector('.first-feed-bubble').append(newNode);
+					}
+					else {
+						let newNode = document.createElement('div');
+						newNode.setAttribute('class', 'feedbubble');
+						newNode.className += " feedbubbleloading";
+						newNode.append(create_loading_post_div());
+						discoverFeedDiv.append(newNode);
+					}
+				}
+			}
+			else {
+				for (var i = 0; i < 4; i++) {
+					if (i < 1) {
+						newNode = create_loading_post_div();
+						discoverFeedDiv.querySelector('.first-feed-bubble').append(newNode);
+					}
+					else {
+						let newNode = document.createElement('div');
+						newNode.setAttribute('class', 'feedbubble');
+						newNode.className += " feedbubbleloading";
+						newNode.append(create_loading_post_div());
+						followingFeedDiv.append(newNode);
+					}
+				}
+			}
+		}
+
+		function create_loading_post_div() {
+			let newNode = document.createElement('div');
+			newNode.setAttribute('class','loading-post-div');
+			newNode.innerHTML = `
+				<div class="loading-post-img"></div>
+				<div class="loading-post-top-bar"></div>
+				<div class="loading-post-second-bar"></div>
+				<div class="loading-post-third-bar"></div>
+				<div class="loading-post-fourth-bar"></div>
+			`;
+			return newNode;
+		}
+
+		function get_more_posts() {
+			var activeFeed = document.getElementById('wrapperfeeddiv').querySelector('.activefeed');
+			if (activeFeed.getAttribute('id') == 'discoverfeeddiv') {
+				returnedFeed = 'discover';
+			}
+
+			else {
+				returnedFeed = 'following';
+			}
+
+			socket.emit('get_more_posts', {
+				returnedFeed: returnedFeed,
+				postIdList: postIdList
+			});
+		}
+
+		const username = "{{ userdata.username }}";
+		const fullname = "{{ userdata.fullname }}";
+		document.onload = initial_connection();
+
+		socket.on('recieve_posts', function (postData) {
+			let posts = postData;
+			let activeFeed = determine_active_feed();
+			let bottomFeedBubble = activeFeed.querySelector('.bottomfeedbubble');
+			let firstFeedBubble = activeFeed.querySelector('.first-feed-bubble');
+			let loadingBubbles = activeFeed.querySelectorAll('.feedbubbleloading');
+			if (bottomFeedBubble !== null) {
+				bottomFeedBubble.remove();
+			}
+			for (var i in posts) {
+				if (firstFeedBubble.querySelector('.postbubblediv') == null) {
+					let newPost = document.createElement('div');
+					newPost.setAttribute('class','postbubbleouterdiv');
+					newPost.innerHTML = create_post_div(posts[i].pid, posts[i].author, posts[i].authorname, posts[i].postdate, posts[i].content, posts[i].upvotesnumber, posts[i].downvotesnumber, posts[i].commentnumber, posts[i].hasvoted);
+					firstFeedBubble.append(newPost);
+					postIdList.push(posts[i].pid);
+					console.log(postIdList);
+					if (firstFeedBubble.querySelector('.loading-post-div') !== null) {
+						firstFeedBubble.querySelector('.loading-post-div').remove();
+					}
+				}
+				else {
+					let newPostDiv = document.createElement('div');
+					newPostDiv.setAttribute('class','postbubbleouterdiv');
+					newPostDiv.innerHTML = create_post_div(posts[i].pid, posts[i].author, posts[i].authorname, posts[i].postdate, posts[i].content, posts[i].upvotesnumber, posts[i].downvotesnumber, posts[i].commentnumber, posts[i].hasvoted);	
+					let newPostBubble = create_post_bubble();
+					newPostBubble.append(newPostDiv);
+					activeFeed.append(newPostBubble);
+					postIdList.push(posts[i].pid);
+					console.log(postIdList);
+				}
+			}
+			loadingBubbles.forEach(bubble => {
+			  bubble.remove();
+			});
+			if (firstFeedBubble.querySelector('.loading-post-div') !== null) {
+				firstFeedBubble.querySelector('.loading-post-div').remove();
+			}
+			activeFeed.append(create_bottom_feed_bubble());
+		});
+
+		function create_bottom_feed_bubble() {
+			let bottomFeedBubble = document.createElement('div');
+			bottomFeedBubble.setAttribute('class', 'bottomfeedbubble');
+			bottomFeedBubble.innerHTML = `<button class="feedbacktotop botfeedbuttons fadein" onclick="window.scrollTo(0, 0);">Back to top</button><img src="static/squabblerfavicon.png" class="bottomfeedimg"><button class="feedload botfeedbuttons fadein" onclick="get_more_posts();">Load more</button>`;
+			return bottomFeedBubble;
+		}
+
+		function determine_active_feed() {
+			return document.getElementById('wrapperfeeddiv').querySelector('.activefeed');
+		}
+
+		function create_post_bubble() {
+			let newPostBubble = document.createElement('div');
+			newPostBubble.setAttribute('class','feedbubble');
+			return newPostBubble;
+		}
 	</script>
+<script src="{{url_for('static', filename='js/feed.js')}}"></script>
+<script src="{{url_for('static', filename='js/feedencaps.js')}}"></script>
 {% endblock %}
