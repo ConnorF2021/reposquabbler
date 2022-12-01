@@ -9,6 +9,7 @@
 {% block head %}
 	{{ super() }}
 	<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
+	{{ support_for_feed() }}
 {% endblock %}
 
 {% block content %}
