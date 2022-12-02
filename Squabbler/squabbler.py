@@ -54,28 +54,27 @@ def landing():
 
 @app.route("/register", methods = ['GET','POST'])
 def register():
-	msg = ''
-	if check_session():
-		return redirect(url_for('squabble'))
-	elif request.method == 'POST' and 'fullname' in request.form and 'username' in request.form and 'password' in request.form and 'password2' in request.form:
-		msg = handle_create_account_form()
-	elif request.method == 'POST':
-		msg = 'Please fill out the form !'
-	return render_template('createuser.html', msg = msg)
+    if check_session():
+        return redirect(url_for('squabble'))
+    elif request.method == 'POST' and 'fullname' in request.form and 'username' in request.form and 'password' in request.form and 'password2' in request.form:
+        msg = handle_create_account_form()
+    else:
+        msg = 'Please fill out the form !'
+    return render_template('createuser.html', msg = msg)
 
-@app.route("/login", methods = ['GET','POST'])
+@app.route("/login", methods=['GET', 'POST'])
 def login():
-	msg = ''
-	if check_session():
-		return redirect(url_for('squabble'))
-	elif request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-		msg = handle_login_request()
-		if check_session():
-			return redirect(url_for('feed'))
-		return render_template('login.html', msg = msg)
-	elif request.method == 'POST':
-		msg = 'Please fill out the form !'
-	return render_template('login.html', msg = msg)
+  msg = ''
+  if check_session():
+    return redirect(url_for('squabble'))
+  elif request.method == 'POST':
+    if 'username' in request.form and 'password' in request.form:
+      msg = handle_login_request()
+      if check_session():
+        return redirect(url_for('feed'))
+    else:
+      msg = 'Please fill out the form !'
+  return render_template('login.html', msg=msg)
 
 @app.route("/feed", methods = ['GET','POST'])
 def feed():	

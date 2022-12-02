@@ -164,71 +164,49 @@
 				socket.emit('get_initial_posts');
 			}
 
-			function get_posts_on_open_feed_type(a) {
-				if (a == 'following') {
-					activeFeed = document.getElementById('discoverfeeddiv');
-					activeFeed.querySelector('.first-feed-bubble').querySelector('.postbubblediv').remove();
-					activeFeed.querySelector('.bottomfeedbubble').remove();
-					let oldPosts = activeFeed.querySelectorAll('.feedbubble');
-					oldPosts.forEach(post => {
-					  post.remove();
-					});
-					returnedFeed = 'following';
-					append_loading_bubbles('discover');
-				}
+function get_posts_on_open_feed_type(a) {
+    if (a == 'following') {
+        activeFeed = document.getElementById('discoverfeeddiv');
+        activeFeed.querySelector('.first-feed-bubble').querySelector('.postbubblediv').remove();
+        activeFeed.querySelector('.bottomfeedbubble').remove();
+        let oldPosts = activeFeed.querySelectorAll('.feedbubble');
+        oldPosts.forEach(post => {
+            post.remove();
+        });
+        returnedFeed = 'following';
+        append_loading_bubbles('discover');
+    }
+    else {
+        activeFeed = document.getElementById('followingfeeddiv');
+        activeFeed.querySelector('.first-feed-bubble').querySelector('.postbubblediv').remove();
+        activeFeed.querySelector('.bottomfeedbubble').remove();
+        let oldPosts = activeFeed.querySelectorAll('.feedbubble');
+        oldPosts.forEach(post => {
+            post.remove();
+        });
+        returnedFeed = 'discover';
+        append_loading_bubbles('following');
+    }
+    socket.emit('get_more_posts', {
+        returnedFeed: returnedFeed,
+        postIdList: postIdList
+    });
+}
 
-				else {
-					activeFeed = document.getElementById('followingfeeddiv');
-					activeFeed.querySelector('.first-feed-bubble').querySelector('.postbubblediv').remove();
-					activeFeed.querySelector('.bottomfeedbubble').remove();
-					let oldPosts = activeFeed.querySelectorAll('.feedbubble');
-					oldPosts.forEach(post => {
-					  post.remove();
-					});
-					returnedFeed = 'discover';
-					append_loading_bubbles('following');
-				} 
-				socket.emit('get_more_posts', {
-					returnedFeed: returnedFeed,
-					postIdList: postIdList
-				});
-			}
-
-			function append_loading_bubbles(a) {
-				discoverFeedDiv = document.getElementById('discoverfeeddiv');
-				followingFeedDiv = document.getElementById('followingfeeddiv');
-				if (a == 'discover') {
-					for (var i = 0; i < 4; i++) {
-						console.log(i);
-						if (i < 1) {
-							newNode = create_loading_post_div();
-							discoverFeedDiv.querySelector('.first-feed-bubble').append(newNode);
-						}
-						else {
-							let newNode = document.createElement('div');
-							newNode.setAttribute('class', 'feedbubble');
-							newNode.className += " feedbubbleloading";
-							newNode.append(create_loading_post_div());
-							discoverFeedDiv.append(newNode);
-						}
-					}
-				}
-				else {
-					for (var i = 0; i < 4; i++) {
-						if (i < 1) {
-							newNode = create_loading_post_div();
-							discoverFeedDiv.querySelector('.first-feed-bubble').append(newNode);
-						}
-						else {
-							let newNode = document.createElement('div');
-							newNode.setAttribute('class', 'feedbubble');
-							newNode.className += " feedbubbleloading";
-							newNode.append(create_loading_post_div());
-							followingFeedDiv.append(newNode);
-						}
-					}
-				}
-			}
+function append_loading_bubbles(a) {
+  let feedDiv = document.getElementById(`${a}feeddiv`);
+  for (let i = 0; i < 4; i++) {
+    let newNode = document.createElement('div');
+    newNode.setAttribute('class', 'feedbubble');
+    newNode.className += " feedbubbleloading";
+    newNode.append(create_loading_post_div());
+    if (i === 0) {
+      feedDiv.querySelector('.first-feed-bubble').append(newNode);
+    } else {
+      feedDiv.append(newNode);
+    }
+  }
+}
 
 			function create_loading_post_div() {
 				let newNode = document.createElement('div');

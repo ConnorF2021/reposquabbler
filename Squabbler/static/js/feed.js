@@ -179,17 +179,17 @@ socket.on('recieve_comments', function (jsonCommentData) {
 });
 
 function reply_submit(commentID) {
-	commentIDActual = 'c' + commentID;
-	comment = document.getElementById(commentIDActual)
-	replyInputDiv = comment.querySelector('.replywritediv');
-	replyInput = replyInputDiv.querySelector('.replyform').querySelector('.replywritetxt');
-	replyInputOpen = comment.querySelector('.replyopendiv');
+    let commentIDActual = 'c' + commentID;
+    let comment = document.getElementById(commentIDActual)
+    let replyInputDiv = comment.querySelector('.replywritediv');
+    let replyInput = replyInputDiv.querySelector('.replyform').querySelector('.replywritetxt');
+    let replyInputOpen = comment.querySelector('.replyopendiv');
     let reply = replyInput.value.trim();
     if (reply.length) {
         socket.emit('handle_reply', {
             reply: reply,
             commentid: commentID,
-        })
+        });
         replyInputDiv.classList.remove('a');
         replyInputDiv.className += " i";
         replyInputOpen.classList.remove('i');
@@ -226,30 +226,28 @@ function second_reply_submit(commentID) {
 }
 
 function post_submit() {
-	let posttext = document.getElementById('posttextsquab');
-	let content = posttext.value;
-	var activeFeed = document.getElementById('wrapperfeeddiv').querySelector('.activefeed');
-	if (content.length > 0) {
-		if (content.length <= 1000) {
-			socket.emit('handle_post', {
-				content: content
-			});
-		}
-		var firstFeedBubble = activeFeed.querySelector('.first-feed-bubble');
-		let existingPostDiv = firstFeedBubble.querySelector('.postbubblediv');
-		newExistingBubble = document.createElement('div');
-		newExistingBubble.setAttribute('class','feedbubble');
-		newExistingBubble.append(existingPostDiv);
-		document.getElementById('wrapperfeeddiv').querySelector('.activefeed').insertBefore(newExistingBubble, firstFeedBubble.nextSibling);
-		let newPost = document.createElement('div');
+    let posttext = document.getElementById('posttextsquab');
+    let content = posttext.value;
+    let activeFeed = document.getElementById('wrapperfeeddiv').querySelector('.activefeed');
+    if (content.length > 0 && content.length <= 1000) {
+        socket.emit('handle_post', {
+            content: content
+        });
+
+        let firstFeedBubble = activeFeed.querySelector('.first-feed-bubble');
+        let existingPostDiv = firstFeedBubble.querySelector('.postbubblediv');
+        let newExistingBubble = document.createElement('div');
+        newExistingBubble.setAttribute('class','feedbubble');
+        newExistingBubble.append(existingPostDiv);
+        document.getElementById('wrapperfeeddiv').querySelector('.activefeed').insertBefore(newExistingBubble, firstFeedBubble.nextSibling);
+        let newPost = document.createElement('div');
         newPost.setAttribute('class','postbubbleouterdiv');
         newPost.innerHTML = create_post_div(3,username,fullname,'Just Now',content,0,0,0,3);
-        var firstFeedLine = firstFeedBubble.querySelector('.firstfeedline');
+        let firstFeedLine = firstFeedBubble.querySelector('.firstfeedline');
         firstFeedBubble.insertBefore(newPost, firstFeedLine.nextSibling);
-	}
-
+    }
     posttext.value = '';
-	return false;
+    return false;
 }
 
 // Post Voting System
