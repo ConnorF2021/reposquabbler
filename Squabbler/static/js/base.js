@@ -42,17 +42,16 @@ function open_header_dropdown_menu() {
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropDowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropDowns.length; i++) {
-      var openDropdown = dropDowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+    if (!event.target.matches('.dropbtn')) {
+      const dropDowns = document.getElementsByClassName('dropdown-content');
+      for (let i = 0; i < dropDowns.length; i++) {
+        const openDropdown = dropDowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
       }
     }
   }
-}
 
 function info_open() {
 	document.getElementById('smallinfopopup').style.display = "block";
@@ -113,45 +112,36 @@ function expand_stream(curbtn) {
 }
 
 function menu_open(objValue) {
-    let objItem = document.getElementById(objValue);
+    const objItem = document.getElementById(objValue);
     const discoverDiv = document.getElementById('solomenudiv');
     const followingDiv = document.getElementById('multimenudiv')
-
+    
     if (objValue === 'solomenubutton') {
-        let otherItem = document.getElementById('multimenubutton');
-        if (objItem.classList.contains('openfeed')) {
-
-        }
-        else {
-            objItem.className += " openfeed";
-            objItem.classList.remove('closedfeed');
-            otherItem.className += " closedfeed"
-            otherItem.classList.remove('openfeed');
-            discoverDiv.classList.remove('inactivefeed');
-            discoverDiv.className += " activefeed";
-            followingDiv.classList.remove('activefeed');
-            followingDiv.className += " inactivefeed";
-
-        }
+      const otherItem = document.getElementById('multimenubutton');
+      if (!objItem.classList.contains('openfeed')) {
+        objItem.classList.add('openfeed');
+        objItem.classList.remove('closedfeed');
+        otherItem.classList.add('closedfeed');
+        otherItem.classList.remove('openfeed');
+        discoverDiv.classList.remove('inactivefeed');
+        discoverDiv.classList.add('activefeed');
+        followingDiv.classList.remove('activefeed');
+        followingDiv.classList.add('inactivefeed');
+      }
+    } else {
+      const otherItem = document.getElementById('solomenubutton');
+      if (!objItem.classList.contains('openfeed')) {
+        objItem.classList.add('openfeed');
+        objItem.classList.remove('closedfeed');
+        otherItem.classList.add('closedfeed');
+        otherItem.classList.remove('openfeed');
+        followingDiv.classList.remove('inactivefeed');
+        followingDiv.classList.add('activefeed');
+        discoverDiv.classList.remove('activefeed');
+        discoverDiv.classList.add('inactivefeed');
+      }
     }
-
-    else {
-        let otherItem = document.getElementById('solomenubutton');
-        if (objItem.classList.contains('openfeed')) {
-
-        }
-        else {
-            objItem.className += " openfeed";
-            objItem.classList.remove('closedfeed');
-            otherItem.className += " closedfeed"
-            otherItem.classList.remove('openfeed');
-            followingDiv.classList.remove('inactivefeed');
-            followingDiv.className += " activefeed";
-            discoverDiv.classList.remove('activefeed');
-            discoverDiv.className += " inactivefeed";
-        }
-    }
-}
+  }
 
 var expanded = false;
 
@@ -212,28 +202,27 @@ function postmenuopen(postID) {
 }
 
 function show_comments(postID) {
-    let post = document.getElementById(postID);
-    let div = post.querySelector('.postcommentopen');
-    let commentwrite = post.querySelector('.postcommentwrite');
-    let commentdiv = post.querySelector('.commentdiv');
+    const post = document.getElementById(postID);
+    const div = post.querySelector('.postcommentopen');
+    const commentwrite = post.querySelector('.postcommentwrite');
+    const commentdiv = post.querySelector('.commentdiv');
+    
     if (commentwrite.classList.contains('a')) {
-        commentwrite.classList.remove('a');
-        commentwrite.className += ' i';
-        commentdiv.innerHTML = "";
+      commentwrite.classList.remove('a');
+      commentwrite.classList.add('i');
+      commentdiv.innerHTML = '';
+    } else {
+      if (div.classList.contains('a')) {
+        div.classList.remove('a');
+        div.classList.add('i');
+        commentdiv.innerHTML = '';
+      } else {
+        div.classList.remove('i');
+        div.classList.add('a');
+        get_comments(postID);
+      }
     }
-    else {
-        if (div.classList.contains('a')) {
-            div.classList.remove('a');
-            div.className += " i";
-            commentdiv.innerHTML = "";
-        }
-        else {
-            div.classList.remove('i');
-            div.className += " a";
-            get_comments(postID);
-        }
-    }
-}
+  }
 
 function get_comments(postID) {
 	let spinner = document.createElement('div');
@@ -266,34 +255,30 @@ function close_comment_write_div(postID) {
 }
 
 function logout(buttonSelected) {
-    let logoutmenu = document.getElementById('logoutpopup');
+    const logoutmenu = document.getElementById('logoutpopup');
     if (buttonSelected == 'activate') {
-        logoutmenu.style.display = 'block';
+      logoutmenu.style.display = 'block';
+    } else if (buttonSelected == 'cancel') {
+      logoutmenu.style.display = 'none';
     }
-    else if (buttonSelected == 'cancel') {
-        logoutmenu.style.display = 'none';
-    }
-    else {
-        
-    }
-}
+  }
 
-function show_replies(commentID) {
-    commentIDActual = 'c' + commentID;
-    comment = document.getElementById(commentIDActual);
-    let replywrite = comment.querySelector('.replywritediv');
-    let replydiv = comment.querySelector('.commentreplydiv');
+  function show_replies(commentID) {
+    const commentIDActual = 'c' + commentID;
+    const comment = document.getElementById(commentIDActual);
+    const replywrite = comment.querySelector('.replywritediv');
+    const replydiv = comment.querySelector('.commentreplydiv');
+    
     if (replydiv.classList.contains('a')) {
-        replydiv.classList.remove('a');
-        replydiv.className += " i";
-        replydiv.querySelector('.replydiv').innerHTML = '';
+      replydiv.classList.remove('a');
+      replydiv.classList.add('i');
+      replydiv.querySelector('.replydiv').innerHTML = '';
+    } else {
+      replydiv.classList.remove('i');
+      replydiv.classList.add('a');
+      get_replies(commentID);
     }
-    else {
-        replydiv.classList.remove('i');
-        replydiv.className += " a";
-        get_replies(commentID);
-    }
-}
+  }
 
 function reply_div_open(commentID) {
     commentIDActual = 'c' + commentID;
@@ -308,18 +293,18 @@ function reply_div_open(commentID) {
 }
 
 function second_reply_div_open(replyID) {
-    replyIDActual = 'r' + replyID;
-    reply = document.getElementById(replyIDActual);
-    let replydiv = reply.querySelector('.secondreplydiv');
+    const replyIDActual = 'r' + replyID;
+    const reply = document.getElementById(replyIDActual);
+    const replydiv = reply.querySelector('.secondreplydiv');
+    
     if (replydiv.classList.contains('a')) {
-        replydiv.classList.remove('a');
-        replydiv.className += " i";
+      replydiv.classList.remove('a');
+      replydiv.classList.add('i');
+    } else {
+      replydiv.classList.remove('i');
+      replydiv.classList.add('a');
     }
-    else {
-        replydiv.classList.remove('i');
-        replydiv.className += " a";
-    }
-}
+  }
 
 function hidereplies(commentID) {
     commentIDActual = 'c' + commentID;
@@ -343,26 +328,26 @@ function replycancel(commentID) {
     replywrite.className += ' i';
 }
 
-function second_reply_write_open(replyID,tag) {
-    replyIDActual = 'r' + replyID;
-    reply = document.getElementById(replyIDActual);
-    let replyWrite = reply.querySelector('.secondreplywritediv');
-    let replyWritetxt = replyWrite.querySelector('.replywritetxt');
+function second_reply_write_open(replyID, tag) {
+    const replyIDActual = 'r' + replyID;
+    const reply = document.getElementById(replyIDActual);
+    const replyWrite = reply.querySelector('.secondreplywritediv');
+    const replyWritetxt = replyWrite.querySelector('.replywritetxt');
+    
     if (replyWrite.classList.contains('i')) {
-        replyWrite.classList.remove('i');
-        replyWrite.className += ' a';
+      replyWrite.classList.remove('i');
+      replyWrite.classList.add('a');
+    } else {
+      replyWrite.classList.remove('a');
+      replyWrite.classList.add('i');
+      replyWritetxt.value = '';
     }
-    else {
-        replyWrite.classList.remove('a');
-        replyWrite.className += ' i';
-        replyWritetxt.value = '';
-    }
-    let tagSpan = '@' + tag + ' ';
-    end = tagSpan.length;
+    const tagSpan = '@' + tag + ' ';
+    const end = tagSpan.length;
     replyWritetxt.value = tagSpan;
     replyWritetxt.setSelectionRange(end, end);
     replyWritetxt.focus();
-}
+  }
 
 function secondreplycancel(replyID) {
     replyIDActual = 'r' + replyID;
