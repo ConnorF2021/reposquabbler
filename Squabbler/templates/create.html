@@ -34,27 +34,22 @@
 					</div>
 					<div class="firstfeedline"></div>
 					<p style="color:red; text-align: center;">{{ msg }}</p>
+					<div id="solo-form-title">
+						<i class="fa-solid fa-plus fa-2x" id="plus-sign"></i>
+						<h4 id="solo-form-title-text">Create a new Topic</h4>
+					</div>
 					<form method="post">
-						<input type="text" name="solotitleinput" id="solotitleinput" class="inputbars" placeholder=" Squabble Title">
-						<input type="text" name="solodescinput" id="solodescinput" class="inputbars" placeholder=" Description">
-					    <div class="multiselect">
-					    	<div class="selectBox" onclick="showCheckboxes()">
-					      	<select class="inputbars" id="soloallowed">
-					        	<option> Set user types allowed</option>
-					      	</select>
-					      	<div class="overSelect"></div>
-					    	</div>
-					    	<div id="checkboxes" class="inputbars">
-					      	<label for="one">
-					        	<input type="checkbox" id="one"/>Anonymous Users</label>
-					      	<label for="two">
-					        	<input type="checkbox" id="two"/>Basic Users</label>
-					      	<label for="three">
-					        	<input type="checkbox" id="three"/>Trusted Users</label>
-					        <label for="four">
-					        	<input type="checkbox" id="four"/>Scholarly Users</label>
-					    	</div>
-					  	</div>
+						<input type="text" name="solotitleinput" id="solotitleinput" class="inputbars" placeholder=" Topic Title">
+						<select name="solo-channel-input" id="solo-channel-input" class="inputbars" placeholder=" Description">
+							<option value="politics">Politics</option>
+							<option value="religion">Religion</option>
+							<option value="popculture">Popular Culture</option>
+							<option value="science">Science</option>
+							<option value="other">Other</option>
+						</select>
+						<input type="text" name="solo-subject-input" id="solo-subject-input" class="inputbars" placeholder=" Subject">
+						<textarea name="solodescinput" id="solodescinput" class="inputbars" placeholder=" Description"></textarea>
+						
 					  	<div id="solocaptchadiv" class="inputbars"></div>
 					  	<input type="submit" id="soloformsubmit" value="Create Squabble">
 					</form>
@@ -68,24 +63,6 @@
 					<form action="post">
 						<input type="text" name="multititleinput" id="multititleinput" class="inputbars" placeholder=" Squabble Title">
 						<input type="text" name="multidescinput" id="multidescinput" class="inputbars" placeholder=" Description">
-					    <div class="multiselect">
-					    	<div class="selectBox" onclick="showCheckboxes()">
-					      	<select class="inputbars" id="multiallowed">
-					        	<option> Set user types allowed</option>
-					      	</select>
-					      	<div class="overSelect"></div>
-					    	</div>
-					    	<div id="checkboxes" class="inputbars">
-					      	<label for="one">
-					        	<input type="checkbox" id="one"/>Anonymous Users</label>
-					      	<label for="two">
-					        	<input type="checkbox" id="two"/>Basic Users</label>
-					      	<label for="three">
-					        	<input type="checkbox" id="three"/>Trusted Users</label>
-					        <label for="four">
-					        	<input type="checkbox" id="four"/>Scholarly Users</label>
-					    	</div>
-					  	</div>
 					  	<select class="inputbars" id="multisize">
 					  		<option>Choose a room size</option>
 					  		<option>3</option>

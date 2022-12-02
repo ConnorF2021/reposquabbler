@@ -164,6 +164,10 @@
 				socket.emit('get_initial_posts');
 			}
 
+			const username = "{{ userdata.username }}";
+			const fullname = "{{ userdata.fullname }}";
+			document.onload = initial_connection();
+
 function get_posts_on_open_feed_type(a) {
     if (a == 'following') {
         activeFeed = document.getElementById('discoverfeeddiv');
@@ -208,38 +212,34 @@ function append_loading_bubbles(a) {
   }
 }
 
-			function create_loading_post_div() {
-				let newNode = document.createElement('div');
-		    	newNode.setAttribute('class','loading-post-div');
-		    	newNode.innerHTML = `
-					<div class="loading-post-img"></div>
-					<div class="loading-post-top-bar"></div>
-					<div class="loading-post-second-bar"></div>
-					<div class="loading-post-third-bar"></div>
-					<div class="loading-post-fourth-bar"></div>
-		    	`;
-		    	return newNode;
-			}
+function create_loading_post_div() {
+	let newNode = document.createElement('div');
+	newNode.setAttribute('class','loading-post-div');
+	newNode.innerHTML = `
+		<div class="loading-post-img"></div>
+		<div class="loading-post-top-bar"></div>
+		<div class="loading-post-second-bar"></div>
+		<div class="loading-post-third-bar"></div>
+		<div class="loading-post-fourth-bar"></div>
+	`;
+	return newNode;
+}
 
-			function get_more_posts() {
-				var activeFeed = document.getElementById('wrapperfeeddiv').querySelector('.activefeed');
-				if (activeFeed.getAttribute('id') == 'discoverfeeddiv') {
-					returnedFeed = 'discover';
-				}
+function get_more_posts() {
+	var activeFeed = document.getElementById('wrapperfeeddiv').querySelector('.activefeed');
+	if (activeFeed.getAttribute('id') == 'discoverfeeddiv') {
+		returnedFeed = 'discover';
+	}
 
-				else {
-					returnedFeed = 'following';
-				}
+	else {
+		returnedFeed = 'following';
+	}
 
-				socket.emit('get_more_posts', {
-					returnedFeed: returnedFeed,
-					postIdList: postIdList
-				});
-			}
-
-            const username = "{{ userdata.username }}";
-            const fullname = "{{ userdata.fullname }}";
-            document.onload = initial_connection();
+	socket.emit('get_more_posts', {
+		returnedFeed: returnedFeed,
+		postIdList: postIdList
+	});
+}
 
             socket.on('recieve_posts', function (postData) {
 				let posts = postData;

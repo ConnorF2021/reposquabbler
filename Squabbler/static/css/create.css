@@ -65,6 +65,8 @@
 
 .activefeed {
 	display: inline-block;
+	border: 1px solid white;
+	border-radius: 6px;
 }
 
 .inactivefeed {
@@ -86,40 +88,66 @@
   bottom: 0;
 }
 
-#checkboxes {
-  display: none;
-  border: none;
-  background-color: white;
-}
-
-#checkboxes label {
-  display: block;
-}
-
-#checkboxes label:hover {
-  background-color: #1e90ff;
-}
-
 .inputbars {
-	width: 640px;
 	position: relative;
 	left: 20px;
-	border-radius: 6px;
-	border: none;
-	margin-top: 10px;
 	outline: none;
+	border: 1px solid black;
+}
+
+#plus-sign {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	color: #f95288;
+}
+
+#solo-form-title-text {
+	position: absolute;
+	line-height: 28px;
+	font-size: 16px;
+	width: 640px;
+	left: 33px;
+	font-weight: bold;
+}
+
+#solo-form-title {
+	position: relative;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	left: 20px;
+	width: 640px;
+	height: 50px;
+	border: 1px solid white;
+}
+
+#solo-subject-input {
+	right: 20px;
+	width: 318px;
+	height: 30px;
+	margin-bottom: 6px;
+	font-size: 16px;
 }
 
 #solotitleinput {
-	height: 65px;
-	opacity: 0.5;
-	font-size: 20px;
+	width: 640px;
+	height: 40px;
+	margin-bottom: 6px;
+	font-size: 16px;
+}
+
+#solo-channel-input {
+	width: 318px;
+	height: 30px;
+	margin-bottom: 6px;
+	font-size: 16px;
 }
 
 #solodescinput {
+	width: 640px;
 	height: 140px;
-	opacity: 0.5;
 	font-size: 17px;
+	resize: none;
 }
 
 #soloallowed {
@@ -223,7 +251,8 @@
 
 #typemenu {
 	position: relative;
-	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 5px;
 	left: 15px;
 	background-color: whitesmoke;
 	border-radius: 6px;
